@@ -63,7 +63,7 @@
     - python-i3ipc
 
 ## theme goodies:
-- gruvbox-material-gtk (my fork with onecolored version)
+- gruvbox-material-gtk (my fork for onecolored icons)
 - qt5-styleplugins
 - qt6gtk2
 
