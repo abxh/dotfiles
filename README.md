@@ -114,3 +114,4 @@ And finally [qutebrowser](https://github.com/abxh/dotfiles/tree/main/qutebrowser
 │   └── .zshrc
 └── ...
 ```
+
