@@ -44,7 +44,7 @@ The bar uses [i3bar](https://github.com/abxh/dotfiles/tree/main/i3), [i3blocks](
 
 Notifications are done through [dunst with scripts](https://github.com/abxh/dotfiles/tree/main/dunst).
 
-Both the bar and notifications use icons from [my fork of the gruvbox-material-gtk theme](https://github.com/abxh/gruvbox-material-gtk) (OneColored Version).
+Both the bar and notifications use icons from [my fork of the gruvbox-material-gtk theme](https://github.com/abxh/gruvbox-material-gtk) (OneColored Icons).
 
 A combination of [zsh](https://github.com/abxh/dotfiles/tree/main/zsh), [Alacritty](https://github.com/abxh/dotfiles/tree/main/alacritty) and [vim](https://github.com/abxh/dotfiles/tree/main/vim)
 is used as the shell, terminal and editor.
