@@ -1,0 +1,45 @@
+# i3 keys
+
+# kill windows
+super + shift + q
+	i3-msg -q kill
+
+# reload config file / restart i3 inplace
+super + shift + {c, r}
+	i3-msg -q {reload, restart}
+
+# exit i3 (using a mode instead)
+# super + shift + e
+# 	~/.scripts/i3nag_exit
+
+# change focus / move focused window
+super + {_, shift} + {h, j, k, l}
+	i3-msg -q {focus, move} {left, down, up, right}
+
+# change focus between tiling / floating window
+super + space
+	i3-msg -q focus mode_toggle
+
+# select parent
+super + a
+	i3-msg focus parent
+
+# split window
+super + {b, v}
+	i3-msg -q split {horizontal, vertical}
+
+# toggle fullscreen / floating
+super + shift + {f, space}
+	i3-msg -q {fullscreen, floating} toggle
+
+# switch to workspace / move focused container to workspace
+super + {_,shift} + {1,2,3,4,5,6,7,8,9,0}
+	i3-msg -q {_, move container to } workspace number {1,2,3,4,5,6,7,8,9,10}
+
+# Make the currently focused window a scratchpad
+super + shift + minus
+	i3-msg move scratchpad
+
+# Show the first scratchpad window
+super + minus
+	i3-msg scratchpad show

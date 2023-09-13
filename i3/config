@@ -1,0 +1,114 @@
+# i3 config file (v4)
+# See https://i3wm.org/docs/userguide.html for a complete reference.
+
+include ~/.config/i3/modes/*
+
+set $mod Mod4
+
+# primary
+set $colorp #d4be98
+# secondary
+set $colors #ffffff
+# foreground
+set $colorf #3c3836
+# alt foreground
+set $colorb #282828
+# highlighted foreground
+set $colorw #d4be98
+# urgent
+set $coloru #ea6962
+# bar background
+set $bar_bg #00000000
+
+# touchpad/mouse
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+# Only initiate a tiling drag when the modifier is held:
+tiling_drag modifier
+
+# borders and gaps
+default_border pixel
+default_border pixel 1
+gaps inner 7
+gaps top -3
+gaps bottom -5
+# smart_borders on
+smart_gaps on
+hide_edge_borders vertical
+# class                 border    backgr.   text      indicator child_border
+client.focused          $colorpCC $colorpCC #ffffff   $colorsCC $colorpCC
+client.focused_inactive $colorf   $colorf   #ffffff   $colorsCC $colorf
+client.unfocused        $colorf   $colorf   #888888   $colorsCC $colorf
+
+# Font for window titles
+font pango:JetBrainsMono Nerd Font 12
+
+# other
+workspace_auto_back_and_forth yes
+
+# startup
+exec_always --no-startup-id ~/.scripts/sxhkd_restart
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id betterlockscreen -w
+exec --no-startup-id picom >/dev/null 2>&1
+exec --no-startup-id redshift -l $(cat ~/.private/coord) >/dev/null 2>&1
+exec --no-startup-id udiskie --no-automount --no-notify --tray
+exec --no-startup-id nm-applet
+exec --no-startup-id mpd
+exec_always --no-startup-id ~/.scripts/focused_window_update.py
+
+# window rules
+for_window [class="Lxappearance"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Arandr"] floating enable move left 300 px move up 150 px resize set 900 700
+# for_window [class="iwctl"] floating enable move left 150 px move up 50 px resize set 1100 700
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="todo"] floating enable sticky enable move right 750 px move up 200 px resize set 600 400
+for_window [class="Yad"] floating enable
+
+# show workspace bar
+bar {
+	id "bar-0"
+
+	position top
+	binding_mode_indicator no
+	i3bar_command i3bar --transparency
+	status_command i3blocks -c ~/.config/i3blocks/top
+	tray_padding 3
+
+	colors {
+		background $bar_bg
+		statusline $colorw
+		separator  $colorw85
+
+		# <colorclass>     <border>  <background> <text>
+		focused_workspace  $bar_bg   $colorw    $colorb
+		active_workspace   $bar_bg   $colorw    $colorw
+		inactive_workspace $bar_bg   $bar_bg    $colorw
+		urgent_workspace   $bar_bg   $bar_bg    $coloru
+	}
+}
+
+bar {
+	id "bar-1"
+
+	position bottom
+	tray_output none
+	workspace_buttons no
+	separator_symbol " "
+	i3bar_command i3bar --transparency
+	status_command i3blocks -c ~/.config/i3blocks/bottom
+	tray_padding 3
+
+	colors {
+		background $bar_bg
+		statusline $colorw
+		separator  $colorw85
+
+		# <colorclass>     <border>  <background> <text>
+		binding_mode       $bar_bg   $bar_bg    $colorw
+		urgent_workspace   $bar_bg   $bar_bg    $coloru
+
+		# urgent_workspace here is for i3blocklets that use exit(33)
+	}
+}

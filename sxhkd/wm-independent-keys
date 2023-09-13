@@ -1,0 +1,39 @@
+# programs
+super + Return
+	alacritty
+
+super + d
+	rofi -show drun
+
+super + Tab
+	rofi -show window
+
+# custom XF86 keys
+{XF86MonBrightnessUp, XF86MonBrightnessDown}
+	~/.config/dunst/dunstify_br { -i 15, -d 15}
+
+{XF86AudioMute, XF86AudioMicMute, XF86AudioRaiseVolume, XF86AudioLowerVolume}
+	~/.config/dunst/dunstify_vol {-t,-y,-i 5,-d 5}
+
+XF86Display
+	pgrep -x "arandr" && pkill arandr || arandr
+
+XF86Tools
+	pgrep -x 'nm-connection-e' && pkill 'nm-connection-e' || nm-connection-editor
+	#pgrep -x 'iwctl' && pkill 'iwctl' || alacritty --class 'iwctl' --title 'iwctl' -e iwctl
+
+XF86Favorites
+	pgrep -x 'todo' && pkill 'todo' || alacritty --class='todo' --title='todo' -e ~/.scripts/todo
+
+# print keys
+@Print
+	scrot -a $(slop -f '%x,%y,%w,%h') -e 'optipng $f | xclip -selection clipboard -t image/png -i $f'
+
+super + @Print
+	scrot -a $(slop -f '%x,%y,%w,%h') -e 'optipng $f' ~/Pictures/screenshots/'$wx$h_%d-%m-%y.png'
+
+alt + @Print
+	scrot -e 'optipng $f | xclip -selection clipboard -t image/png -i $f'
+
+super + alt + @Print
+	scrot -e 'optipng $f' ~/Pictures/screenshots/'full_%d-%m-%y.png'

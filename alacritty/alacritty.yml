@@ -1,0 +1,10 @@
+import:
+  - ~/.config/alacritty/gruvbox_material.yml
+window:
+  padding:
+    x: 5
+    y: 5
+font:
+  normal:
+    family: JetBrainsMono NerdFont
+  size: 12.0

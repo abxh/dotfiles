@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pkill -x "sxhkd"
+sxhkd -c ~/.config/sxhkd/wm-independent-keys &
+sxhkd -c ~/.config/sxhkd/i3-keys &

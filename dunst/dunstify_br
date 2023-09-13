@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# By abxh (github)
+
+# you will need to copy the backlight rules to /etc/udev/rules.d
+
+tag="string:x-dunst-stack-tag:brightness"
+icon="/usr/share/icons/Gruvbox-Material-Dark-OneColored/16x16/actions/brightnesssettings.svg"
+path="/sys/class/backlight/amdgpu_bl1/"
+
+raw_val=$(< $path/brightness)
+min_val=0
+max_val=$(< $path/max_brightness)
+
+bar_color="#d4be98"
+
+notify() {
+	val=$((raw_val * 100 / 255))
+	dunstify -h int:value:$val\
+		 -h string:hlcolor:$bar_color\
+		 -h $tag\
+		 -u low\
+		 -i "$icon"\
+		 "Brightness:"\
+		 "$raw_val"
+}
+
+case "$1" in
+--inc|-i)
+	new_val=$((raw_val + $2))
+	raw_val=$((new_val < max_val ? new_val : max_val ))
+	echo $raw_val > $path/brightness
+	notify
+	;;
+--dec|-d)
+	new_val=$((raw_val - $2))
+	raw_val=$((new_val > min_val ? new_val : min_val ))
+	echo $raw_val > $path/brightness
+	notify
+	;;
+--get|-g)
+	echo $raw_val
+	;;
+*)
+	echo "Usage: [SCRIPT] [COMMAND] [VALUE]"
+	echo "Commands:"
+	echo "  --inc/-i:			Increase brightness by raw value."
+	echo "  --dec/-d:			Decrease brightness by raw value."
+	echo "  --get/-g:			Get brightness by raw value."
+	;;
+esac
