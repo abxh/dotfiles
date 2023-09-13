@@ -5,7 +5,8 @@
 sink_name="@DEFAULT_SINK@"
 source_name="@DEFAULT_SOURCE@"
 
-icon_path='/usr/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/'
+theme="Gruvbox-Material-Dark-OneColored"
+icon_path="/usr/share/icons/$theme/16x16/panel/"
 
 sink_tag="string:x-dunst-stack-tag:sink"
 source_tag="string:x-dunst-stack-tag:source"

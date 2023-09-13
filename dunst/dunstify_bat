@@ -9,7 +9,8 @@
 
 lock="/tmp/dunstify_bat.lock"
 tag="string:x-dunst-stack-tag:battery"
-icon="/usr/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/battery-010.svg"
+theme="Gruvbox-Material-Dark-OneColored"
+icon="/usr/share/icons/$theme/16x16/panel/battery-010.svg"
 
 while true
 do
