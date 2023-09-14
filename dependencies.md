@@ -46,4 +46,3 @@
 - ttf-font-awesome
 - ttf-jetbrains-mono-nerd
 - ttf-opensans
-- ...
