@@ -8,10 +8,6 @@
   - libnotify
 - hsetroot
 - i3-wm
-  - udiskie
-  - polkit-gnome
-  - redshift
-  - ...
 - i3blocks
 - lf
 - mpv
@@ -23,7 +19,6 @@
 - sxhkd
 - vim (being the subset of gvim for clipboard)
   - vim-youcompleteme-git
-    - ...
 - zsh
   - zsh-autosuggestions
   - zsh-completions
