@@ -31,26 +31,6 @@
 - zathura
   - zathura-pdf-poppler
 
-## shxkd keybind depends:
-- arandr
-- todo
-- nm-connection-editor
-- pavucontrol
-- scrot
-  - slop
-  - optipng
-- rofi
-- xclip
-
-## zsh alias depends:
-- bat
-- tree
-- trash-cli
-- fd
-- fzf
-- jq
-- and others being added and modified...
-
 ## i3block-scripts dependencies:
 - arch update count
    - pacman-contrib
