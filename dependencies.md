@@ -8,10 +8,6 @@
   - libnotify
 - hsetroot
 - i3-wm
-  - udiskie
-  - polkit-gnome
-  - redshift
-  - ...
 - i3blocks
 - lf
 - mpv
@@ -23,33 +19,12 @@
 - sxhkd
 - vim (being the subset of gvim for clipboard)
   - vim-youcompleteme-git
-    - ...
 - zsh
   - zsh-autosuggestions
   - zsh-completions
   - zsh-history-substring-search
 - zathura
   - zathura-pdf-poppler
-
-## shxkd keybind depends:
-- arandr
-- todo
-- nm-connection-editor
-- pavucontrol
-- scrot
-  - slop
-  - optipng
-- rofi
-- xclip
-
-## zsh alias depends:
-- bat
-- tree
-- trash-cli
-- fd
-- fzf
-- jq
-- and others being added and modified...
 
 ## i3block-scripts dependencies:
 - arch update count
@@ -71,4 +46,3 @@
 - ttf-font-awesome
 - ttf-jetbrains-mono-nerd
 - ttf-opensans
-- ...
