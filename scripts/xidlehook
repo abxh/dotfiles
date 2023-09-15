@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+xidlehook \
+  `# Don't lock when there's a fullscreen application` \
+  --not-when-fullscreen \
+  `# Don't lock when there's audio playing` \
+  --not-when-audio \
+  `# Dim the screen after 300 seconds, undim if user becomes active` \
+  --timer 300 \
+    'light -O; light -Ur 100' \
+    'light -I' \
+  `# Undim & lock after 10 more seconds` \
+  --timer 10 \
+    "$1" \
+    'light -I' \
+  `# Finally, suspend an hour after it locks` \
+  --timer 3600 \
+    'systemctl suspend' \
+    ''
