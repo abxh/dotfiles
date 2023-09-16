@@ -32,7 +32,7 @@ If you wish to use my dotfiles, please note that the dotfiles are modified to su
 
 With my dotfiles, I strive to achieve a certain level of elegance and beauty without using a lot of colors and keeping it look simple.
 
-Here is a [list of dependencies and others](https://github.com/abxh/dotfiles/blob/main/dependencies.md). The list is comprehensive at the time of writing it, but I do not garantee a error-free experience.
+Here is a [list of dependencies and others](https://github.com/abxh/dotfiles/blob/main/dependencies.md). I do not garantee the completeness of the list.
 
 > **Note:** The following hyperlinks point to directories in this repo.
 
