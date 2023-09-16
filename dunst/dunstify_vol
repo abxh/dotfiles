@@ -23,7 +23,6 @@ function sink_notification {
     if [[ "$sink_muted" == "yes" ]] ; then
 	sink_icon=$icon_path'audio-volume-muted.svg'
 	bar_color=$muted_bar_color
-    else
 	if [[ "$sink_volume" -lt 34 ]] ; then
 	    sink_icon=$icon_path'audio-volume-low.svg'
 	elif [[ "$sink_volume" -lt 67 ]] ; then
