@@ -17,37 +17,37 @@ max_val=$(< $path/max_brightness)
 bar_color="#d4be98"
 
 notify() {
-	val=$((raw_val * 100 / 255))
-	dunstify -h int:value:$val\
-		 -h string:hlcolor:$bar_color\
-		 -h $tag\
-		 -u low\
-		 -i "$icon"\
-		 "Brightness:"\
-		 "$raw_val"
+    val=$((raw_val * 100 / 255))
+    dunstify -h int:value:$val\
+	     -h string:hlcolor:$bar_color\
+	     -h $tag\
+	     -u low\
+	     -i "$icon"\
+	     "Brightness:"\
+	     "$raw_val"
 }
 
 case "$1" in
 --inc|-i)
-	new_val=$((raw_val + $2))
-	raw_val=$((new_val < max_val ? new_val : max_val ))
-	echo $raw_val > $path/brightness
-	notify
-	;;
+    new_val=$((raw_val + $2))
+    raw_val=$((new_val < max_val ? new_val : max_val ))
+    echo $raw_val > $path/brightness
+    notify
+    ;;
 --dec|-d)
-	new_val=$((raw_val - $2))
-	raw_val=$((new_val > min_val ? new_val : min_val ))
-	echo $raw_val > $path/brightness
-	notify
-	;;
+    new_val=$((raw_val - $2))
+    raw_val=$((new_val > min_val ? new_val : min_val ))
+    echo $raw_val > $path/brightness
+    notify
+    ;;
 --get|-g)
-	echo $raw_val
-	;;
+    echo $raw_val
+    ;;
 *)
-	echo "Usage: [SCRIPT] [COMMAND] [VALUE]"
-	echo "Commands:"
-	echo "  --inc/-i:			Increase brightness by raw value."
-	echo "  --dec/-d:			Decrease brightness by raw value."
-	echo "  --get/-g:			Get brightness by raw value."
-	;;
+    echo "Usage: [SCRIPT] [COMMAND] [VALUE]"
+    echo "Commands:"
+    echo "  --inc/-i:			Increase brightness by raw value."
+    echo "  --dec/-d:			Decrease brightness by raw value."
+    echo "  --get/-g:			Get brightness by raw value."
+    ;;
 esac
