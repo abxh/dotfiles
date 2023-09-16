@@ -18,12 +18,12 @@ capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 ac_state=$(cat /sys/class/power_supply/AC/online)
 
 if [[ "$capacity" -le 60 && "$ac_state" == "0" ]] ; then
-	dunstify -h $tag \
-		 -u critical \
-		 -i "$icon" \
-		 "Warning" \
-		 "Battery is getting low!"
-	sleep 9
+    dunstify -h $tag \
+	     -u critical \
+	     -i "$icon" \
+	     "Warning" \
+	     "Battery is getting low!"
+    sleep 9
 fi
 
 echo "$capacity"
