@@ -13,6 +13,11 @@ SAVEHIST=1000
 # emacs binding
 bindkey -e
 
+# theme
+fpath+=($HOME/.zsh/lean)
+autoload -U promptinit; promptinit
+prompt lean
+
 # shell options. See 'man zsh-options' for more information.
 # setopt autocd
 
