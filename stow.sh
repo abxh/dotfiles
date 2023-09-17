@@ -3,7 +3,7 @@
 # setup using stow
 
 # remove broken symlinks by typing the following from the home directory:
-# find -L . -type l -delete
+find -L . -type l -delete -path "~"
 
 stow --target=$HOME --restow \
 	zsh 		 \
