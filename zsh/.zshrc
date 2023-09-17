@@ -17,7 +17,7 @@ bindkey -e
 fpath+=($HOME/.zsh/lean)
 autoload -U promptinit; promptinit
 export PROMPT_LEAN_COLOR0='white' # prompt character
-export PROMPT_LEAN_COLOR1='white' # jobs and VCS info indicator color
+#export PROMPT_LEAN_COLOR1='242'  # jobs and VCS info indicator color
 export PROMPT_LEAN_COLOR2='blue'  # dir
 export PROMPT_LEAN_COLOR3='green' # elapsed time indicator color
 prompt lean
