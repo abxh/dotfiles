@@ -53,6 +53,15 @@ And finally [qutebrowser](https://github.com/abxh/dotfiles/tree/main/qutebrowser
 
 ## Tree View
 ```
+├── .images
+│   ├── i30.png
+│   ├── notifs0.png
+│   ├── notifs1.png
+│   ├── notifs2.png
+│   ├── rofi0.png
+│   ├── rofi1.png
+│   ├── window0.png
+│   └── window1.png
 ├── alacritty
 │   ├── alacritty.yml
 │   └── gruvbox_material.yml
@@ -96,7 +105,8 @@ And finally [qutebrowser](https://github.com/abxh/dotfiles/tree/main/qutebrowser
 │   ├── focused_window_update.py
 │   ├── i3nag_exit
 │   ├── sxhkd_restart
-│   └── todo
+│   ├── todo
+│   └── xidlehook
 ├── sxhkd
 │   ├── i3-keys
 │   └── wm-independent-keys
@@ -108,10 +118,11 @@ And finally [qutebrowser](https://github.com/abxh/dotfiles/tree/main/qutebrowser
 ├── zathura
 │   └── zathurarc
 ├── zsh
-│   ├── .dircolors
 │   ├── .zprofile
 │   ├── .zshenv
 │   └── .zshrc
-└── ...
+├── LICENSE
+├── README.md
+├── dependencies.md
+└── stow.sh
 ```
-
