@@ -1,1 +1,0 @@
-prompt_lean_setup
