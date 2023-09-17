@@ -1,4 +1,4 @@
-# vim: fdm=marker: foldlevel=0
+# vim: foldmethod=marker foldlevel=0
 
 # some things i took and modified from The-Compiler's config: {{{
 config.load_autoconfig()

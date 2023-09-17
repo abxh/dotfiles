@@ -1,4 +1,4 @@
-// vim: fdm=marker
+// vim: foldmethod=marker foldlevel=0
 
 configuration {
   modes: "window,drun,run,ssh";
