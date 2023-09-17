@@ -134,7 +134,7 @@ function gccos() {
 
 # keybindings {{{
 # ^ for Ctrl.
-bindkey -s '^c' ';clear^M'
+bindkey '^g' clear-screen
 bindkey -s '^v' ';vim $(fd --type f --strip-cwd-prefix -L | fzf)^M'
 bindkey -s '^f' ';cd $(fd --type directory --strip-cwd-prefix -L | fzf)^M'
 # }}}
