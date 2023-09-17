@@ -1,14 +1,10 @@
 #!/bin/sh
 
 # setup using stow
-
-# remove broken symlinks by typing the following from the home directory:
-find -L . -type l -delete -path "~"
-
 stow --target=$HOME --restow \
-	zsh 		 \
-	vim		 \
-	xorg		 \
+	zsh   \
+	vim   \
+	xorg  \
 
 config_pkgs=(
 	"i3"
