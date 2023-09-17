@@ -6,7 +6,7 @@ stow --target=$HOME --restow \
 	vim   \
 	xorg  \
 
-# stow packages. not arch packages.
+# stow packages (collections of dotfiles). not distro packages.
 config_pkgs=(
 	"i3"
 	"i3blocks"
