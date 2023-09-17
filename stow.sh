@@ -1,11 +1,12 @@
 #!/bin/sh
 
-# setup using stow
+# symlink stuff using stow
 stow --target=$HOME --restow \
 	zsh   \
 	vim   \
 	xorg  \
 
+# stow packages. not arch packages.
 config_pkgs=(
 	"i3"
 	"i3blocks"
