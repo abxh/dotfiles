@@ -1,4 +1,4 @@
-# vim: fdm=marker
+# vim: fdm=marker foldlevel=0
 
 # options {{{
 
@@ -72,7 +72,11 @@ alias dl-restore='trash-restore'
 alias ls='ls --color=auto -hv --group-directories-first'
 alias la='ls -lAG'
 alias lst='tree -v --dirsfirst'
-alias lsta='lst -a'
+lsta() {
+  # https://unix.stackexchange.com/a/691245
+  rg --ignore --hidden --files --glob '!.git/' "$@" \
+    | lst --fromfile -a
+}
 
 # find variations
 alias find='fd'
