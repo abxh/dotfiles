@@ -36,7 +36,7 @@ Here is a [list of dependencies and others](https://github.com/abxh/dotfiles/blo
 
 > **Note:** The following hyperlinks point to directories in this repo.
 
-The window manager [i3](https://github.com/abxh/dotfiles/tree/main/i3) is used with [sxhkd](https://github.com/abxh/dotfiles/tree/main/sxhkd), which sets all the keybindings except modes.
+The window manager [i3](https://github.com/abxh/dotfiles/tree/main/i3), deciding the border logic, is used with [sxhkd](https://github.com/abxh/dotfiles/tree/main/sxhkd), which sets all the keybindings except modes.
 
 The fancy blur effect and other effects comes from [picom](https://github.com/abxh/dotfiles/tree/main/picom).
 
