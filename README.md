@@ -53,6 +53,7 @@ And finally [qutebrowser](https://github.com/abxh/dotfiles/tree/main/qutebrowser
 
 ## Tree View
 ```
+.
 ├── .images
 │   ├── i30.png
 │   ├── notifs0.png
@@ -77,7 +78,8 @@ And finally [qutebrowser](https://github.com/abxh/dotfiles/tree/main/qutebrowser
 │   ├── modes
 │   │   ├── resize
 │   │   └── system
-│   └── config
+│   ├── config
+│   └── i3bar
 ├── i3blocks
 │   ├── bottom
 │   └── top
@@ -118,9 +120,13 @@ And finally [qutebrowser](https://github.com/abxh/dotfiles/tree/main/qutebrowser
 ├── zathura
 │   └── zathurarc
 ├── zsh
+│   ├── .zsh
+│   │   └── lean
+│   │       └── ...
 │   ├── .zprofile
 │   ├── .zshenv
 │   └── .zshrc
+├── .gitmodules
 ├── LICENSE
 ├── README.md
 ├── dependencies.md
