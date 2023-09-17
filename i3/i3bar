@@ -1,0 +1,48 @@
+# vim: filetype=i3config
+
+# show workspace bar
+bar {
+	id "bar-0"
+
+	position top
+	binding_mode_indicator no
+	i3bar_command i3bar --transparency
+	status_command i3blocks -c ~/.config/i3blocks/top
+	tray_padding 3
+
+	colors {
+		background $bar_bg
+		statusline $colorw
+		separator  $colorw85
+
+		# <colorclass>     <border>  <background> <text>
+		focused_workspace  $bar_bg   $colorw    $colorb
+		active_workspace   $bar_bg   $colorw    $colorw
+		inactive_workspace $bar_bg   $bar_bg    $colorw
+		urgent_workspace   $bar_bg   $bar_bg    $coloru
+	}
+}
+
+bar {
+	id "bar-1"
+
+	position bottom
+	tray_output none
+	workspace_buttons no
+	separator_symbol " "
+	i3bar_command i3bar --transparency
+	status_command i3blocks -c ~/.config/i3blocks/bottom
+	tray_padding 3
+
+	colors {
+		background $bar_bg
+		statusline $colorw
+		separator  $colorw85
+
+		# <colorclass>     <border>  <background> <text>
+		binding_mode       $bar_bg   $bar_bg    $colorw
+		urgent_workspace   $bar_bg   $bar_bg    $coloru
+
+		# urgent_workspace here is for i3blocklets that use exit(33)
+	}
+}
