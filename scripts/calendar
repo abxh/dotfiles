@@ -14,7 +14,7 @@ case "$BLOCK_BUTTON" in
   1|2|3)
 
 	# the position of the upper left corner of the popup
-	posX=1590
+	posX=1615
 	posY=780
 
 	pgrep -x 'yad' > /dev/null && pkill 'yad'|| i3-msg -q \
