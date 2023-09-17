@@ -20,7 +20,7 @@ function! s:DeleteOldBackups()
   let l:Old = (60 * 60 * 24 * 14)
   let l:BackupFiles = split(glob(&backupdir."/*", 1)."\n".glob(&backupdir."/.[^.]*",1), "\n")
   let l:Now = localtime()
-  let l:DelCmd = "trash-put {}"
+  let l:DelCmd = "trash-put -f {}"
 
   for l:File in l:BackupFiles
     if (l:Now - getftime(l:File)) > l:Old
