@@ -9,8 +9,8 @@ xidlehook \
   --timer 300 \
     'light -O; light -Ur 100' \
     'light -I' \
-  `# Undim & lock after 10 more seconds` \
-  --timer 10 \
+  `# Undim & lock after 20 more seconds` \
+  --timer 20 \
     "$1" \
     'light -I' \
   `# Finally, suspend an hour after it locks` \
