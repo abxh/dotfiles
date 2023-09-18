@@ -25,7 +25,7 @@ And finally as of lately, a *proper* rice of rofi ;) :
 
 ![](./.images/rofi1.png)
 
-> The preview uses [this wallpaper](https://wallhaven.cc/w/j5p23m>).
+> [This wallpaper](https://wallhaven.cc/w/j5p23m>) is used in the previews.
 
 ## Intro
 Hey there, :). Welcome to my dotfiles. 
