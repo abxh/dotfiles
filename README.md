@@ -25,6 +25,8 @@ And finally as of lately, a *proper* rice of rofi ;) :
 
 ![](./.images/rofi1.png)
 
+> The preview uses [this wallpaper](https://wallhaven.cc/w/j5p23m>).
+
 ## Intro
 Hey there, :). Welcome to my dotfiles. 
 
