@@ -28,7 +28,7 @@ config.source('gruvbox.py')
 
 # prefer dark theme
 c.colors.webpage.preferred_color_scheme = "dark"
-c.colors.webpage.bg = "black"
+c.colors.webpage.bg = "white" # "black" seems to break certain websites
 
 # always restore open sites when qutebrowser is reopened
 c.auto_save.session = True
