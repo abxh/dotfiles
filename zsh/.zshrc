@@ -88,7 +88,7 @@ lsta() {
 }
 
 # find variations
-alias find='fd'
+#alias find='fd'
 alias f='cd $(fd --type directory --strip-cwd-prefix | fzf)'
 
 # shiny colors

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Run this from home dir if the symlinks break
+# find . -xtype l -delete
+
 # symlink stuff using stow
 stow --target=$HOME --restow \
 	zsh   \

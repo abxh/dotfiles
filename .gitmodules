@@ -1,3 +1,6 @@
 [submodule "zsh/.zsh/lean"]
 	path = zsh/.zsh/lean
 	url = https://github.com/abxh/lean.git
+[submodule "scripts/i3-restore"]
+	path = scripts/i3-restore
+	url = https://github.com/jdholtz/i3-restore.git
