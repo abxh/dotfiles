@@ -3,7 +3,7 @@
 # options {{{
 
 # default directory
-DEFAULT_DIR="~/Desktop"
+DEFAULT_DIR="~/desktop"
 
 # history file
 HISTFILE=~/.histfile

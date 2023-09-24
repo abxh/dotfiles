@@ -3,8 +3,8 @@
 # symlink stuff using stow
 stow --target=$HOME --restow \
 	zsh   \
-	vim   \
 	xorg  \
+	#vim   \
 
 # stow packages (collections of dotfiles). not distro packages.
 config_pkgs=(
@@ -16,12 +16,12 @@ config_pkgs=(
 	"rofi"
 	"betterlockscreen"
 	"mpv"
-	"mpd"
-	"ncmpcpp"
 	"dunst"
 	"lf"
 	"qutebrowser"
 	"zathura"
+	#"mpd"
+	#"ncmpcpp"
 )
 
 for pkg_name in ${config_pkgs[@]}; do

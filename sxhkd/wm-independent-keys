@@ -30,10 +30,10 @@ XF86Favorites
 	scrot -a $(slop -f '%x,%y,%w,%h') -e 'optipng $f | xclip -selection clipboard -t image/png -i $f'
 
 super + @Print
-	scrot -a $(slop -f '%x,%y,%w,%h') -e 'optipng $f' ~/Pictures/screenshots/'$wx$h_%d-%m-%y.png'
+	scrot -a $(slop -f '%x,%y,%w,%h') -e 'optipng $f' ~/pictures/screenshots/'$wx$h_%d-%m-%y.png'
 
 alt + @Print
 	scrot -e 'optipng $f | xclip -selection clipboard -t image/png -i $f'
 
 super + alt + @Print
-	scrot -e 'optipng $f' ~/Pictures/screenshots/'full_%d-%m-%y.png'
+	scrot -e 'optipng $f' ~/pictures/screenshots/'full_%d-%m-%y.png'

@@ -54,12 +54,11 @@ exec_always --no-startup-id ~/.scripts/focused_window_update.py
 exec --no-startup-id xss-lock -- betterlockscreen --lock -- --nofork
 exec --no-startup-id ~/.scripts/xidlehook 'betterlockscreen --lock -- --nofork'
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id hsetroot -extend ~/Pictures/wallpapers/fuji.jpg >/dev/null 2>&1
+exec --no-startup-id hsetroot -extend ~/pictures/wallpapers/fuji.jpg >/dev/null 2>&1
 exec --no-startup-id picom >/dev/null 2>&1
 exec --no-startup-id redshift -l $(cat ~/.private/coord) >/dev/null 2>&1
 exec --no-startup-id udiskie --no-automount --no-notify --tray
 exec --no-startup-id nm-applet
-exec --no-startup-id mpd
 
 # window rules
 for_window [class="Lxappearance"] floating enable
