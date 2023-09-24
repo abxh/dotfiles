@@ -51,7 +51,7 @@ Both the bar and notifications use icons from [my fork of the gruvbox-material-g
 A combination of [zsh](https://github.com/abxh/dotfiles/tree/main/zsh), [Alacritty](https://github.com/abxh/dotfiles/tree/main/alacritty) and [vim](https://github.com/abxh/dotfiles/tree/main/vim/.vimrc)
 is used as the shell, terminal and editor.
 
->You may want to download the submodule for zsh lean theme:
+>**Note:** You may want to download the submodule for zsh lean theme, which can be done this way:
 >```
 >git submodule init
 >git submodule update
