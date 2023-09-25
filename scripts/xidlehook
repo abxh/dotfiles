@@ -5,8 +5,8 @@ xidlehook \
   --not-when-fullscreen \
   `# Don't lock when there's audio playing` \
   --not-when-audio \
-  `# Dim the screen after 300 seconds, undim if user becomes active` \
-  --timer 300 \
+  `# Dim the screen after 600 seconds, undim if user becomes active` \
+  --timer 600 \
     'light -O; light -Ur 100' \
     'light -I' \
   `# Undim & lock after 20 more seconds` \
