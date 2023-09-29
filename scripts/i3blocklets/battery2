@@ -12,17 +12,6 @@ import os
 import re
 from subprocess import check_output
 
-
-def notify_warning():
-    tag = "string:x-dunst-stack-tag:battery"
-    icon = "/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/battery-010.svg"
-
-    os.system(
-        f"dunstify -h {tag} -u critical -i {icon}"
-        + " Warning"
-        + " 'Battery is getting low!'"
-    )
-
 status = check_output(["acpi"], universal_newlines=True)
 
 if not status:
@@ -105,5 +94,5 @@ else:
 print(fulltext)
 
 if percentleft < 10 and state == "Discharging":
-    notify_warning()
+    os.system('~/.scripts/dunstify/bat_notif')
     exit(33)
