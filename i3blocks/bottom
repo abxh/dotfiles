@@ -1,27 +1,21 @@
-# i3blocks configuration file
-#
-# The i3blocks man page describes the usage of the binary,
-# and its website describes the configuration:
-#
-#     https://vivien.github.io/i3blocks
-
-
-# Global properties
 separator=true
 separator_block_width=15
 
-[arch-updates-count]
-command=echo $LABEL$(checkupdates | wc -l) updates
+[updates-count]
+command=~/.scripts/i3blocklets/count_updates
 interval=once
+UPDATES_FILE=xbps-install -Mun
 LABEL= 
 
 [battery]
-command=~/.scripts/battery
+command=~/.scripts/i3blocklets/battery2
 markup=pango
 interval=30
 
 [calendar]
-command=~/.scripts/calendar
+command=~/.scripts/i3blocklets/calendar
 interval=1
 LABEL= 
 DATEFMT=+%d %b %Y %H:%M:%S
+POPUP_POSX=1610
+POPUP_POSY=735

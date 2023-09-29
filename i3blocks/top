@@ -1,17 +1,14 @@
-# i3blocks configuration file
-#
-# The i3blocks man page describes the usage of the binary,
-# and its website describes the configuration:
-#
-#     https://vivien.github.io/i3blocks
-
-
-# Global properties
 separator=true
 separator_block_width=15
 
 [window]
-command=~/.scripts/focused_window.py
-min_width=1800
+command=~/.scripts/i3blocklets/focused_window_title
 align=center
+min_width=1800
 signal=10
+
+#[dunst]
+#command=~/.scripts/i3blocklets/dunst
+#interval=once
+#format=json
+##markup=pango

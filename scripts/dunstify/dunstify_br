@@ -1,14 +1,22 @@
-#!/bin/sh
+#!/bin/bash
 
 # By abxh (github)
 
-# you will need to copy the backlight rules to /etc/udev/rules.d
+# you will need to copy the following rules to /etc/udev/rules.d/90-backlight.rules
+: '
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"
+ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/%k/brightness"
+ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chmod g+w /sys/class/leds/%k/brightness"
+'
+# and add yourself to the `video` user group.
+
+# Or make light do the work of modifying the brightness and just call notify.
 
 tag="string:x-dunst-stack-tag:brightness"
-path="/sys/class/backlight/amdgpu_bl1/"
+path="/sys/class/backlight/amdgpu_bl0"
 
-theme="Gruvbox-Material-Dark-OneColored"
-icon="/usr/share/icons/$theme/16x16/actions/brightnesssettings.svg"
+icon="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/actions/brightnesssettings.svg"
 
 raw_val=$(< $path/brightness)
 min_val=0

@@ -1,1 +1,18 @@
+! overall scaling
+! 
+! read the following for more info:
+! https://wiki.archlinux.org/title/HiDPI#X_Resources
+
 Xft.dpi: 120
+
+! font options
+!
+! read following for more info:
+! https://wiki.archlinux.org/title/font_configuration#LCD_filter
+
+Xft.autohint: 0
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.hintstyle:  hintslight
+Xft.rgba: rgb
+Xft.lcdfilter:  lcddefault

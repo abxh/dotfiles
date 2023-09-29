@@ -1,7 +1,11 @@
 #!/usr/bin/python
 
-# Script, which updates i3blocks, when focused window title has changed.
-# by abxh
+# Script, which updates i3blocks, when focused i3 window title has changed.
+
+# requires:
+# - focused_window_title script
+# - i3blocks
+# - python-i3ipc
 
 from i3ipc import Connection,  Event
 import subprocess

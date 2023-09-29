@@ -2,7 +2,7 @@
 # See https://i3wm.org/docs/userguide.html for a complete reference.
 
 include ~/.config/i3/modes/*
-include ~/.config/i3/i3bar
+include ~/.config/i3/bar
 
 set $mod Mod4
 
@@ -48,15 +48,14 @@ font pango:JetBrainsMono Nerd Font 12
 workspace_auto_back_and_forth yes
 
 # startup
+exec_always --no-startup-id hsetroot -extend ~/pictures/wallpapers/wallhaven-j5p23m.jpg
 exec_always --no-startup-id ~/.scripts/sxhkd_restart
-exec_always --no-startup-id ~/.scripts/focused_window_update.py
+exec_always --no-startup-id ~/.scripts/i3blocklets/focused_window_title_update
 
-exec --no-startup-id xss-lock -- betterlockscreen --lock -- --nofork
-exec --no-startup-id ~/.scripts/xidlehook 'betterlockscreen --lock -- --nofork'
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id hsetroot -extend ~/pictures/wallpapers/fuji.jpg >/dev/null 2>&1
-exec --no-startup-id picom >/dev/null 2>&1
-exec --no-startup-id redshift -l $(cat ~/.private/coord) >/dev/null 2>&1
+exec --no-startup-id xss-lock -- ~/.scripts/i3lock_launch
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec --no-startup-id picom
+exec --no-startup-id redshift -l $(cat ~/.redshift-coord)
 exec --no-startup-id udiskie --no-automount --no-notify --tray
 exec --no-startup-id nm-applet
 

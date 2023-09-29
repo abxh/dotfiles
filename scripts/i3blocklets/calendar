@@ -1,21 +1,26 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # originally from:
 # https://github.com/vivien/i3blocks-contrib/blob/master/calendar/calendar
 
-# edited by abxh
+# requires:
+# - yad
+# - xdotool (for the positioning of the popup)
 
 WIDTH=${WIDTH:-200}
 HEIGHT=${HEIGHT:-200}
 DATEFMT=${DATEFMT:-"+%a %d.%m.%Y %H:%M:%S"}
 SHORTFMT=${SHORTFMT:-"+%H:%M:%S"}
 
+POPUP_POSX=${POPUP_POSX:-1610}
+POPUP_POSY=${POPUP_POSY:-730}
+
 case "$BLOCK_BUTTON" in
   1|2|3)
 
 	# the position of the upper left corner of the popup
-	posX=1615
-	posY=780
+	posX=$POPUP_POSX
+	posY=$POPUP_POSY
 
 	pgrep -x 'yad' > /dev/null && pkill 'yad'|| i3-msg -q \
 	"exec yad --calendar \
@@ -27,3 +32,5 @@ case "$BLOCK_BUTTON" in
 esac
 echo "$LABEL$(date "$DATEFMT") "
 echo "$LABEL$(date "$SHORTFMT") "
+
+# vim: ft=sh

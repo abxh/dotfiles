@@ -1,4 +1,5 @@
-# programs
+# set program keybindings via sxhkd
+
 super + Return
 	alacritty
 
@@ -10,10 +11,10 @@ super + Tab
 
 # custom XF86 keys
 {XF86MonBrightnessUp, XF86MonBrightnessDown}
-	~/.config/dunst/dunstify_br { -i 15, -d 15}
+	~/.scripts/dunstify/dunstify_br { -i 15, -d 15}
 
 {XF86AudioMute, XF86AudioMicMute, XF86AudioRaiseVolume, XF86AudioLowerVolume}
-	~/.config/dunst/dunstify_vol {-t,-y,-i 5,-d 5}
+	~/.scripts/dunstify/dunstify_vol {-t,-y,-i 5,-d 5}
 
 XF86Display
 	pgrep -x "arandr" && pkill arandr || arandr

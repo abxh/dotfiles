@@ -13,20 +13,28 @@ SAVEHIST=1000
 # emacs binding
 bindkey -e
 
-# theme
-fpath+=($HOME/.zsh/lean)
-autoload -U promptinit; promptinit
-export PROMPT_LEAN_COLOR0='white' # prompt character
-#export PROMPT_LEAN_COLOR1='242'  # jobs and VCS info indicator color
-export PROMPT_LEAN_COLOR2='blue'  # dir
-export PROMPT_LEAN_COLOR3='green' # elapsed time indicator color
-prompt lean
-
 # shell options. See 'man zsh-options' for more information.
 # setopt autocd
 
 # namespaced properties. See 'man zshmodules' for more information.
 zstyle :compinstall filename '/home/arch/.zshrc'
+
+# set custom prompt
+__parse_git_branch() {
+    git symbolic-ref --short HEAD 2> /dev/null
+}
+
+setopt PROMPT_SUBST
+autoload -U colors && colors
+__blue='%{$fg[blue]%}'
+__green='%{$fg[green]%}'
+__reset_color='%{$reset_color%}'
+__user='%m'
+__percent_symbol='%%'
+__git_branch () { b=$(__parse_git_branch); [ ! "$b" ] || echo "($b) "; }
+__dir='%~'
+PROMPT=$__green'$(__git_branch)'$__reset_color'${__user}''${__percent_symbol} '
+RPROMPT=$__blue'${__dir}'$__reset_color
 
 # set custom title
 autoload -Uz add-zsh-hook
@@ -70,6 +78,11 @@ alias cd="HOME=$DEFAULT_DIR cd"
 alias cp='cp -i'
 alias mv='mv -i'
 
+# shiny colors
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias cat='bat --paging=never --theme=base16'
+
 # trash-cli
 alias rm='echo "Use dl instead."; false'
 alias dl='trash-put'
@@ -87,59 +100,28 @@ lsta() {
     | lst --fromfile -a
 }
 
-# find variations
-#alias find='fd'
+# others
 alias f='cd $(fd --type directory --strip-cwd-prefix | fzf)'
+alias lf='lfrun'
 
-# shiny colors
-alias diff='diff --color=auto'
-alias grep='grep --color=auto'
-alias cat='bat --paging=never --theme=base16'
-alias jq='jq --color-output'
-
-# shorthands
-alias get_wm_class="xprop | grep WM_CLASS"
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias unixify="sed -i 's/\r//' filename"
-alias fsharpi="dotnet fsi"
-
-function pdf() {(zathura "$@" &;)}
-function video() {(mpv "$@" &;)}
+# handy shorthands
 function image() {(imv "$@" &;)}
+function video() {(mpv "$@" &;)}
+function pdf() {(xournalpp "$@" &;)}
 
-function git-clone() {
+function git-clone-ssh() {
   author="$1"
   repo="$2"
   git clone git@github.com:$author/$repo.git
 }
-
-function asm() {
-  f=$(basename "$1" .asm)
-  nasm -f elf32 $f.asm -o $f.o
-  [ $? -eq 0 ] && ld -m elf_i386 $f.o -o $f
-}
-alias dasm='objdump -d'
-alias dasma='objdump -D'
-
-function gccr() {
-  f=$(basename "$1" .c)
-  gcc "$f".c -o "$f"
-}
-function gcco() {
-  f=$(basename "$1" .c)
-  gcc "$f".c -O3 -march=native -ffast-math -o "$f"
-}
-function gccos() {
-  f=$(basename "$1" .c)
-  gcc "$f".c -O3 -march=native -o "$f"
-}
-
 # }}}
 
 # keybindings {{{
-# ^ for Ctrl.
+# ctrl+g
 bindkey '^g' clear-screen
+# ctrl+e
 bindkey -s '^e' ';vim $(fd --type f --strip-cwd-prefix -L | fzf)^M'
+# ctrl+f
 bindkey -s '^f' ';cd $(fd --type directory --strip-cwd-prefix -L | fzf)^M'
 # }}}
 

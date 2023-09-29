@@ -1,38 +1,55 @@
-#!/bin/sh
+#!/bin/bash
 
-# Run this from home dir if the symlinks break
+# Use stow to symlink config files.
+
+# Run this from home directory, if the symlinks break:
 # find . -xtype l -delete
 
-# symlink stuff using stow
-stow --target=$HOME --restow \
-	zsh   \
-	xorg  \
-	#vim   \
+scripts_dotfiles=0 # 0 for true, 1 for false.
 
-# stow packages (collections of dotfiles). not distro packages.
-config_pkgs=(
-	"i3"
-	"i3blocks"
-	"sxhkd"
-	"picom"
-	"alacritty"
-	"rofi"
-	"betterlockscreen"
-	"mpv"
-	"dunst"
-	"lf"
-	"qutebrowser"
-	"zathura"
-	#"mpd"
-	#"ncmpcpp"
+dotfiles_in_home=(
+    "zsh"
+    "xorg"
 )
 
-for pkg_name in ${config_pkgs[@]}; do
-	[ ! -d "$pkg_name" ] && echo "package '$pkg_name' does not exist" && exit 1
-	dir=$HOME/.config/$pkg_name
-	mkdir -p $dir
-	stow --target=$dir --restow $pkg_name
+dotfiles_in_config=(
+    "i3"
+    "sxhkd"
+
+    "i3blocks"
+    "alacritty"
+    "rofi"
+    "picom"
+    "dunst"
+
+    "qutebrowser"
+
+    "mpv"
+)
+
+
+# execution part {{{
+
+check_if_dir_exists() {
+    [ ! -d "$1" ] && echo "directory './$1' does not exist" >&2 && return 1 || return 0
+}
+
+if [ $scripts_dotfiles -eq 0 ]; then
+    mkdir -p $HOME/.scripts
+    stow --target=$HOME/.scripts --restow "scripts"
+fi
+
+for df in ${dotfiles_in_home[@]}; do
+    $(check_if_dir_exists $df) || continue
+    stow --target=$HOME --restow $df
 done
 
-mkdir -p $HOME/.scripts
-stow --target=$HOME/.scripts --restow "scripts"
+for df in ${dotfiles_in_config[@]}; do
+	check_if_dir_exists $df
+	dir=$HOME/.config/$df
+	mkdir -p $dir
+	stow --target=$dir --restow $df
+done
+# }}}
+
+# vim: foldmethod=marker foldlevel=0

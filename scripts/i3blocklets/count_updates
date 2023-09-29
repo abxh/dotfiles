@@ -1,0 +1,21 @@
+#!/bin/bash
+
+wait_for_connection() {
+  while ! ping -c 1 -n 1.1.1.1 &> /dev/null
+  do
+    echo "waiting for connection..." 1>&2
+    sleep 10
+  done
+}
+
+wait_for_connection
+
+COUNT=$([ -z "$UPDATES_FILE" ] && echo 9999 || eval "$UPDATES_FILE" | wc -l)
+
+if (( COUNT == 0 )); then
+    COUNT='no'
+elif (( COUNT < 10 )); then
+    COUNT='< 10'
+fi
+
+echo $LABEL$COUNT updates
