@@ -52,7 +52,7 @@ is used as the shell, terminal and editor.
 And finally [qutebrowser](https://github.com/abxh/dotfiles/tree/main/qutebrowser) is used. It is a keyboard-driven browser with vim-like bindings.
 
 ### Tip
-The submodules (in fx qutebrowser dir) can be downloaded this way:
+The submodules (in fx the qutebrowser directory) can be downloaded this way:
 ```
 git submodule init
 git submodule update
