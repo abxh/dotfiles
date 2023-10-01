@@ -67,3 +67,6 @@ for_window [class="Arandr"] floating enable move left 300 px move up 150 px resi
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="todo"] floating enable sticky enable move right 750 px move up 200 px resize set 600 400
 for_window [class="Yad"] floating enable
+
+# good workaround to fix window size:
+for_window [title="Open Folder"] floating disable floating enable

@@ -3,7 +3,7 @@
 # append extra paths in PATH variable:
 typeset -U path PATH
 path=(
-	~/.dotnet/tools
+	~/.dotnet
 	~/.local/bin
 	$path
 )
@@ -14,6 +14,9 @@ export EDITOR=nvim
 
 # trash-cli integration with vscode:
 export ELECTRON_TRASH=trash-cli code
+
+# dotnet binaries
+export DOTNET_ROOT=$HOME/.dotnet
 
 # gnu-utils with colors: {{{
 export LESS='-R --use-color -Dd+r$Du+b$'

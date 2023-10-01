@@ -24,6 +24,8 @@ dotfiles_in_config=(
 
     "qutebrowser"
 
+    "nvim"
+
     "mpv"
 )
 

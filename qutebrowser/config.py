@@ -22,9 +22,14 @@ c.editor.command = ['code', '-nw', '{}']
 config.source('gruvbox.py')
 
 # set dark mode
-c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.preferred_color_scheme = 'dark'
 c.colors.webpage.bg = 'black' # "black" get's rid of flashes, but does seem to break certain websites
+c.colors.webpage.preferred_color_scheme = 'dark'
+c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.algorithm = "lightness-cielab"
+c.colors.webpage.darkmode.threshold.text = 150
+c.colors.webpage.darkmode.threshold.background = 100
+c.colors.webpage.darkmode.policy.images = 'always'
+c.colors.webpage.darkmode.grayscale.images = 0.35
 
 c.qt.args = [ "blink-settings=darkMode=4" ]
 
