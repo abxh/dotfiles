@@ -1,14 +1,10 @@
+# vim: ft=dosini
+
 separator=true
 separator_block_width=15
 
 [window]
-command=~/.scripts/i3blocklets/focused_window_title
+command=$SCRIPT_DIR/focused_window_title
 align=center
 min_width=1800
 signal=10
-
-#[dunst]
-#command=~/.scripts/i3blocklets/dunst
-#interval=once
-#format=json
-##markup=pango

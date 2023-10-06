@@ -2,24 +2,31 @@
 
 # options {{{
 
-# default directory
+# default directory {{{
 DEFAULT_DIR="~/desktop"
+# }}}
 
-# history file
+# history file {{{
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+# }}}
 
-# emacs binding
+# emacs bindings {{{
 bindkey -e
+# }}}
 
-# shell options. See 'man zsh-options' for more information.
+# shell options. {{{
+# See 'man zsh-options' for more information.
 # setopt autocd
+# }}}
 
-# namespaced properties. See 'man zshmodules' for more information.
+# namespaced properties.{{{
+# See 'man zshmodules' for more information.
 zstyle :compinstall filename '/home/arch/.zshrc'
+# }}}
 
-# set custom prompt
+# set custom prompt {{{
 __parse_git_branch() {
     git symbolic-ref --short HEAD 2> /dev/null
 }
@@ -35,8 +42,9 @@ __git_branch () { b=$(__parse_git_branch); [ ! "$b" ] || echo "($b) "; }
 __dir='%~'
 PROMPT=$__green'$(__git_branch)'$__reset_color'${__user}''${__percent_symbol} '
 RPROMPT=$__blue'${__dir}'$__reset_color
+# }}}
 
-# set custom title
+# set custom title {{{
 autoload -Uz add-zsh-hook
 function title_precmd () {
   print -Pn -- '\e]2;%#\a'
@@ -48,18 +56,21 @@ function title_preexec () {
 
 add-zsh-hook -Uz precmd title_precmd
 add-zsh-hook -Uz preexec title_preexec
+# }}}
 
-# autocompletion
+# autocompletion {{{
 autoload -Uz compinit
 compinit
+# }}}
 
-# autosuggestions
+# autosuggestions {{{
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6c6c6c"
 export ZSH_AUTOSUGGEST_STRATEGY="completion"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# }}}
 
-# history-substring-search
+# history-substring-search {{{
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=magenta"
 
@@ -67,7 +78,7 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
+# }}}
 # }}}
 
 # aliases {{{
@@ -100,14 +111,10 @@ lsta() {
     | lst --fromfile -a
 }
 
-# others
-alias f='cd $(fd --type directory --strip-cwd-prefix | fzf)'
-alias lf='lfrun'
-
 # handy shorthands
 function image() {(imv "$@" &;)}
 function video() {(mpv "$@" &;)}
-function pdf() {(xournalpp "$@" &;)}
+function pdf() {(evince "$@" &;)}
 
 function git-clone-ssh() {
   author="$1"
@@ -117,13 +124,13 @@ function git-clone-ssh() {
 # }}}
 
 # keybindings {{{
-# ctrl+g
+# ctrl+g -> clear-screen
 bindkey '^g' clear-screen
-# ctrl+e
+# ctrl+e -> find files and edit with vim
 bindkey -s '^e' ';vim $(fd --type f --strip-cwd-prefix -L | fzf)^M'
-# ctrl+f
+# ctrl+f -> find dirs and cd to dir
 bindkey -s '^f' ';cd $(fd --type directory --strip-cwd-prefix -L | fzf)^M'
 # }}}
 
-# reset to $DEFAULT_DIR this way - because lf otherwise cds to $HOME when trying other directories.
+# reset to $DEFAULT_DIR
 [ "$(pwd)" = "$HOME" ] && cd

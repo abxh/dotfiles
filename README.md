@@ -30,8 +30,6 @@ And finally as of lately, a *proper* rice of rofi ;) :
 ## Intro
 Hey there, :). Welcome to my dotfiles. 
 
-If you wish to use my dotfiles, please note that the dotfiles are modified to suit my laptop, so some hardcoded things might not work as expected in other pcs.
-
 With my dotfiles, I strive to achieve a certain level of elegance and beauty without using a lot of colors and keeping it look simple.
 
 > **Note:** The following hyperlinks point to directories in this repo.

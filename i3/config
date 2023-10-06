@@ -2,7 +2,7 @@
 # See https://i3wm.org/docs/userguide.html for a complete reference.
 
 include ~/.config/i3/modes/*
-include ~/.config/i3/bar
+include ~/.config/i3/bar*
 
 set $mod Mod4
 
@@ -21,6 +21,12 @@ set $coloru #ea6962
 # bar background
 set $bar_bg #00000000
 
+# border colors:
+# class                 border    backgr.   text      indicator child_border
+client.focused          $colorpCC $colorpCC #ffffff   $colorsCC $colorpCC
+client.focused_inactive $colorf   $colorf   #ffffff   $colorsCC $colorf
+client.unfocused        $colorf   $colorf   #888888   $colorsCC $colorf
+
 # touchpad/mouse
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -36,10 +42,6 @@ gaps bottom -5
 # smart_borders on
 smart_gaps on
 hide_edge_borders vertical
-# class                 border    backgr.   text      indicator child_border
-client.focused          $colorpCC $colorpCC #ffffff   $colorsCC $colorpCC
-client.focused_inactive $colorf   $colorf   #ffffff   $colorsCC $colorf
-client.unfocused        $colorf   $colorf   #888888   $colorsCC $colorf
 
 # Font for window titles
 font pango:JetBrainsMono Nerd Font 12
@@ -59,14 +61,16 @@ exec --no-startup-id redshift -l $(cat ~/.redshift-coord)
 exec --no-startup-id udiskie --no-automount --no-notify --tray
 exec --no-startup-id nm-applet
 
-# window rules
+# window rules.
+#
+# tip:
+# calculate position by (x-size_x)/2 and (y-size_y)/2,
+# where (x,y) is the desired position,
+# and (size_x,size_y) is the desired size.
+#
 for_window [class="Lxappearance"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Arandr"] floating enable move left 300 px move up 150 px resize set 900 700
-# for_window [class="iwctl"] floating enable move left 150 px move up 50 px resize set 1100 700
+for_window [class="Arandr"] floating enable move position 30 ppt 20 ppt resize set 40 ppt 60 ppt
 for_window [class="Nm-connection-editor"] floating enable
-for_window [class="todo"] floating enable sticky enable move right 750 px move up 200 px resize set 600 400
-for_window [class="Yad"] floating enable
-
-# good workaround to fix window size:
-for_window [title="Open Folder"] floating disable floating enable
+for_window [class="todo"] floating enable sticky enable move position 69 ppt 5 ppt resize set 30 ppt 40 ppt
+for_window [title="Open Folder"] move position 10 ppt 10 ppt resize set 80 ppt 80 ppt

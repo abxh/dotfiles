@@ -1,8 +1,7 @@
-
 # zsh startup script
 
-# start xinit after zsh is started i.e. when logged in
-# and save log to ~/.xorg.log
+# start xinit after zsh is started (when logged in)
+# and save the xorg log to ~/.xorg.log
 
 if [ "$(tty)" = "/dev/tty1" ]; then
     exec startx -- -keeptty > ~/.xorg.log 2>&1

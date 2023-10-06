@@ -14,7 +14,7 @@ ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chmod g+w /sys/class/leds/%k/bright
 # Or make light do the work of modifying the brightness and just call notify.
 
 tag="string:x-dunst-stack-tag:brightness"
-path="/sys/class/backlight/amdgpu_bl0"
+path="/sys/class/backlight/amdgpu_bl1"
 
 icon="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/actions/brightnesssettings.svg"
 

@@ -5,7 +5,7 @@ config.load_autoconfig()
 c.tabs.background = True
 c.new_instance_open_target = 'window'
 c.downloads.position = 'bottom'
-c.spellcheck.languages = ['en-US']
+# c.spellcheck.languages = ['en-US']
 
 css = '~/.config/qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css'
 config.bind(',n', f'config-cycle content.user_stylesheets {css} ""')
@@ -28,8 +28,8 @@ c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.algorithm = "lightness-cielab"
 c.colors.webpage.darkmode.threshold.text = 150
 c.colors.webpage.darkmode.threshold.background = 100
-c.colors.webpage.darkmode.policy.images = 'always'
-c.colors.webpage.darkmode.grayscale.images = 0.35
+c.colors.webpage.darkmode.policy.images = 'never'
+# c.colors.webpage.darkmode.grayscale.images = 0.35
 
 c.qt.args = [ "blink-settings=darkMode=4" ]
 

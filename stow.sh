@@ -1,57 +1,38 @@
 #!/bin/bash
 
-# Use stow to symlink config files.
+# stow script
 
-# Run this from home directory, if the symlinks break:
-# find . -xtype l -delete
+# NOTE:
+# please comment out all the packages and test them
+# one by one to not break anything in your setup
 
-scripts_dotfiles=0 # 0 for true, 1 for false.
+stow-config-dotfiles() {
+    for stow_pkg in "$@"; do
+        target="$HOME/.config/$stow_pkg"
 
-dotfiles_in_home=(
-    "zsh"
-    "xorg"
-)
+        if [ -d "$stow_pkg" ]; then
+	    mkdir -p "$target"
+        fi
 
-dotfiles_in_config=(
-    "i3"
-    "sxhkd"
-
-    "i3blocks"
-    "alacritty"
-    "rofi"
-    "picom"
-    "dunst"
-
-    "qutebrowser"
-
-    "nvim"
-
-    "mpv"
-)
-
-
-# execution part {{{
-
-check_if_dir_exists() {
-    [ ! -d "$1" ] && echo "directory './$1' does not exist" >&2 && return 1 || return 0
+        stow --restow --target=$target $stow_pkg
+    done
 }
 
-if [ $scripts_dotfiles -eq 0 ]; then
-    mkdir -p $HOME/.scripts
-    stow --target=$HOME/.scripts --restow "scripts"
-fi
+stow --restow --target=$HOME xorg zsh
 
-for df in ${dotfiles_in_home[@]}; do
-    $(check_if_dir_exists $df) || continue
-    stow --target=$HOME --restow $df
-done
+# NOTE:
+# the script sxhkd_restart is important for the function of i3 keybindings
+mkdir -p $HOME/.scripts
+stow --restow --target=$HOME/.scripts scripts
 
-for df in ${dotfiles_in_config[@]}; do
-	check_if_dir_exists $df
-	dir=$HOME/.config/$df
-	mkdir -p $dir
-	stow --target=$dir --restow $df
-done
-# }}}
-
-# vim: foldmethod=marker foldlevel=0
+stow-config-dotfiles \
+    i3 sxhkd scripts \
+    \
+    i3blocks \
+    picom \
+    \
+    alacritty \
+    rofi \
+    dunst \
+    \
+    qutebrowser \
