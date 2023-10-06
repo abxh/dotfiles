@@ -9,15 +9,11 @@ Opinationed border and transparency logic:
 
 Transparent bars with nice colors and blocklets:
 
-![](./.images/i30.png)
+![](./.images/i3.png)
 
-Notifications:
+Notifications (with the already shown battery notification):
 
-![](./.images/notifs0.png)
-
-![](./.images/notifs1.png)
-
-![](./.images/notifs2.png)
+![](./.images/notifs.png)
 
 And finally as of lately, a *proper* rice of rofi ;) :
 
