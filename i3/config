@@ -68,9 +68,13 @@ exec --no-startup-id nm-applet
 # where (x,y) is the desired position,
 # and (size_x,size_y) is the desired size.
 #
-for_window [class="Lxappearance"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Arandr"] floating enable move position 30 ppt 20 ppt resize set 40 ppt 60 ppt
-for_window [class="Nm-connection-editor"] floating enable
-for_window [class="todo"] floating enable sticky enable move position 69 ppt 5 ppt resize set 30 ppt 40 ppt
-for_window [title="Open Folder"] move position 10 ppt 10 ppt resize set 80 ppt 80 ppt
+
+set $fwin_medium floating enable move position 30 ppt 20 ppt resize set 40 ppt 60 ppt
+set $fwin_big floating enable move position 10 ppt 10 ppt resize set 80 ppt 80 ppt
+set $fwin_widget floating enable sticky enable move position 69 ppt 5 ppt resize set 30 ppt 40 ppt
+for_window [class="Lxappearance"] $fwin_medium
+for_window [class="Pavucontrol"] $fwin_medium
+for_window [class="Arandr"] $fwin_medium
+for_window [class="Nm-connection-editor"] $fwin_medium
+for_window [class="todo"] $fwin_widget
+for_window [title="Open Folder"] $fwin_big
