@@ -28,13 +28,13 @@ XF86Favorites
 
 # print keys
 @Print
-	scrot -a $(slop -f '%x,%y,%w,%h') -e 'xclip -selection clipboard -t image/png -i $f'
+	scrot -a $(slop -f '%x,%y,%w,%h') -e 'xclip -selection clipboard -t image/png -i $f' -s '/tmp/%F_%T_$wx$h.png'
 
 super + @Print
 	scrot -a $(slop -f '%x,%y,%w,%h') ~/pictures/screenshots/'$wx$h_%d-%m-%y.png'
 
 alt + @Print
-	scrot -e 'xclip -selection clipboard -t image/png -i $f'
+	scrot -e 'xclip -selection clipboard -t image/png -i $f' -s '/tmp/%F_%T_$wx$h.png'
 
 super + alt + @Print
 	scrot ~/pictures/screenshots/'full_%d-%m-%y.png'
