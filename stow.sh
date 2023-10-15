@@ -26,7 +26,7 @@ mkdir -p $HOME/.scripts
 stow --restow --target=$HOME/.scripts scripts
 
 stow-config-dotfiles \
-    i3 sxhkd scripts \
+    i3 sxhkd \
     \
     i3blocks \
     picom \
