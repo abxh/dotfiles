@@ -1,11 +1,10 @@
-# i3 config file (v4)
+
 # See https://i3wm.org/docs/userguide.html for a complete reference.
 
 include ~/.config/i3/modes/*
 include ~/.config/i3/bar*
 
-set $mod Mod4
-
+# colors: {{{
 # primary
 set $colorp #d4be98
 # secondary
@@ -26,55 +25,82 @@ set $bar_bg #00000000
 client.focused          $colorpCC $colorpCC #ffffff   $colorsCC $colorpCC
 client.focused_inactive $colorf   $colorf   #ffffff   $colorsCC $colorf
 client.unfocused        $colorf   $colorf   #888888   $colorsCC $colorf
+# }}}
 
-# touchpad/mouse
-# Use Mouse+$mod to drag floating windows to their wanted position
+# keys: {{{
+
+# windows key as $mod
+set $mod Mod4
+
+# use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-# Only initiate a tiling drag when the modifier is held:
+
+# only initiate a tiling drag when the modifier is held:
 tiling_drag modifier
 
-# borders and gaps
+# }}}
+
+# borders and gaps: {{{
+
 default_border pixel
 default_border pixel 1
+
 gaps inner 7
 gaps top -3
 gaps bottom -5
+
 # smart_borders on
 smart_gaps on
 hide_edge_borders vertical
 
-# Font for window titles
+# }}}
+
+# other options: {{{
+
+# font for window titles and bars:
 font pango:JetBrainsMono Nerd Font 12
 
-# other
 workspace_auto_back_and_forth yes
 
-# startup
+# }}}
+
+# startup: {{{
+
 exec_always --no-startup-id hsetroot -extend ~/pictures/wallpapers/wallhaven-j5p23m.jpg
 exec_always --no-startup-id ~/.scripts/sxhkd_restart
 exec_always --no-startup-id ~/.scripts/i3blocklets/focused_window_title_update
 
+# xset + xss-lock + i3lock-color + caffeine-ng for screensaving and locking
+exec --no-startup-id xset 420 180
 exec --no-startup-id xss-lock -- ~/.scripts/i3lock_launch
+exec --no-startup-id caffeine
+
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id picom
 exec --no-startup-id redshift -l $(cat ~/.redshift-coord)
 exec --no-startup-id udiskie --no-automount --no-notify --tray
 exec --no-startup-id nm-applet
 
-# window rules.
-#
+# }}}
+
+# window rules: {{{
+
 # tip:
 # calculate position by (x-size_x)/2 and (y-size_y)/2,
 # where (x,y) is the desired position,
 # and (size_x,size_y) is the desired size.
-#
 
 set $fwin_medium floating enable move position 30 ppt 20 ppt resize set 40 ppt 60 ppt
 set $fwin_big floating enable move position 10 ppt 10 ppt resize set 80 ppt 80 ppt
 set $fwin_widget floating enable sticky enable move position 69 ppt 5 ppt resize set 30 ppt 40 ppt
+
 for_window [class="Lxappearance"] $fwin_medium
 for_window [class="Pavucontrol"] $fwin_medium
 for_window [class="Arandr"] $fwin_medium
 for_window [class="Nm-connection-editor"] $fwin_medium
 for_window [class="todo"] $fwin_widget
 for_window [title="Open Folder"] $fwin_big
+
+# }}}
+
+# vim: ft=i3config fdm=marker foldlevel=0
