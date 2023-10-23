@@ -1,5 +1,5 @@
 # resize window (you can also use the mouse for that - which is better for floating windows)
-set $resize "<span foreground='#282828' background='#d4be98'> resize </span> h, j, k, l: expand window towards direction"
+set $resize "<span foreground='#282828' background='#d4be98'> resize </span> h, j, k, l: move split away from direction"
 
 mode --pango_markup $resize {
         # These bindings trigger as soon as you enter the resize mode
