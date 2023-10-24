@@ -81,6 +81,8 @@ exec --no-startup-id udiskie --no-automount --no-notify --tray
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
+exec --no-startup-id alacritty --class='todo' --title='todo' -e ~/.scripts/todo
+
 # }}}
 
 # window rules: {{{
@@ -92,7 +94,7 @@ exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
 set $fwin_medium floating enable move position 30 ppt 20 ppt resize set 40 ppt 60 ppt
 set $fwin_big floating enable move position 10 ppt 10 ppt resize set 80 ppt 80 ppt
-set $fwin_widget floating enable sticky enable move position 69 ppt 5 ppt resize set 30 ppt 40 ppt
+set $fwin_widget floating enable sticky enable move position 69 ppt 55 ppt resize set 30 ppt 40 ppt
 
 for_window [class="Lxappearance"] $fwin_medium
 for_window [class="Pavucontrol"] $fwin_medium
