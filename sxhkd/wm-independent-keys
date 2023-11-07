@@ -24,7 +24,7 @@ XF86Tools
 	#pgrep -x 'iwctl' && pkill 'iwctl' || alacritty --class 'iwctl' --title 'iwctl' -e iwctl
 
 XF86Favorites
-	pgrep -x 'todo' && pkill 'todo' || alacritty --class='todo' --title='todo' -e ~/.scripts/todo
+	pgrep -x 'todo' && pkill 'todo' || alacritty --class 'todo' --title 'todo' -e ~/.scripts/todo
 
 # print keys
 @Print
