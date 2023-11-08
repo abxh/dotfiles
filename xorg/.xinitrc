@@ -34,7 +34,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 # }}}
 
-# start i3 with xinit and dbus-run-session (for void)
+# start i3 with xinit
 exec dbus-run-session i3
 
 # vim: foldmethod=marker foldlevel=0
