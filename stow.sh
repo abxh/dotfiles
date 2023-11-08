@@ -19,7 +19,7 @@ stow-config-dotfiles() {
 }
 
 stow --restow --target=$HOME xorg zsh \
-    2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2)
+    2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2) # this a fix to a bug i experience.
 
 mkdir -p $HOME/.scripts
 stow --restow --target=$HOME/.scripts scripts
