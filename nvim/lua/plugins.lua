@@ -24,6 +24,12 @@ return {
       local keymaps = require('keymaps').lsp
       local lsp_buf = vim.lsp.buf
 
+      local signs = { Error = "󰅚", Warn = "󰀪", Hint = "󰌶", Info = "" }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl })
+      end
+
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local on_attach = function(_, bufnr)
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -265,6 +271,24 @@ return {
 
   -- pretty indentation: {{{
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", config = true },
+  -- }}}
+
+  -- pretty bar: {{{
+  {'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons', opts = true },
+    config = function()
+      require('lualine').setup({
+        options = {
+          theme = 'gruvbox-material',
+          section_separators = '',
+          component_separators = '|',
+        },
+        sections = {
+          lualine_x = {'filetype'},
+        },
+      })
+      vim.opt.showmode = false
+    end,
+  },
   -- }}}
 
   -- lsp lines: {{{

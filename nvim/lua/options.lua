@@ -107,6 +107,10 @@ M.colorscheme = {
   overrides = {
     CursorLineNr = { fg = "#a89984", bg = "#282828" },
     SignColumn = { bg = "#282828" },
+    DiagnosticSignError = { bg = "#282828", fg = "#ea6962" },
+    DiagnosticSignWarn = { bg = "#282828", fg = "#d8a657" },
+    DiagnosticSignHint = { bg = "#282828", fg = "#89b482"},
+    DiagnosticSignInfo = { bg = "#282828", fg = "#7daea3"},
   },
 }
 
