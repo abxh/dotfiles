@@ -5,7 +5,7 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = { 
       { 'williamboman/mason.nvim', config = true },
-      { 'williamboman/mason-lspconfig.nvim', opts = require('options').lsp_servers },
+      'williamboman/mason-lspconfig.nvim',
 
       { "folke/neodev.nvim", config = true },
       { "folke/neoconf.nvim", config = true, cmd = "Neoconf" },
@@ -13,18 +13,41 @@ return {
       { "ray-x/lsp_signature.nvim", opts = { handler_opts = { border = "none" }, hint_enable = false }},
 
       { 'mfussenegger/nvim-lint', config = function() require('lint').linters_by_ft = require('options').linters end },
-      { 'mhartington/formatter.nvim', config = true },
+      -- { 'mhartington/formatter.nvim', config = true },
     },
-    config = function()
+    init = function()
+      require('mason-lspconfig').setup({
+        ensure_installed = require('options').lsp_servers
+      })
+
+      local map = vim.keymap.set
+      local keymaps = require('keymaps').lsp
+      local lsp_buf = vim.lsp.buf
+
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local on_attach = function(_, bufnr)
+        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+        map('n', keymaps.goto_definition, lsp_buf.definition, bufopts)
+        map('n', keymaps.goto_type_definition, lsp_buf.type_definition, bufopts)
+        map('n', keymaps.goto_references, lsp_buf.references, bufopts)
+        map('n', keymaps.rename, lsp_buf.rename, bufopts)
+
+        -- map('n', '<leader>f', lsp_buf.formatting, bufopts)
+
+        map('n', '<S-k>', lsp_buf.hover, bufopts)
+        map('n', '<S-j>', lsp_buf.signature_help, bufopts)
+
+        -- map('n', 'gi', lsp_buf.implementation, bufopts)
+        -- map('n', '<leader>ca', lsp_buf.code_action, bufopts)
+      end
       local lspconfig = require('lspconfig')
       for _, server in pairs(require('options').lsp_servers) do
-        local opts = {
-          -- on_attach = handlers.on_attach,
-          -- capabilities = handlers.capabilities
-        }
-        lspconfig[server].setup(opts)
+        lspconfig[server].setup({ on_attach = on_attach, capabilities = capabilities })
       end
-      vim.cmd("au BufWritePost * lua require('lint').try_lint()")
     end
   },
   -- }}}
@@ -253,8 +276,8 @@ return {
       local diag_config = vim.diagnostic.config
       diag_config({ virtual_text = false, virtual_lines = false,})
 
-      local value = require('keymaps').lsp.lsp_lines_toggle
-      vim.keymap.set(value[1], value[2], require('lsp_lines').toggle)
+      local keymap = require('keymaps').lsp.lsp_lines_toggle
+      vim.keymap.set('', keymap, require('lsp_lines').toggle)
     end,
   },
   -- }}}

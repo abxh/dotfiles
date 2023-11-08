@@ -46,7 +46,7 @@ M.core = {
   -- other functionality related stuff:
   mouse = 'a',
   updatetime = 300,
-  timeoutlen = 500,
+  timeoutlen = 1000,
   iskeyword = '@,48-57,_,192-255,-',
   whichwrap = '<,>,h,l',
 }
@@ -160,9 +160,7 @@ M.folds = {
 }
 
 M.lsp_servers = {
-  'lua_ls', 'jsonls',
-
-  'pyright',
+  'lua_ls', 'jsonls', 'pyright',
 }
 
 M.linters = {

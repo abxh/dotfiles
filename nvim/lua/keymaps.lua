@@ -42,7 +42,11 @@ M.telescope_builtin = {
 }
 
 M.lsp = {
-  lsp_lines_toggle = { '', '<Leader>l' },
+  lsp_lines_toggle = '<Leader>l',
+  goto_definition = 'gd',
+  goto_type_definition = 'gD',
+  goto_references = 'gr',
+  rename = 'grr',
 }
 
 M.cmp = {
