@@ -102,8 +102,8 @@ alias dl-list='trash-list'
 alias dl-restore='trash-restore'
 
 # ls variations
-alias ls='ls --color=auto -hv --group-directories-first'
-alias la='ls -lAG'
+alias ls='ls --color=auto -v --group-directories-first'
+alias la='ls -lAGh'
 alias lst='tree -v --dirsfirst'
 lsta() {
   # https://unix.stackexchange.com/a/691245
