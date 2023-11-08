@@ -38,8 +38,8 @@ return {
 
         -- map('n', '<leader>f', lsp_buf.formatting, bufopts)
 
-        map('n', '<S-k>', lsp_buf.hover, bufopts)
-        map('n', '<S-j>', lsp_buf.signature_help, bufopts)
+        -- map('n', '<S-k>', lsp_buf.hover, bufopts)
+        -- map('n', '<S-j>', lsp_buf.signature_help, bufopts)
 
         -- map('n', 'gi', lsp_buf.implementation, bufopts)
         -- map('n', '<leader>ca', lsp_buf.code_action, bufopts)
