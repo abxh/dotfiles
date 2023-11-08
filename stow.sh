@@ -21,8 +21,6 @@ stow-config-dotfiles() {
 stow --restow --target=$HOME xorg zsh \
     2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2)
 
-# NOTE:
-# the script sxhkd_restart is important for the function of i3 keybindings
 mkdir -p $HOME/.scripts
 stow --restow --target=$HOME/.scripts scripts
 
