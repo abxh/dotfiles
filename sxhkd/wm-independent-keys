@@ -26,7 +26,6 @@ XF86Tools
 XF86Favorites
 	pgrep -x 'todo' && pkill 'todo' || alacritty --class 'todo' --title 'todo' -e ~/.scripts/todo
 
-# print keys
 @Print
 	scrot -a $(slop -f '%x,%y,%w,%h') ~/pictures/screenshots/'$wx$h_%d-%m-%y.png' -e 'xclip -selection clipboard -t image/png -i $f'
 
