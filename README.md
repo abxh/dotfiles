@@ -34,7 +34,7 @@ The window manager [i3](https://github.com/abxh/dotfiles/tree/main/i3/config) is
 
 The fancy blur effect and other effects comes from [picom](https://github.com/abxh/dotfiles/tree/main/picom/picom.conf).
 
-The bar uses [i3bar](https://github.com/abxh/dotfiles/tree/main/i3/i3bar), [i3blocks](https://github.com/abxh/dotfiles/tree/main/i3blocks) and [scripts](https://github.com/abxh/dotfiles/tree/main/scripts/i3blocklets) to achieve it's magic.
+The bar uses [i3bar](https://github.com/abxh/dotfiles/tree/main/i3/), [i3blocks](https://github.com/abxh/dotfiles/tree/main/i3blocks) and [scripts](https://github.com/abxh/dotfiles/tree/main/scripts/i3blocklets) to achieve it's magic.
 
 Notifications are done through [dunst](https://github.com/abxh/dotfiles/tree/main/dunst) with [scripts](https://github.com/abxh/dotfiles/tree/main/scripts/dunstify).
 
