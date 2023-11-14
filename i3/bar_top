@@ -1,8 +1,7 @@
 # vim: filetype=i3config
 
-# show workspace bar
 bar {
-	id "bar-0"
+	id "bar_top"
 
 	position top
 	binding_mode_indicator no

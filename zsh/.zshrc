@@ -27,9 +27,6 @@ zstyle :compinstall filename '/home/arch/.zshrc'
 # }}}
 
 # set custom prompt {{{
-__parse_git_branch() {
-    git symbolic-ref --short HEAD 2> /dev/null
-}
 
 setopt PROMPT_SUBST
 autoload -U colors && colors
@@ -38,9 +35,10 @@ __green='%{$fg[green]%}'
 __reset_color='%{$reset_color%}'
 __user='%m'
 __percent_symbol='%%'
-__git_branch () { b=$(__parse_git_branch); [ ! "$b" ] || echo "($b) "; }
+__git_branch () { b=$(git symbolic-ref --short HEAD 2> /dev/null); [ ! "$b" ] || echo "($b) "; }
+
 __dir='%~'
-PROMPT=$__green'$(__git_branch)'$__reset_color'${__user}''${__percent_symbol} '
+PROMPT=$__green'$(__git_branch)''$__reset_color'${__user}''${__percent_symbol} '
 RPROMPT=$__blue'${__dir}'$__reset_color
 # }}}
 
@@ -116,7 +114,7 @@ function image() {(imv "$@" &;)}
 function video() {(mpv "$@" &;)}
 function pdf() {(evince "$@" &;)}
 
-function git-clone-ssh() {
+function github-clone-ssh() {
   author="$1"
   repo="$2"
   git clone git@github.com:$author/$repo.git

@@ -7,8 +7,8 @@ c.new_instance_open_target = 'window'
 c.downloads.position = 'bottom'
 # c.spellcheck.languages = ['en-US']
 
-css = '~/.config/qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css'
-config.bind(',n', f'config-cycle content.user_stylesheets {css} ""')
+# css = '~/.config/qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css'
+# config.bind(',n', f'config-cycle content.user_stylesheets {css} ""')
 
 c.fonts.default_family = 'JetBrainsMono Nerd Font'
 c.fonts.default_size = '11pt'
@@ -28,7 +28,7 @@ c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.algorithm = "lightness-cielab"
 c.colors.webpage.darkmode.threshold.text = 150
 c.colors.webpage.darkmode.threshold.background = 100
-c.colors.webpage.darkmode.policy.images = 'smart'
+# c.colors.webpage.darkmode.policy.images = 'smart'
 # c.colors.webpage.darkmode.grayscale.images = 0.35
 
 c.qt.args = [ "blink-settings=darkMode=4" ]

@@ -1,7 +1,7 @@
 # vim: filetype=i3config
 
 bar {
-	id "bar-1"
+	id "bar_bottom"
 
 	position bottom
 	tray_output none

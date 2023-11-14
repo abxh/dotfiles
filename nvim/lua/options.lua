@@ -189,9 +189,6 @@ M.cmp_sources = {
   {
     { name = 'path' },
   },
-  {
-    { name = 'buffer' },
-  },
 }
 
 return M

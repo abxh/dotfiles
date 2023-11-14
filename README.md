@@ -44,11 +44,3 @@ A combination of [zsh](https://github.com/abxh/dotfiles/tree/main/zsh), [Alacrit
 is used as the shell, terminal and editor.
 
 And finally [qutebrowser](https://github.com/abxh/dotfiles/tree/main/qutebrowser) is used. It is a keyboard-driven browser with vim-like bindings.
-
-### Tips
-1. The submodules (in fx the qutebrowser directory) can be downloaded this way:
-  ```
-  git submodule init
-  git submodule update
-  ```
-2. If you have issues with dependencies, then read the individual scripts. If that's not working, see if the metapackages defined [here](https://github.com/abxh/metapkgs) helps.
