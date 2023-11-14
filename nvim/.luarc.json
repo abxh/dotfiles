@@ -1,12 +1,13 @@
 {
-    "workspace.library": [
-        "~/.local/share/nvim/lazy/neodev.nvim/types/stable",
-        "/usr/share/nvim/runtime/lua",
-        "~/.local/share/nvim/lazy/nvim-lspconfig/lua",
-        "~/.local/share/nvim/lazy/neoconf.nvim/lua",
-        "./lua",
-        "~/.local/share/nvim/lazy/neoconf.nvim/types",
-        "~/.local/share/nvim/lazy/neoconf.nvim/types/lua",
-        "${3rd}/luv/library"
-    ]
+  "runtime.version": "LuaJIT",
+  "runtime.path": [
+    "lua/?.lua",
+    "lua/?/init.lua"
+  ],
+  "diagnostics.globals": ["vim"],
+  "workspace.checkThirdParty": false,
+  "workspace.library": [
+    "/usr/share/nvim/runtime/lua",
+    "./lua"
+  ]
 }

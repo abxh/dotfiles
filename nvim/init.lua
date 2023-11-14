@@ -1,21 +1,50 @@
 
--- set core keybindings: {{{
-local opts = { noremap = true, silent = true }
-local map = vim.keymap.set
+-- helpful global functions: {{{
+function put(...)
+  -- inspect the contents of an object
+  local objects = {}
+  for i = 1, select('#', ...) do
+    local v = select(i, ...)
+    table.insert(objects, vim.inspect(v))
+  end
 
-local leaderkey = require('keymaps').leaderkey
-map('', leaderkey, '<Nop>', opts)
-vim.g.mapleader = leaderkey
-vim.g.maplocalleader = leaderkey
+  print(table.concat(objects, '\n'))
+  return ...
+end
 
-for _, value in pairs(require('keymaps').core) do
-  map(value[1], value[2], value[3], opts)
+function apply_keymaps(dict, opts, bind_to_module)
+  if bind_to_module == nil then
+    for _, value in pairs(dict) do
+      vim.keymap.set(value[1], value[2], value[3], opts)
+    end
+  else
+    local module = require(bind_to_module)
+    for _, value in pairs(dict) do
+      vim.keymap.set(value[1], value[2], module[value[3]], opts)
+    end
+  end
 end
 -- }}}
 
+-- set core keybindings: {{{
+local leaderkey = require('keymaps').leaderkey
+vim.keymap.set('', leaderkey, '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = leaderkey
+vim.g.maplocalleader = leaderkey
+
+_G.apply_keymaps(require('keymaps').core, { silent = true })
+-- }}}
+
 -- set core options: {{{
-for key, value in pairs(require('options').core) do
+local opts = require('options').core
+local opts_append_to = opts.append_to
+opts.append_to = nil
+
+for key, value in pairs(opts) do
   vim.opt[key] = value
+end
+for key, value in pairs(opts_append_to) do
+ vim.opt[key]:append(value)
 end
 -- }}}
 
@@ -35,7 +64,7 @@ vim.opt.rtp:prepend(lazypath)
 -- }}}
 
 -- setup plugins: {{{
-require('lazy').setup(require('plugins'))
+require('lazy').setup(unpack(require('plugins')))
 -- }}}
 
 -- vim: fdm=marker

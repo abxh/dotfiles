@@ -47,8 +47,10 @@ M.core = {
   mouse = 'a',
   updatetime = 300,
   timeoutlen = 1000,
-  iskeyword = '@,48-57,_,192-255,-',
-  whichwrap = '<,>,h,l',
+  append_to = {
+   iskeyword = '-',
+   whichwrap = 'h,l',
+  },
 }
 
 M.colorscheme = {
@@ -65,6 +67,8 @@ M.colorscheme = {
   strikethrough = true,
 
   palette_overrides = {
+    -- Gruvbox Material (Medium)
+    -- This palette override thing instead of sainhe for better lsp colors.
     dark0_hard = "#1b1b1b",
     dark0 = "#282828",
     dark0_soft = "#32302f",
@@ -121,9 +125,8 @@ M.treesitter = {
   },
   highlight = {
     enable = true,
-    disable = { 
-      "lua",
-    },
+    -- disable = { "lua", },
+    additional_vim_regex_highlighting = false,
   },
   indent = {
     enable = true
@@ -148,6 +151,50 @@ M.treesitter = {
     -- using own wrapper
     enable = true,
   },
+  textobjects = {
+  select = {
+    enable = true,
+    lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+    keymaps = {
+      -- You can use the capture groups defined in textobjects.scm
+      ['aa'] = '@parameter.outer',
+      ['ia'] = '@parameter.inner',
+      ['af'] = '@function.outer',
+      ['if'] = '@function.inner',
+      ['ac'] = '@class.outer',
+      ['ic'] = '@class.inner',
+    },
+  },
+  move = {
+    enable = true,
+    set_jumps = true, -- whether to set jumps in the jumplist
+    goto_next_start = {
+      [']m'] = '@function.outer',
+      [']]'] = '@class.outer',
+    },
+    goto_next_end = {
+      [']M'] = '@function.outer',
+      [']['] = '@class.outer',
+    },
+    goto_previous_start = {
+      ['[m'] = '@function.outer',
+      ['[['] = '@class.outer',
+    },
+    goto_previous_end = {
+      ['[M'] = '@function.outer',
+      ['[]'] = '@class.outer',
+    },
+  },
+  swap = {
+    enable = true,
+    swap_next = {
+      ['<leader>a'] = '@parameter.inner',
+    },
+    swap_previous = {
+      ['<leader>A'] = '@parameter.inner',
+    },
+  },
+  },
 }
 
 M.folds = {
@@ -163,18 +210,24 @@ M.folds = {
   fill_char = '-',
 }
 
-M.lsp_servers = {
+M.gitsigns = {
+  add = { text = '+' },
+  change = { text = '~' },
+  delete = { text = '_' },
+  topdelete = { text = '‾' },
+  changedelete = { text = '~' },
+}
+
+M.lsps = {
   'lua_ls', 'jsonls', 'pyright',
 }
 
 M.linters = {
-  lua = { 'selene', },
-  python = { 'flake8', },
+
 }
 
 M.formatters = {
-  -- lua = { 'stylua', },
-  python = { 'black', },
+  'stylua', 'jq',
 }
 
 M.cmp_sources = {
@@ -189,6 +242,9 @@ M.cmp_sources = {
   {
     { name = 'path' },
   },
+  -- {
+  --   { name = 'buffer' },
+  -- },
 }
 
 return M
