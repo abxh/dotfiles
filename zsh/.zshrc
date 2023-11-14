@@ -38,7 +38,7 @@ __percent_symbol='%%'
 __git_branch () { b=$(git symbolic-ref --short HEAD 2> /dev/null); [ ! "$b" ] || echo "($b) "; }
 
 __dir='%~'
-PROMPT=$__green'$(__git_branch)''$__reset_color'${__user}''${__percent_symbol} '
+PROMPT=$__green'$(__git_branch)'$__reset_color'${__user}''${__percent_symbol} '
 RPROMPT=$__blue'${__dir}'$__reset_color
 # }}}
 
