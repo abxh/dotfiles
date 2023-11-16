@@ -14,8 +14,6 @@ COUNT=$([ -z "$UPDATES_FILE" ] && echo 9999 || eval "$UPDATES_FILE" | wc -l)
 
 if (( COUNT == 0 )); then
     COUNT='no'
-elif (( COUNT < 10 )); then
-    COUNT='<10'
 fi
 
 echo $LABEL$COUNT updates
