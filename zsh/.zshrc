@@ -110,10 +110,7 @@ lsta() {
 }
 
 # handy shorthands
-function image() {(imv "$@" &;)}
-function video() {(mpv "$@" &;)}
 function pdf() {(evince "$@" &;)}
-
 function github-clone-ssh() {
   author="$1"
   repo="$2"
