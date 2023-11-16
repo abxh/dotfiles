@@ -38,6 +38,8 @@ Notifications are done through [dunst](https://github.com/abxh/dotfiles/tree/mai
 
 Both the bar and notifications use icons from [my fork of the gruvbox-material-gtk theme](https://github.com/abxh/gruvbox-material-gtk) (with OneColored Icons).
 
+Programs are launched using [rofi](https://github.com/abxh/dotfiles/tree/main/rofi).
+
 A combination of [zsh](https://github.com/abxh/dotfiles/tree/main/zsh), [Alacritty](https://github.com/abxh/dotfiles/tree/main/alacritty) and [neovim](https://github.com/abxh/dotfiles/tree/main/nvim)
 is used as the shell, terminal and editor.
 
