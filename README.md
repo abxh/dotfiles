@@ -24,9 +24,7 @@ And finally as of lately, a *proper* rice of rofi ;) :
 > [This wallpaper](https://wallhaven.cc/w/j5p23m) is used in the previews.
 
 ## Intro
-Hey there, :). Welcome to my dotfiles. 
-
-With my dotfiles, I strive to achieve a certain level of elegance and beauty without using a lot of colors and keeping it look simple.
+Hey there, :). Feel free to take a look at the various dotfiles. Use and copy them, if you understand what you are doing.
 
 > **Note:** The following hyperlinks point to directories in this repo.
 
