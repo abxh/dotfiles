@@ -21,14 +21,14 @@ M.core = {
 M.treesitter_incremental_selection = {
   init_selection = "<S-l>",
   node_incremental = "<S-l>",
-  -- scope_incremental = 'grc',
+  -- scope_incremental = "grc",
   node_decremental = "<S-h>",
 }
 
 M.treesitter_navigation = {
-  -- goto_definition = 'gnd',
-  -- list_definitions = 'gnD',
-  -- list_definitions_toc = 'gO',
+  -- goto_definition = "gnd",
+  -- list_definitions = "gnD",
+  -- list_definitions_toc = "gO",
   goto_next_usage = "gnn",
   goto_previous_usage = "gnN",
 }

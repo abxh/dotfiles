@@ -1,4 +1,3 @@
-
 local M = {}
 
 M.core = {
@@ -7,9 +6,9 @@ M.core = {
   number = true,
   numberwidth = 2,
   relativenumber = true,
-  signcolumn = 'yes',
+  signcolumn = "yes",
   cursorline = true,
-  fillchars = { eob = ' ' },
+  fillchars = { eob = " " },
 
   -- don't write any backup or swap files
   writebackup = false,
@@ -44,12 +43,12 @@ M.core = {
   splitright = true,
 
   -- other functionality related stuff:
-  mouse = 'a',
+  mouse = "a",
   updatetime = 300,
   timeoutlen = 1000,
   append_to = {
-   iskeyword = '-',
-   whichwrap = 'h,l',
+    iskeyword = "-",
+    whichwrap = "h,l",
   },
 }
 
@@ -113,15 +112,22 @@ M.colorscheme = {
     SignColumn = { bg = "#282828" },
     DiagnosticSignError = { bg = "#282828", fg = "#ea6962" },
     DiagnosticSignWarn = { bg = "#282828", fg = "#d8a657" },
-    DiagnosticSignHint = { bg = "#282828", fg = "#89b482"},
-    DiagnosticSignInfo = { bg = "#282828", fg = "#7daea3"},
+    DiagnosticSignHint = { bg = "#282828", fg = "#89b482" },
+    DiagnosticSignInfo = { bg = "#282828", fg = "#7daea3" },
   },
 }
 
 M.treesitter = {
   ensure_installed = {
-    "c", "lua", "vim", "vimdoc", "query",
-    "bash", "python", "markdown", "jsonc",
+    "c",
+    "lua",
+    "vim",
+    "vimdoc",
+    "query",
+    "bash",
+    "python",
+    "markdown",
+    "jsonc",
   },
   highlight = {
     enable = true,
@@ -129,7 +135,7 @@ M.treesitter = {
     additional_vim_regex_highlighting = false,
   },
   indent = {
-    enable = true
+    enable = true,
   },
   incremental_selection = {
     enable = true,
@@ -152,95 +158,100 @@ M.treesitter = {
     enable = true,
   },
   textobjects = {
-  select = {
-    enable = true,
-    lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-    keymaps = {
-      -- You can use the capture groups defined in textobjects.scm
-      ['aa'] = '@parameter.outer',
-      ['ia'] = '@parameter.inner',
-      ['af'] = '@function.outer',
-      ['if'] = '@function.inner',
-      ['ac'] = '@class.outer',
-      ['ic'] = '@class.inner',
+    select = {
+      enable = true,
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["aa"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
     },
-  },
-  move = {
-    enable = true,
-    set_jumps = true, -- whether to set jumps in the jumplist
-    goto_next_start = {
-      [']m'] = '@function.outer',
-      [']]'] = '@class.outer',
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
     },
-    goto_next_end = {
-      [']M'] = '@function.outer',
-      [']['] = '@class.outer',
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>a"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>A"] = "@parameter.inner",
+      },
     },
-    goto_previous_start = {
-      ['[m'] = '@function.outer',
-      ['[['] = '@class.outer',
-    },
-    goto_previous_end = {
-      ['[M'] = '@function.outer',
-      ['[]'] = '@class.outer',
-    },
-  },
-  swap = {
-    enable = true,
-    swap_next = {
-      ['<leader>a'] = '@parameter.inner',
-    },
-    swap_previous = {
-      ['<leader>A'] = '@parameter.inner',
-    },
-  },
   },
 }
 
 M.folds = {
   sections = {
     left = {
-       'content',
+      "content",
     },
     right = {
-       ' ', 'number_of_folded_lines', ' ',
-       function(config) return config.fill_char:rep(3) end
-    }
+      " ",
+      "number_of_folded_lines",
+      " ",
+      function(config)
+        return config.fill_char:rep(3)
+      end,
+    },
   },
-  fill_char = '-',
+  fill_char = "-",
 }
 
 M.gitsigns = {
-  add = { text = '+' },
-  change = { text = '~' },
-  delete = { text = '_' },
-  topdelete = { text = '‾' },
-  changedelete = { text = '~' },
+  add = { text = "+" },
+  change = { text = "~" },
+  delete = { text = "_" },
+  topdelete = { text = "‾" },
+  changedelete = { text = "~" },
 }
 
 M.lsps = {
-  'lua_ls', 'jsonls', 'pyright',
+  "lua_ls",
+  "jsonls",
+  "pyright",
 }
 
-M.linters = {
-
-}
+M.linters = {}
 
 M.formatters = {
-  'stylua', 'jq',
+  "stylua",
+  "jq",
 }
 
 M.cmp_sources = {
   {
-    { name = 'nvim_lsp' },
-    { name = 'nvim_lua' },
-    { name = 'luasnip' },
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
   },
   {
-    { name = 'calc' },
+    { name = "calc" },
   },
   {
-    { name = 'path' },
+    { name = "path" },
   },
   -- {
   --   { name = 'buffer' },
@@ -248,4 +259,3 @@ M.cmp_sources = {
 }
 
 return M
-
