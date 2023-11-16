@@ -41,7 +41,7 @@ return {
       opts = {
         signs = require("options").gitsigns,
         on_attach = function(bufnr)
-          apply_keymaps(require("keymaps").gitsigns, { buffer = bufnr }, "gitsigns")
+          _G.apply_keymaps(require("keymaps").gitsigns, { buffer = bufnr }, "gitsigns")
           require("plugins.integrations").gitsigns_keymap(bufnr)
         end,
       },
@@ -101,7 +101,7 @@ return {
       tag = "0.1.4",
       dependencies = { "nvim-lua/plenary.nvim" },
       init = function()
-        apply_keymaps(require("keymaps").telescope_builtin, {}, "telescope.builtin")
+        _G.apply_keymaps(require("keymaps").telescope_builtin, {}, "telescope.builtin")
       end,
       event = "VeryLazy",
     },

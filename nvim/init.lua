@@ -1,6 +1,6 @@
 
 -- helpful global functions: {{{
-function put(...)
+function _G.put(...)
   -- inspect the contents of an object
   local objects = {}
   for i = 1, select('#', ...) do
@@ -12,7 +12,7 @@ function put(...)
   return ...
 end
 
-function apply_keymaps(dict, opts, bind_to_module)
+function _G.apply_keymaps(dict, opts, bind_to_module)
   if bind_to_module == nil then
     for _, value in pairs(dict) do
       vim.keymap.set(value[1], value[2], value[3], opts)
