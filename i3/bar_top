@@ -12,7 +12,6 @@ bar {
 	colors {
 		background $bar_bg
 		statusline $colorw
-		separator  $colorw85
 
 		# <colorclass>     <border>  <background> <text>
 		focused_workspace  $bar_bg   $colorw    $colorb

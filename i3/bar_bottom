@@ -14,7 +14,6 @@ bar {
 	colors {
 		background $bar_bg
 		statusline $colorw
-		separator  $colorw85
 
 		# <colorclass>     <border>  <background> <text>
 		binding_mode       $bar_bg   $bar_bg    $colorw
