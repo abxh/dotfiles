@@ -105,8 +105,8 @@ alias la='ls -lAGh'
 alias lst='tree -v --dirsfirst'
 lsta() {
   # https://unix.stackexchange.com/a/691245
-  rg --ignore --hidden --files --glob '!.git/' "$@" \
-    | lst --fromfile -a
+  rg --ignore --hidden --files --glob '!.git/' \
+    | lst --fromfile -a "$@"
 }
 
 # handy shorthands
