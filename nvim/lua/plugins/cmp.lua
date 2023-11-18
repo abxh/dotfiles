@@ -1,10 +1,10 @@
 local M = {}
 
-M.setup = function()
+M.setup = function(options, keymaps)
   local cmp = require("cmp")
   local cmp_action = require("lsp-zero").cmp_action()
 
-  local keymaps_cmp = require("keymaps").cmp
+  local keymaps_cmp = keymaps.cmp
   local keymaps_cmp_special = keymaps_cmp.lsp_zero
   keymaps_cmp.lsp_zero = nil
 
@@ -19,7 +19,7 @@ M.setup = function()
   require("luasnip.loaders.from_vscode").lazy_load()
 
   cmp.setup({
-    sources = cmp.config.sources(unpack(require("options").cmp_sources)),
+    sources = cmp.config.sources(unpack(options.cmp_sources)),
     mapping = cmp.mapping.preset.insert(keymaps_cmp_new),
     snippet = {
       expand = function(args)

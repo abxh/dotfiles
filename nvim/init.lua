@@ -26,17 +26,20 @@ end
 
 -- }}}
 
+local options = require("options")
+local keymaps = require("keymaps")
+
 -- set core keybindings: {{{
-local leaderkey = require("keymaps").leaderkey
+local leaderkey = keymaps.leaderkey
 vim.keymap.set("", leaderkey, "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = leaderkey
 vim.g.maplocalleader = leaderkey
 
-_G.apply_keymaps(require("keymaps").core, { silent = true })
+_G.apply_keymaps(keymaps.core, { silent = true })
 -- }}}
 
 -- set core options: {{{
-local opts = require("options").core
+local opts = options.core
 local opts_append_to = opts.append_to
 opts.append_to = nil
 
@@ -64,7 +67,7 @@ vim.opt.rtp:prepend(lazypath)
 -- }}}
 
 -- setup plugins: {{{
-require("lazy").setup(unpack(require("plugins")))
+require("lazy").setup(unpack(require("plugins").setup(options, keymaps)))
 -- }}}
 
 -- vim: fdm=marker

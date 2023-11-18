@@ -1,9 +1,9 @@
 local M = {}
 
-M.setup = function()
+M.setup = function(options, keymaps)
   local lsp_signature_opts = { handler_opts = { border = "none" }, hint_enable = false }
 
-  local keymaps = require("keymaps").lsp
+  local keymaps = keymaps.lsp
   local keymaps_diagnostic = keymaps.diagnostic
   keymaps.diagnostic = nil
   keymaps.specials = nil
@@ -19,7 +19,7 @@ M.setup = function()
   lsp_zero.set_sign_icons({ error = "󰅚", warn = "󰀪", hint = "󰌶", info = "" })
 
   require("mason-lspconfig").setup({
-    ensure_installed = require("options").lsps,
+    ensure_installed = options.lsps,
     handlers = { lsp_zero.default_setup },
   })
 end

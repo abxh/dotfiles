@@ -1,8 +1,8 @@
 local M = {}
 
-M.setup = function()
+M.setup = function(options)
   require("mason-null-ls").setup({
-    ensure_installed = vim.tbl_extend("keep", require("options").linters, require("options").formatters),
+    ensure_installed = vim.tbl_extend("keep", options.linters, options.formatters),
     handlers = {},
   })
   require("null-ls").setup()

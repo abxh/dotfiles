@@ -32,9 +32,9 @@ M.core = {
 
 M.barbar = {
   { "n", "<A-,>", ":BufferPrevious<CR>" }, -- native vim: gT
-  { "n", "<A-.>", ":BufferNext<CR>" },     -- native vim: gt
-  { "n", "<A-Enter>", ":tabnew<CR>" },     -- native vim: :tabnew
-  { "n", "<A-q>", ":BufferClose<CR>" },    -- native vim: :tabclose
+  { "n", "<A-.>", ":BufferNext<CR>" }, -- native vim: gt
+  { "n", "<A-Enter>", ":tabnew<CR>" }, -- native vim: :tabnew
+  { "n", "<A-q>", ":BufferClose<CR>" }, -- native vim: :tabclose
 }
 
 M.treesitter_incremental_selection = {
