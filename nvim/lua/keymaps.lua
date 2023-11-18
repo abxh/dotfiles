@@ -88,7 +88,7 @@ M.lsp = {
 }
 
 M.cmp = {
-  lsp_zero = {
+  lsp_zero_cmp_actions = {
     { "<Tab>", "luasnip_supertab", nil },
     { "<S-Tab>", "luasnip_shift_supertab", nil },
   },
