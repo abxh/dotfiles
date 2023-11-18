@@ -3,7 +3,7 @@
 # stow script
 
 # NOTE:
-# please comment out all the packages and test them
+# please comment out all the directories and test them
 # one by one to not break anything in your setup
 
 stow-config-dotfiles() {

@@ -11,7 +11,8 @@ ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chmod g+w /sys/class/leds/%k/bright
 '
 # and add yourself to the `video` user group.
 
-# Or make light do the work of modifying the brightness and just call notify.
+# Or make `light` or `brightnessctl` do the work of modifying the brightness and
+# just call the code in notify (providing a brightness value yourself).
 
 tag="string:x-dunst-stack-tag:brightness"
 path="/sys/class/backlight/amdgpu_bl1"

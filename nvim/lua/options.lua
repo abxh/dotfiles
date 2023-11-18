@@ -119,15 +119,18 @@ M.colorscheme = {
 
 M.treesitter = {
   ensure_installed = {
+    -- as per the example in nvim-treesitter for the things that "should" be installed + jsonc (for neoconf files).
     "c",
     "lua",
     "vim",
     "vimdoc",
     "query",
+    "jsonc",
+
+    -- my own reqs (for now):
     "bash",
     "python",
     "markdown",
-    "jsonc",
   },
   highlight = {
     enable = true,
@@ -231,6 +234,8 @@ M.gitsigns = {
 M.lsps = {
   "lua_ls",
   "jsonls",
+
+  -- my own reqs (for now):
   "pyright",
 }
 
@@ -253,9 +258,7 @@ M.cmp_sources = {
   {
     { name = "path" },
   },
-  -- {
-  --   { name = 'buffer' },
-  -- },
+  -- { { name = 'buffer' }, },
 }
 
 return M
