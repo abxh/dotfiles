@@ -5,8 +5,8 @@ M.setup = function()
   local cmp_action = require("lsp-zero").cmp_action()
 
   local keymaps_cmp = require("keymaps").cmp
-  local keymaps_cmp_special = keymaps_cmp.special
-  keymaps_cmp.special = nil
+  local keymaps_cmp_special = keymaps_cmp.lsp_zero
+  keymaps_cmp.lsp_zero = nil
 
   local keymaps_cmp_new = {}
   for _, value in pairs(keymaps_cmp) do

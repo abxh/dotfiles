@@ -153,6 +153,16 @@ return {
     },
     -- }}}
 
+    -- pretty tabline to manage tabs, buffers, etc.: {{{
+    {
+      "romgrk/barbar.nvim",
+      opts = {},
+      init = function()
+        _G.apply_keymaps(require("keymaps").barbar, {})
+      end,
+    },
+    -- }}}
+
     -- pretty bar: {{{
     {
       "nvim-lualine/lualine.nvim",
@@ -173,7 +183,7 @@ return {
     -- }}}
 
     -- pretty icons: {{{
-    "ryanoasis/vim-devicons",
+    "nvim-tree/nvim-web-devicons",
     -- }}}
 
     -- pretty folds: {{{
@@ -190,7 +200,7 @@ return {
       init = function()
         vim.diagnostic.config({ virtual_text = false, virtual_lines = false })
 
-        local keymap = require("keymaps").lsp.special.lsp_lines_toggle
+        local keymap = require("keymaps").lsp.specials.lsp_lines_toggle
         vim.keymap.set(keymap[1], keymap[2], require("lsp_lines").toggle)
       end,
       opts = {},

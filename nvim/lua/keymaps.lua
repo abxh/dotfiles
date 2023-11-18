@@ -16,6 +16,25 @@ M.core = {
   { "n", "<C-v>", '"+p' },
   { "v", "<C-v>", 'c<Esc>"+p' },
   { "i", "<C-v>", "<C-r><C-o>+" },
+
+  -- window navigation
+  { "n", "<A-k>", "<C-w>k" },
+  { "n", "<A-j>", "<C-w>j" },
+  { "n", "<A-h>", "<C-w>h" },
+  { "n", "<A-l>", "<C-w>l" },
+
+  -- window resize
+  { "n", "<A-S-k>", ":resize +2<CR>" },
+  { "n", "<A-S-j>", ":resize -2<CR>" },
+  { "n", "<A-S-h>", ":vertical resize -2<CR>" },
+  { "n", "<A-S-l>", ":vertical resize +2<CR>" },
+}
+
+M.barbar = {
+  { "n", "<A-,>", ":BufferPrevious<CR>" }, -- native vim: gT
+  { "n", "<A-.>", ":BufferNext<CR>" },     -- native vim: gt
+  { "n", "<A-Enter>", ":tabnew<CR>" },     -- native vim: :tabnew
+  { "n", "<A-q>", ":BufferClose<CR>" },    -- native vim: :tabclose
 }
 
 M.treesitter_incremental_selection = {
@@ -46,7 +65,7 @@ M.gitsigns = {
 }
 
 M.lsp = {
-  special = {
+  specials = {
     lsp_lines_toggle = { "n", "<leader>l" },
   },
 
@@ -69,7 +88,7 @@ M.lsp = {
 }
 
 M.cmp = {
-  special = {
+  lsp_zero = {
     { "<Tab>", "luasnip_supertab", nil },
     { "<S-Tab>", "luasnip_shift_supertab", nil },
   },

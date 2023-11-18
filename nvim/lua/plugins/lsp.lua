@@ -6,7 +6,7 @@ M.setup = function()
   local keymaps = require("keymaps").lsp
   local keymaps_diagnostic = keymaps.diagnostic
   keymaps.diagnostic = nil
-  keymaps.special = nil
+  keymaps.specials = nil
 
   local lsp_zero = require("lsp-zero")
 
