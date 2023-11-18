@@ -240,6 +240,7 @@ M.lsps = {
 
   -- my own reqs (for now):
   "pyright",
+  "clangd",
 }
 
 M.linters = {}
