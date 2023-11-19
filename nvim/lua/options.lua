@@ -134,6 +134,7 @@ M.treesitter = {
     "bash",
     "python",
     "markdown",
+    "haskell",
   },
   highlight = {
     enable = true,
@@ -241,6 +242,10 @@ M.lsps = {
   -- my own reqs (for now):
   "pyright",
   "clangd",
+
+  manual = {
+    "hls",
+  }
 }
 
 M.linters = {}

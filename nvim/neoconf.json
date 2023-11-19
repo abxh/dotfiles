@@ -1,22 +1,15 @@
 {
-  "lspconfig": {
-    "lua_ls": {
-      "Lua.runtime.version": "LuaJIT",
-      "Lua.workspace.checkThirdParty": false,
-      "Lua.diagnostics.globals": ["vim"],
-      "Lua.runtime.path": [
-        "lua/?.lua",
-        "lua/?/init.lua"
-      ],
-      "Lua.workspace.library": [
-        "/usr/share/nvim/runtime/lua",
-        "./lua"
-      ]
-    },
-    "clangd": {
-      "clangd.arguments": [
-        "--clang-tidy",
-      ]
-    },
+  "neodev": {
+    "library": {
+      "enabled": true,
+      "plugins": ["neoconf.nvim", "nvim-lspconfig"]
+    }
+  },
+  "neoconf": {
+    "plugins": {
+      "lua_ls": {
+        "enabled": true
+      }
+    }
   }
 }

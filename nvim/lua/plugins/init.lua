@@ -84,8 +84,10 @@ M.setup = function(options, keymaps)
           "nvimtools/none-ls.nvim",
 
           "folke/neoconf.nvim",
+          "folke/neodev.nvim",
         },
         config = function()
+          require("neodev").setup()
           require("neoconf").setup()
           M.lsp.setup(options, keymaps)
           M.cmp.setup(options, keymaps)
