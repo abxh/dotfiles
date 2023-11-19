@@ -224,7 +224,7 @@ M.folds = {
       end,
     },
   },
-  fill_char = "-",
+  fill_char = "─",
 }
 
 M.gitsigns = {
