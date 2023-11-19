@@ -19,10 +19,10 @@ M.setup = function(options, keymaps)
   lsp_zero.set_sign_icons({ error = "󰅚", warn = "󰀪", hint = "󰌶", info = "" })
 
   local servers = vim.deepcopy(options.lsps)
-  servers.manual = nil
-  require("mason-lspconfig").setup({ ensure_installed = servers })
+  require("mason-lspconfig").setup({ ensure_installed = servers, automatic_installation = { exclude = servers.manual }})
 
-  servers = vim.tbl_extend("keep", servers, options.lsps.manual)
+  servers = vim.list_extend(servers, servers.manual)
+  servers.manual = nil
   for _, server_name in pairs(servers) do
     local specified, opts = pcall(require, "lspconfigs." .. server_name)
     if specified then

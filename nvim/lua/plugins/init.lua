@@ -34,7 +34,7 @@ M.setup = function(options, keymaps)
         "numToStr/Comment.nvim",
         opts = keymaps.comment,
         config = function(_, opts)
-          require("Comment").setup(vim.tbl_extend("keep", opts, {
+          require("Comment").setup(vim.tbl_deep_extend("keep", opts, {
             pre_hook = M.integrations.comment_treesitter(),
           }))
         end,
@@ -121,7 +121,7 @@ M.setup = function(options, keymaps)
       {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        opts = vim.tbl_extend("keep", options.treesitter, {
+        opts = vim.tbl_deep_extend("force", options.treesitter, {
           incremental_selection = {
             keymaps = keymaps.treesitter_incremental_selection,
           },
