@@ -11,6 +11,13 @@ M.setup = function(options, keymaps)
   local lsp_zero = require("lsp-zero")
 
   _G.apply_keymaps(keymaps_diagnostic, {}, "vim.diagnostic")
+  vim.diagnostic.config({
+    float = {
+      header = false,
+      border = 'none',
+      focusable = true,
+    },
+  })
 
   lsp_zero.on_attach(function(client, bufnr)
     _G.apply_keymaps(keymaps_lsp, { buffer = bufnr }, "vim.lsp.buf")

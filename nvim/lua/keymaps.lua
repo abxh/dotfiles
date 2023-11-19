@@ -81,7 +81,7 @@ M.lsp = {
   { "n", "<F4>", "code_action" },
 
   diagnostic = {
-    { "n", "gl", "open_float" },
+    { "n", "K", "open_float" },
     { "n", "[d", "goto_prev" },
     { "n", "]d", "goto_next" },
   },
