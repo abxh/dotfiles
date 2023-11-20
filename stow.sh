@@ -2,6 +2,12 @@
 
 # stow script
 
+# Warning:
+# Do not use this script unless you know what you are doing. (Or learn it by testing it before
+# using every configuration here).
+#
+# You might break your own configuration.
+
 stow-config-dotfiles() {
     for stow_pkg in "$@"; do
         target="$HOME/.config/$stow_pkg"
