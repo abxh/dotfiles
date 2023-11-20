@@ -2,10 +2,6 @@
 
 # stow script
 
-# NOTE:
-# please comment out all the directories and test them
-# one by one to not break anything in your setup
-
 stow-config-dotfiles() {
     for stow_pkg in "$@"; do
         target="$HOME/.config/$stow_pkg"
