@@ -163,13 +163,10 @@ M.setup = function(options, keymaps)
       },
       -- }}}
 
-      -- pretty tabline to manage tabs, buffers, etc.: {{{
+      -- simple tabline: {{{
       {
-        "romgrk/barbar.nvim",
+        'crispgm/nvim-tabline',
         opts = {},
-        init = function()
-          _G.apply_keymaps(keymaps.barbar, {})
-        end,
       },
       -- }}}
 
@@ -193,7 +190,7 @@ M.setup = function(options, keymaps)
       -- }}}
 
       -- pretty icons: {{{
-      "nvim-tree/nvim-web-devicons",
+      "ryanoasis/vim-devicons",
       -- }}}
 
       -- pretty folds: {{{

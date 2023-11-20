@@ -28,13 +28,12 @@ M.core = {
   { "n", "<A-S-j>", ":resize -2<CR>" },
   { "n", "<A-S-h>", ":vertical resize -2<CR>" },
   { "n", "<A-S-l>", ":vertical resize +2<CR>" },
-}
 
-M.barbar = {
-  { "n", "<A-,>", ":BufferPrevious<CR>" }, -- native vim: gT
-  { "n", "<A-.>", ":BufferNext<CR>" }, -- native vim: gt
-  { "n", "<A-Enter>", ":tabnew<CR>" }, -- native vim: :tabnew
-  { "n", "<A-q>", ":BufferClose<CR>" }, -- native vim: :tabclose
+  -- tab navigation
+  { "n", "<A-,>", "gT" },
+  { "n", "<A-.>", "gt" },
+  { "n", "<A-Enter>", ":tabnew<CR>" },
+  { "n", "<A-q>", ":tabclose<CR>" },
 }
 
 M.treesitter_incremental_selection = {
