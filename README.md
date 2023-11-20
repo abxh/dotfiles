@@ -8,5 +8,5 @@ Or don't use the script at all. You might break your current configuration.
 
 Most dependencies should be inferrable from the config files or scripts themselves.
 
-The only dependency that might be hard to find is this fork of the gruvbox material gtk theme I made. [Link](https://github.com/abxh/gruvbox-material-gtk).
+The only dependency that might be hard to find is this fork of the gruvbox material gtk theme I made and use. [Link](https://github.com/abxh/gruvbox-material-gtk).
 
