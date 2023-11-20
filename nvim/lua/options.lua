@@ -25,7 +25,7 @@ M.core = {
 
   -- fold everything with a maximum nesting of 4.
   -- note: this only applies at the start, if RememberFolds autocmd is enabled.
-  foldlevel = 0,
+  foldlevel = 9,
   foldnestmax = 4,
 
   -- how many lines to look ahead when scrolling in the x-
