@@ -3,10 +3,10 @@
 # stow script
 
 # Warning:
-# Do not use this script unless you know what you are doing. (Or learn it by testing it before
-# using every configuration here).
+# Do not use this script unless you know what you are doing. (Or learn it by testing it by dummy
+# tests or your own configs).
 #
-# You might break your own configuration.
+# You might break your current configuration.
 
 stow-config-dotfiles() {
     for stow_pkg in "$@"; do
