@@ -11,14 +11,14 @@ configuration {
   bg: #282828;
   bgt: #28282895;
   t: transparent;
-  fg: #d4be98;
+  fg: #d5c4a1;
 
   selected-bg: @fg;
   selected-fg: @bg;
 
   // for windows
-  active: #a9b665;
-  urgent: #ea6962;
+  active: #b8bb26;
+  urgent: #fb4934;
 }
 
 window {

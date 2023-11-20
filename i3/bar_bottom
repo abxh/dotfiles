@@ -13,10 +13,10 @@ bar {
 
 	colors {
 		background $bar_bg
-		statusline $colorw
+		statusline $colorp
 
 		# <colorclass>     <border>  <background> <text>
-		binding_mode       $bar_bg   $bar_bg    $colorw
+		binding_mode       $bar_bg   $bar_bg    $colorp
 		urgent_workspace   $bar_bg   $bar_bg    $coloru
 
 		# urgent_workspace here is for i3blocklets that use exit(33)

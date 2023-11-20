@@ -11,11 +11,11 @@ bar {
 
 	colors {
 		background $bar_bg
-		statusline $colorw
+		statusline $colorp
 
 		# <colorclass>     <border>  <background> <text>
-		focused_workspace  $bar_bg   $colorw    $colorb
-		active_workspace   $bar_bg   $colorw    $colorw
-		inactive_workspace $bar_bg   $bar_bg    $colorw
+		focused_workspace  $bar_bg   $colorp    $colorf
+		active_workspace   $bar_bg   $colorp    $colorf
+		inactive_workspace $bar_bg   $bar_bg    $colorp
 		urgent_workspace   $bar_bg   $bar_bg    $coloru
 }}

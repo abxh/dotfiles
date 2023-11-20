@@ -5,26 +5,17 @@ include ~/.config/i3/modes/*
 include ~/.config/i3/bar*
 
 # colors: {{{
-# primary
-set $colorp #d4be98
-# secondary
-set $colors #ffffff
-# foreground
-set $colorf #3c3836
-# alt foreground
-set $colorb #282828
-# highlighted foreground
-set $colorw #d4be98
-# urgent
-set $coloru #ea6962
-# bar background
+set $colorp #d5c4a1
+set $colorf #282828
+set $coloru #fb4934
+set $colorh #ffffff
 set $bar_bg #00000000
 
 # border colors:
 # class                 border    backgr.   text      indicator child_border
-client.focused          $colorpCC $colorpCC #ffffff   $colorsCC $colorpCC
-client.focused_inactive $colorf   $colorf   #ffffff   $colorsCC $colorf
-client.unfocused        $colorf   $colorf   #888888   $colorsCC $colorf
+client.focused          $colorpCC $colorpCC #ffffff   #ffffffCC $colorpCC
+client.focused_inactive $colorf   $colorf   #ffffff   #ffffffCC $colorf
+client.unfocused        $colorf   $colorf   #888888   #ffffffCC $colorf
 # }}}
 
 # keys: {{{
