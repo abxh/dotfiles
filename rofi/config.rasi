@@ -11,13 +11,13 @@ configuration {
   bg: #282828;
   bgt: #28282895;
   t: transparent;
-  fg: #d5c4a1;
+  fg: #d4be98;
 
   selected-bg: @fg;
   selected-fg: @bg;
 
   // for windows
-  active: #b8bb26;
+  active: #a9b665;
   urgent: #fb4934;
 }
 

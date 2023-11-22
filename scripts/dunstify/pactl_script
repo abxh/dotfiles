@@ -12,7 +12,7 @@ source_tag="string:x-dunst-stack-tag:source"
 
 vol_max=153
 
-bar_color="#d5c4a1"
+bar_color="#d4be98"
 muted_bar_color="$bar_color"70
 
 function sink_notification {

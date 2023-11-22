@@ -5,7 +5,7 @@ include ~/.config/i3/modes/*
 include ~/.config/i3/bar*
 
 # colors: {{{
-set $colorp #d5c4a1
+set $colorp #d4be98
 set $colorf #282828
 set $coloru #fb4934
 set $colorh #ffffff

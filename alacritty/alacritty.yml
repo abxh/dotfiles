@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/base16-gruvbox-dark-medium.yml
+  - ~/.config/alacritty/gruvbox-material-alacritty.yml
 window:
   padding:
     x: 5
