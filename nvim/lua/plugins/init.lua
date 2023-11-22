@@ -167,7 +167,7 @@ M.setup = function(options, keymaps)
 
       -- simple tabline: {{{
       {
-        'crispgm/nvim-tabline',
+        "crispgm/nvim-tabline",
         opts = {},
       },
       -- }}}
@@ -209,7 +209,7 @@ M.setup = function(options, keymaps)
         init = function()
           vim.diagnostic.config({ virtual_text = false, virtual_lines = false })
 
-          if keymaps.lsp.specials ~=nil and keymaps.lsp.specials.lsp_lines_toggle ~= nil then
+          if keymaps.lsp.specials ~= nil and keymaps.lsp.specials.lsp_lines_toggle ~= nil then
             local keymap = keymaps.lsp.specials.lsp_lines_toggle
             vim.keymap.set(keymap[1], keymap[2], require("lsp_lines").toggle)
           end

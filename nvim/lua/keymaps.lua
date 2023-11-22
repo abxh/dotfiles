@@ -1,5 +1,4 @@
-
--- note: 
+-- note:
 -- will only check for nil value after the first level of the dictionaries.
 -- that is that the top level dictionary must be defined (it must at least be empty).
 -- exception: coerce dict which is not used by anything.
@@ -24,9 +23,9 @@ M.core = {
   { "i", "<C-v>", "<C-r><C-o>+" },
 
   -- windows split / close
-  { "n", "<A-v>", ":vsplit<CR>"},
-  { "n", "<A-b>", ":split<CR>"},
-  { "n", "<A-S-q>", ":q<CR>"},
+  { "n", "<A-v>", ":vsplit<CR>" },
+  { "n", "<A-b>", ":split<CR>" },
+  { "n", "<A-S-q>", ":q<CR>" },
 
   -- window navigation
   { "n", "<A-k>", "<C-w>k" },

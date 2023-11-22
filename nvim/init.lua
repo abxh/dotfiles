@@ -1,4 +1,3 @@
-
 -- set global functions: {{{
 _G.put = vim.print
 _G.apply_keymaps = function(dict, opts, bind_to_module)
@@ -8,7 +7,7 @@ _G.apply_keymaps = function(dict, opts, bind_to_module)
     end
   else
     local m = require(bind_to_module)
-    for _,v in pairs(dict) do
+    for _, v in pairs(dict) do
       vim.keymap.set(v[1], v[2], m[v[3]], opts)
     end
   end
@@ -63,7 +62,7 @@ vim.opt.rtp:prepend(lazypath)
 -- }}}
 
 -- setup plugins: {{{
-require("lazy").setup(unpack(require("plugins").setup(options, keymaps)))
+require("lazy").setup(unpack(require("plugins").setup(require("options"), require("keymaps"))))
 -- }}}
 
 -- vim: fdm=marker

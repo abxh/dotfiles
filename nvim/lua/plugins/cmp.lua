@@ -20,7 +20,7 @@ M.setup = function(options, keymaps)
   end
 
   require("luasnip.loaders.from_vscode").lazy_load()
-  
+
   cmp.setup({
     sources = cmp.config.sources(unpack(options.cmp_sources)),
     mapping = cmp.mapping.preset.insert(keymaps_cmp_new),

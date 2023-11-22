@@ -1,5 +1,4 @@
-
--- note: 
+-- note:
 -- will only check for nil value after the first level of the dictionaries.
 -- that is that the top level dictionary must be defined (it must at least be empty).
 
@@ -208,7 +207,7 @@ M.lsps = {
 
   manual = {
     "hls",
-  }
+  },
 }
 
 M.linters = {}
