@@ -1,3 +1,9 @@
+
+-- note: 
+-- will only check for nil value after the first level of the dictionaries.
+-- that is that the top level dictionary must be defined (it must at least be empty).
+-- exception: coerce dict which is not used by anything.
+
 local M = {}
 
 M.core = {
@@ -153,7 +159,8 @@ M.surround = {
 }
 
 M.coerce = {
-  -- this dictionary serves no real function. Is a helpful note for vim-abolish.
+  -- this dictionary is not used for anything. Is a helpful note for vim-abolish.
+  -- note: I created this as i could not find a easy way to redefine the vim-abolish keybinds.
 
   -- cr stands for coerce.
 

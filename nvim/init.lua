@@ -21,11 +21,13 @@ local keymaps = require("keymaps")
 -- set core keybindings: {{{
 local keymap_options = { noremap = true, silent = true }
 
-local leaderkey = keymaps.core.leaderkey
-vim.keymap.set("", leaderkey, "<Nop>", keymap_options)
-vim.g.mapleader = leaderkey
-vim.g.maplocalleader = leaderkey
-keymaps.core.leaderkey = nil
+if keymaps.core.leaderkey ~= nil then
+  local leaderkey = keymaps.core.leaderkey
+  vim.keymap.set("", leaderkey, "<Nop>", keymap_options)
+  vim.g.mapleader = leaderkey
+  vim.g.maplocalleader = leaderkey
+  keymaps.core.leaderkey = nil
+end
 
 _G.apply_keymaps(keymaps.core, keymap_options)
 -- }}}

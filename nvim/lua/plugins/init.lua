@@ -134,9 +134,11 @@ M.setup = function(options, keymaps)
         config = function(_, opts)
           require("nvim-treesitter.configs").setup(opts)
 
-          if opts.fold.enable then
-            vim.opt.foldmethod = "expr"
-            vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+          if opts.fold ~= nil and opts.fold.enable ~= nil then
+            if opts.fold.enable then
+              vim.opt.foldmethod = "expr"
+              vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+            end
           end
         end,
         dependencies = {
@@ -207,8 +209,10 @@ M.setup = function(options, keymaps)
         init = function()
           vim.diagnostic.config({ virtual_text = false, virtual_lines = false })
 
-          local keymap = keymaps.lsp.specials.lsp_lines_toggle
-          vim.keymap.set(keymap[1], keymap[2], require("lsp_lines").toggle)
+          if keymaps.lsp.specials ~=nil and keymaps.lsp.specials.lsp_lines_toggle ~= nil then
+            local keymap = keymaps.lsp.specials.lsp_lines_toggle
+            vim.keymap.set(keymap[1], keymap[2], require("lsp_lines").toggle)
+          end
         end,
         opts = {},
         event = "VeryLazy",

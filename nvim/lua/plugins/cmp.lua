@@ -5,19 +5,22 @@ M.setup = function(options, keymaps)
   local cmp_action = require("lsp-zero").cmp_action()
 
   local keymaps_cmp = vim.deepcopy(keymaps.cmp)
-  local keymaps_cmp_special = vim.deepcopy(keymaps_cmp.lsp_zero_cmp_actions)
-  keymaps_cmp.lsp_zero_cmp_actions = nil
-
   local keymaps_cmp_new = {}
+
+  if keymaps_cmp.lsp_zero_cmp_actions ~= nil then
+    local keymaps_cmp_special = vim.deepcopy(keymaps_cmp.lsp_zero_cmp_actions)
+    keymaps_cmp.lsp_zero_cmp_actions = nil
+    for _, value in pairs(keymaps_cmp_special) do
+      keymaps_cmp_new[value[1]] = cmp_action[value[2]](value[3])
+    end
+  end
+
   for _, value in pairs(keymaps_cmp) do
     keymaps_cmp_new[value[1]] = cmp.mapping[value[2]](value[3])
   end
-  for _, value in pairs(keymaps_cmp_special) do
-    keymaps_cmp_new[value[1]] = cmp_action[value[2]](value[3])
-  end
 
   require("luasnip.loaders.from_vscode").lazy_load()
-
+  
   cmp.setup({
     sources = cmp.config.sources(unpack(options.cmp_sources)),
     mapping = cmp.mapping.preset.insert(keymaps_cmp_new),
