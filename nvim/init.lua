@@ -34,14 +34,16 @@ _G.apply_keymaps(keymaps.core, keymap_options)
 
 -- set core options: {{{
 local core_options = options.core
-local opts_append_to = core_options.append_to
-core_options.append_to = nil
+if core_options.append_to ~= nil then
+  local opts_append_to = core_options.append_to
+  for key, value in pairs(opts_append_to) do
+    vim.opt[key]:append(value)
+  end
+  core_options.append_to = nil
+end
 
 for key, value in pairs(core_options) do
   vim.opt[key] = value
-end
-for key, value in pairs(opts_append_to) do
-  vim.opt[key]:append(value)
 end
 -- }}}
 
