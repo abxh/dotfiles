@@ -17,6 +17,11 @@ M.core = {
   { "v", "<C-v>", 'c<Esc>"+p' },
   { "i", "<C-v>", "<C-r><C-o>+" },
 
+  -- windows split / close
+  { "n", "<A-v>", ":vsplit<CR>"},
+  { "n", "<A-b>", ":split<CR>"},
+  { "n", "<A-q>", ":q<CR>"},
+
   -- window navigation
   { "n", "<A-k>", "<C-w>k" },
   { "n", "<A-j>", "<C-w>j" },
@@ -33,7 +38,8 @@ M.core = {
   { "n", "<A-,>", "gT" },
   { "n", "<A-.>", "gt" },
   { "n", "<A-Enter>", ":tabnew<CR>" },
-  { "n", "<A-q>", ":tabclose<CR>" },
+  { "n", "<A-S-q>", ":tabclose<CR>" },
+
 }
 
 M.treesitter_incremental_selection = {
