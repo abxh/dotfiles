@@ -1,49 +1,41 @@
--- helpful global functions: {{{
-function _G.put(...)
-  -- inspect the contents of an object
-  local objects = {}
-  for i = 1, select("#", ...) do
-    local v = select(i, ...)
-    table.insert(objects, vim.inspect(v))
-  end
 
-  print(table.concat(objects, "\n"))
-  return ...
-end
-
-function _G.apply_keymaps(dict, opts, bind_to_module)
+-- set global functions: {{{
+_G.put = vim.print
+_G.apply_keymaps = function(dict, opts, bind_to_module)
   if bind_to_module == nil then
-    for _, value in pairs(dict) do
-      vim.keymap.set(value[1], value[2], value[3], opts)
+    for _, v in pairs(dict) do
+      vim.keymap.set(v[1], v[2], v[3], opts)
     end
   else
-    local module = require(bind_to_module)
-    for _, value in pairs(dict) do
-      vim.keymap.set(value[1], value[2], module[value[3]], opts)
+    local m = require(bind_to_module)
+    for _,v in pairs(dict) do
+      vim.keymap.set(v[1], v[2], m[v[3]], opts)
     end
   end
 end
-
 -- }}}
 
 local options = require("options")
 local keymaps = require("keymaps")
 
 -- set core keybindings: {{{
-local leaderkey = keymaps.leaderkey
-vim.keymap.set("", leaderkey, "<Nop>", { noremap = true, silent = true })
+local keymap_options = { noremap = true, silent = true }
+
+local leaderkey = keymaps.core.leaderkey
+vim.keymap.set("", leaderkey, "<Nop>", keymap_options)
 vim.g.mapleader = leaderkey
 vim.g.maplocalleader = leaderkey
+keymaps.core.leaderkey = nil
 
-_G.apply_keymaps(keymaps.core, { silent = true })
+_G.apply_keymaps(keymaps.core, keymap_options)
 -- }}}
 
 -- set core options: {{{
-local opts = options.core
-local opts_append_to = opts.append_to
-opts.append_to = nil
+local core_options = options.core
+local opts_append_to = core_options.append_to
+core_options.append_to = nil
 
-for key, value in pairs(opts) do
+for key, value in pairs(core_options) do
   vim.opt[key] = value
 end
 for key, value in pairs(opts_append_to) do
@@ -59,7 +51,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end

@@ -1,8 +1,8 @@
 local M = {}
 
-M.leaderkey = ","
-
 M.core = {
+  leaderkey = ",",
+
   -- cancel search with <Esc>
   { "n", "<Esc>", ":noh<CR>" },
 
@@ -39,7 +39,6 @@ M.core = {
   { "n", "<A-.>", "gt" },
   { "n", "<A-Enter>", ":tabnew<CR>" },
   { "n", "<A-S-q>", ":tabclose<CR>" },
-
 }
 
 M.treesitter_incremental_selection = {
@@ -87,6 +86,7 @@ M.lsp = {
 
   diagnostic = {
     { "n", "K", "open_float" },
+    -- use q to get out of float.
     { "n", "[d", "goto_prev" },
     { "n", "]d", "goto_next" },
   },
@@ -152,7 +152,7 @@ M.surround = {
   change_line = "cS",
 }
 
-M.change_naming_variant = {
+M.coerce = {
   -- this dictionary serves no real function. Is a helpful note for vim-abolish.
 
   -- cr stands for coerce.
