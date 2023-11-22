@@ -27,9 +27,13 @@ M.core = {
   viewoptions = "folds,cursor,",
   viewdir = "/tmp/view//",
 
-  -- fold with a maximum nesting of 4.
-  -- note: this only applies at the start, if RememberFolds autocmd is enabled.
-  foldlevel = 9,
+  -- fold everything with a maximum nesting of 4.
+  -- note: 
+  -- - this only applies at the start, if remember_view autocmd is enabled.
+  -- - set `<comment_sign> vim: fdl=99`, if you don't want to repeatedly unfold everything by typing `zR` or `zO`.
+  -- - if the remember_view insists on a foldmethod even after a modeline is set, manually
+  --   set `:set fdm=manual`, `expr` or `marker` from vim commandline.
+  foldlevel = 0,
   foldnestmax = 4,
 
   -- how many lines to look ahead when scrolling in the x-
