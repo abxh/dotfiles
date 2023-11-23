@@ -131,13 +131,15 @@ M.colorscheme = {
 
 M.treesitter = {
   ensure_installed = {
-    -- as per the example in nvim-treesitter for the things that "should" be installed + jsonc (for neoconf files).
+    -- as per the example in nvim-treesitter for the things that "should" be installed + json/jsonc + yaml
     "c",
     "lua",
     "vim",
     "vimdoc",
     "query",
+    "json",
     "jsonc",
+    "yaml",
 
     -- my own reqs (for now):
     "bash",
@@ -199,8 +201,10 @@ M.gitsigns = {
 }
 
 M.lsps = {
+  -- to install these langauge servers, Mason requires:
+  -- npm
+
   "lua_ls",
-  "jsonls",
 
   -- my own reqs (for now):
   "pyright",
@@ -215,7 +219,6 @@ M.linters = {}
 
 M.formatters = {
   "stylua",
-  "jq",
 }
 
 M.cmp_sources = {
