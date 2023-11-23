@@ -166,9 +166,6 @@ M.treesitter = {
       enable = true,
     },
   },
-  context_commentstring = {
-    enable = true,
-  },
   fold = {
     -- using own wrapper
     enable = true,
