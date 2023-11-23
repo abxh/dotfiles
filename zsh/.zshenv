@@ -13,9 +13,11 @@ export LS_COLORS
 # append extra paths in PATH variable:
 typeset -U path PATH
 path=(
-	~/.dotnet
-	~/.local/bin
-	$path
+  ~/.local/bin
+  ~/.cabal/bin
+  ~/.ghcup/bin
+  ~/.dotnet
+  $path
 )
 export PATH
 
