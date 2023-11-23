@@ -2,7 +2,6 @@ local M = {}
 
 M.lsp = require("plugins.lsp")
 M.cmp = require("plugins.cmp")
-M.null_ls = require("plugins.null-ls")
 M.integrations = require("plugins.integrations")
 
 M.setup = function(options, keymaps)
@@ -30,7 +29,10 @@ M.setup = function(options, keymaps)
 
       -- comment lines: {{{
       {
-        dependencies = { "nvim-treesitter/nvim-treesitter", "JoosepAlviste/nvim-ts-context-commentstring" },
+        dependencies = {
+          "nvim-treesitter/nvim-treesitter",
+          { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
+        },
         "numToStr/Comment.nvim",
         opts = keymaps.comment,
         config = function(_, opts)
@@ -91,7 +93,11 @@ M.setup = function(options, keymaps)
           require("neoconf").setup()
           M.lsp.setup(options, keymaps)
           M.cmp.setup(options, keymaps)
-          M.null_ls.setup(options)
+          require("mason-null-ls").setup({
+            ensure_installed = vim.list_extend(options.linters, options.formatters),
+            handlers = {},
+          })
+          require("null-ls").setup()
         end,
       },
       -- }}}
@@ -110,6 +116,11 @@ M.setup = function(options, keymaps)
         "nvim-telescope/telescope.nvim",
         tag = "0.1.4",
         dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+          defaults = {
+            borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+          },
+        },
         init = function()
           _G.apply_keymaps(keymaps.telescope_builtin, {}, "telescope.builtin")
         end,
