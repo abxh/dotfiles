@@ -15,7 +15,7 @@ markup=pango
 interval=30
 
 [calendar]
-command=~/.scripts/i3blocklets/calendar
+command=$SCRIPT_DIR/calendar
 interval=1
 LABEL= 
 DATEFMT=+%d %b %Y %H:%M:%S
