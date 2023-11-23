@@ -179,6 +179,9 @@ M.setup = function(options, keymaps)
       -- simple tabline: {{{
       {
         "crispgm/nvim-tabline",
+        opts = {
+          show_index = false,
+        },
         init = function()
           -- Only if there are at least two tabs (default)
           vim.opt.showtabline = 1
