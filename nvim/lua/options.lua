@@ -212,6 +212,7 @@ M.lsps = {
 
   manual = {
     "hls",
+    "rust_analyzer",
   },
 }
 
@@ -219,6 +220,7 @@ M.linters = {}
 
 M.formatters = {
   "stylua",
+  "black",
 }
 
 M.cmp_sources = {
