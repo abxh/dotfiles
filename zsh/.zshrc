@@ -103,7 +103,7 @@ alias dl-restore='trash-restore'
 alias ls='ls --color=auto -v --group-directories-first'
 alias la='ls -lAGh'
 alias lst='tree -v --dirsfirst'
-lsta() {
+function lsta() {
   # https://unix.stackexchange.com/a/691245
   rg --ignore --hidden --files --glob '!.git/' \
     | lst --fromfile -a "$@"
@@ -115,6 +115,11 @@ function github-clone-ssh() {
   author="$1"
   repo="$2"
   git clone git@github.com:$author/$repo.git
+}
+function ghco() {
+  v1="$1"
+  v2="${2:-a.out}"
+  ghc -no-keep-hi-files -no-keep-o-files $v1 -o $v2
 }
 # }}}
 
