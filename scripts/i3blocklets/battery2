@@ -14,9 +14,12 @@ from subprocess import check_output
 
 status = check_output(["acpi"], universal_newlines=True)
 
+def fa6(s):
+    return f"<span font='Font Awesome 6 Free'>{s}</span>"
+
 if not status:
     # stands for no battery found
-    fulltext = "\uf00d \uf240"
+    fulltext = fa6("\uf00d \uf240")
     percentleft = 100
 else:
     # if there is more than one battery in one laptop, the percentage left is
@@ -55,16 +58,16 @@ else:
         percentleft = 0
 
     # stands for charging
-    FA_LIGHTNING = "\uf0e7"
+    FA_LIGHTNING = fa6("\uf0e7")
 
     # stands for battery
     FA_BATTERY = ""
 
     # stands for plugged in
-    FA_PLUG = "\uf1e6"
+    FA_PLUG = fa6("\uf1e6")
 
     # stands for unknown status of battery
-    FA_QUESTION = "\uf128"
+    FA_QUESTION = fa6("\uf128")
 
     if state == "Discharging":
         if percentleft < 25:
@@ -87,7 +90,6 @@ else:
     else:
         fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
 
-    fulltext = f"<span font='Font Awesome 6 Free'>{fulltext}</span>"
     form = " {}%"
     fulltext += form.format(percentleft)
     fulltext += timeleft

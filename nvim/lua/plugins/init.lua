@@ -181,6 +181,7 @@ M.setup = function(options, keymaps)
         "crispgm/nvim-tabline",
         opts = {
           show_index = false,
+          brackets = { '', '' },
         },
         init = function()
           -- Only if there are at least two tabs (default)
