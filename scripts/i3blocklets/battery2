@@ -16,7 +16,7 @@ status = check_output(["acpi"], universal_newlines=True)
 
 if not status:
     # stands for no battery found
-    fulltext = "<span font='FontAwesome'>\uf00d \uf240</span>"
+    fulltext = "\uf00d \uf240"
     percentleft = 100
 else:
     # if there is more than one battery in one laptop, the percentage left is
@@ -55,16 +55,16 @@ else:
         percentleft = 0
 
     # stands for charging
-    FA_LIGHTNING = "<span font='FontAwesome'>\uf0e7</span>"
+    FA_LIGHTNING = "\uf0e7"
 
     # stands for battery
     FA_BATTERY = ""
 
     # stands for plugged in
-    FA_PLUG = "<span font='FontAwesome'>\uf1e6</span>"
+    FA_PLUG = "\uf1e6"
 
     # stands for unknown status of battery
-    FA_QUESTION = "<span font='FontAwesome'>\uf128</span>"
+    FA_QUESTION = "\uf128"
 
     if state == "Discharging":
         if percentleft < 25:
@@ -87,6 +87,7 @@ else:
     else:
         fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
 
+    fulltext = f"<span font='Font Awesome 6 Free'>{fulltext}</span>"
     form = " {}%"
     fulltext += form.format(percentleft)
     fulltext += timeleft

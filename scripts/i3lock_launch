@@ -12,7 +12,7 @@ white='#d4be98'
 black='#3c3836'
 blacker='#282828'
 
-font='JetBrainsMonoNerdFont'
+font='JetBrainsMonoNF'
 font_size=32
 font_size_small=17
 

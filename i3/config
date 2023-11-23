@@ -49,7 +49,7 @@ hide_edge_borders vertical
 # other options: {{{
 
 # font for window titles and bars:
-font pango:JetBrainsMono Nerd Font 12
+font pango:JetBrainsMono NF 12
 
 workspace_auto_back_and_forth yes
 

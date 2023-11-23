@@ -10,7 +10,7 @@ c.downloads.position = 'bottom'
 # css = '~/.config/qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css'
 # config.bind(',n', f'config-cycle content.user_stylesheets {css} ""')
 
-c.fonts.default_family = 'JetBrainsMono Nerd Font'
+c.fonts.default_family = 'JetBrainsMono NF'
 c.fonts.default_size = '11pt'
 #c.fonts.web.family.standard = 'Clear Sans'
 
