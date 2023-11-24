@@ -28,7 +28,7 @@ M.core = {
   viewdir = "/tmp/view//",
 
   -- fold everything with a maximum nesting of 4.
-  -- note: 
+  -- note:
   -- - this only applies at the start, if remember_view autocmd is enabled.
   -- - set `<comment_sign> vim: fdl=99`, if you don't want to repeatedly unfold everything by typing `zR` or `zO`.
   -- - if the remember_view insists on a foldmethod even after a modeline is set, manually
@@ -69,7 +69,7 @@ M.colorscheme = {
     emphasis = true,
     comments = true,
     operators = false,
-    folds = true,
+    folds = false,
   },
   strikethrough = true,
 
@@ -202,9 +202,12 @@ M.gitsigns = {
 
 M.lsps = {
   -- to install these langauge servers, Mason requires:
-  -- npm
+  -- npm + node
+  -- go
 
   "lua_ls",
+  "jsonls",
+  "yamlls",
 
   -- my own reqs (for now):
   "pyright",

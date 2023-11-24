@@ -1,9 +1,0 @@
-// todo: check if this works.
-{
-  "neodev": {
-    "library": {
-      "enabled": true,
-      "plugins": ["neoconf.nvim", "nvim-lspconfig"]
-    }
-  },
-}

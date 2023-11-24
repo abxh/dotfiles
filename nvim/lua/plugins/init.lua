@@ -87,6 +87,8 @@ M.setup = function(options, keymaps)
 
           "folke/neoconf.nvim",
           "folke/neodev.nvim",
+
+          "b0o/schemastore.nvim",
         },
         config = function()
           require("neodev").setup()
@@ -181,7 +183,7 @@ M.setup = function(options, keymaps)
         "crispgm/nvim-tabline",
         opts = {
           show_index = false,
-          brackets = { '', '' },
+          brackets = { "", "" },
         },
         init = function()
           -- Only if there are at least two tabs (default)

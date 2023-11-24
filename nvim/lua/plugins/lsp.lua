@@ -1,15 +1,10 @@
 local M = {}
 
 M.setup = function(options, keymaps)
-  local lsp_signature_opts = { handler_opts = { border = "none" }, hint_enable = false }
-
   local keymaps_lsp = vim.deepcopy(keymaps.lsp)
   if keymaps.lsp.specials ~= nil then
     keymaps_lsp.specials = nil
   end
-
-  local lsp_zero = require("lsp-zero")
-
   if keymaps.lsp.diagnostic ~= nil then
     local keymaps_diagnostic = vim.deepcopy(keymaps.lsp.diagnostic)
     keymaps_lsp.diagnostic = nil
@@ -17,30 +12,41 @@ M.setup = function(options, keymaps)
     vim.diagnostic.config({
       float = {
         header = false,
-        border = 'none',
+        border = "none",
         focusable = true,
       },
     })
   end
+  local lsp_zero = require("lsp-zero")
 
+  lsp_zero.set_sign_icons({ error = "󰅚", warn = "󰀪", hint = "󰌶", info = "" })
+
+  local lsp_signature_opts = { handler_opts = { border = "none" }, hint_enable = false }
   lsp_zero.on_attach(function(client, bufnr)
     _G.apply_keymaps(keymaps_lsp, { buffer = bufnr }, "vim.lsp.buf")
     require("lsp_signature").on_attach(lsp_signature_opts, bufnr)
   end)
-  lsp_zero.set_sign_icons({ error = "󰅚", warn = "󰀪", hint = "󰌶", info = "" })
 
-  local servers = vim.deepcopy(options.lsps)
-  require("mason-lspconfig").setup({ ensure_installed = servers, automatic_installation = { exclude = servers.manual }})
+  local lsp_servers = vim.deepcopy(options.lsps)
+  require("mason-lspconfig").setup({
+    ensured_installed = { lsp_servers, exclude = lsp_servers.manual },
+    handlers = {
+      lsp_zero.default_setup,
+    },
+  })
 
-  servers = vim.list_extend(servers, servers.manual)
-  servers.manual = nil
-  for _, server_name in pairs(servers) do
+  lsp_servers = vim.list_extend(lsp_servers, lsp_servers.manual)
+  lsp_servers.manual = nil
+
+  local lspconfig = require("lspconfig")
+  for _, server_name in pairs(lsp_servers) do
     local specified, opts = pcall(require, "lspconfigs." .. server_name)
     if specified then
-      lsp_zero.configure(server_name, opts)
+      lspconfig[server_name].setup(opts)
     else
-      lsp_zero.configure(server_name, {})
+      lspconfig[server_name].setup({})
     end
+    lspconfig[server_name].capabilities = lsp_zero.get_capabilities()
   end
 end
 
