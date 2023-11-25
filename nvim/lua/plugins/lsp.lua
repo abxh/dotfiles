@@ -5,23 +5,31 @@ M.setup = function(options, keymaps)
   if keymaps.lsp.specials ~= nil then
     keymaps_lsp.specials = nil
   end
+
+  local diagnostic_opts = {
+    header = false,
+    border = "none",
+    focusable = true,
+    prefix = " ",
+    close_events = { "CursorMoved", "InsertEnter", "FocusLost" },
+    source = "always",
+    scope = "cursor",
+  }
+  vim.diagnostic.config({ float = diagnostic_opts })
   if keymaps.lsp.diagnostic ~= nil then
     local keymaps_diagnostic = vim.deepcopy(keymaps.lsp.diagnostic)
     keymaps_lsp.diagnostic = nil
     _G.apply_keymaps(keymaps_diagnostic, {}, "vim.diagnostic")
-    vim.diagnostic.config({
-      float = {
-        header = false,
-        border = "none",
-        focusable = true,
-      },
-    })
   end
+
+  local lsp_signature_opts = {
+    bind = true, -- This is mandatory, otherwise border config won't get registered.
+    handler_opts = {
+      border = 'single'
+    },
+    hint_enable = false,
+  }
   local lsp_zero = require("lsp-zero")
-
-  lsp_zero.set_sign_icons({ error = "󰅚", warn = "󰀪", hint = "󰌶", info = "" })
-
-  local lsp_signature_opts = { handler_opts = { border = "none" }, hint_enable = false }
   lsp_zero.on_attach(function(client, bufnr)
     _G.apply_keymaps(keymaps_lsp, { buffer = bufnr }, "vim.lsp.buf")
     require("lsp_signature").on_attach(lsp_signature_opts, bufnr)
@@ -48,6 +56,7 @@ M.setup = function(options, keymaps)
     end
     lspconfig[server_name].capabilities = lsp_zero.get_capabilities()
   end
+  lsp_zero.set_sign_icons({ error = "󰅚", warn = "󰀪", hint = "󰌶", info = "" })
 end
 
 return M

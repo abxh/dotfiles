@@ -23,6 +23,12 @@ M.setup = function(options, keymaps)
         opts = options.colorscheme,
         init = function()
           vim.cmd("colorscheme gruvbox")
+
+          if options.colorscheme.overrides_custom ~= nil then
+            for key, value in pairs(options.colorscheme.overrides_custom) do
+              vim.api.nvim_set_hl(0, key, value)
+            end
+          end
         end,
       },
       -- }}}
@@ -86,7 +92,7 @@ M.setup = function(options, keymaps)
           "saadparwaiz1/cmp_luasnip",
 
           "onsails/lspkind.nvim",
-          { "ray-x/lsp_signature.nvim", event = "VeryLazy", opts = {} },
+          "ray-x/lsp_signature.nvim",
 
           "jay-babu/mason-null-ls.nvim",
           "nvimtools/none-ls.nvim",
