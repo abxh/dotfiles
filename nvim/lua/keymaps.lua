@@ -157,9 +157,12 @@ M.surround = {
   change_line = "cS",
 }
 
+M.fugitive = {
+  { "n", "<leader>gd", ":Gvdiffsplit<CR>zR" },
+}
+
 M.coerce = {
-  -- this dictionary is not used for anything. Is a helpful note for vim-abolish.
-  -- note: I created this as i could not find a easy way to redefine the vim-abolish keybinds.
+  -- this dictionary is not used by anything. Is a helpful note for vim-abolish.
 
   -- cr stands for coerce.
 

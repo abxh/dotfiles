@@ -45,7 +45,13 @@ M.setup = function(options, keymaps)
       -- }}}
 
       -- git support: {{{
-      { "tpope/vim-fugitive", event = "VeryLazy" },
+      {
+        "tpope/vim-fugitive",
+        event = "VeryLazy",
+        init = function()
+          _G.apply_keymaps(keymaps.fugitive, { noremap = true })
+        end,
+      },
       {
         "lewis6991/gitsigns.nvim",
         opts = {
