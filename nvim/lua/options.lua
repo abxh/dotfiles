@@ -6,7 +6,7 @@ local M = {}
 
 M.core = {
   -- appearance related stuff:
-  wrap = false,
+  wrap = true,
   number = true,
   numberwidth = 2,
   relativenumber = true,
@@ -127,6 +127,10 @@ M.colorscheme = {
     TabLineSel = { bg = "#3a3735" },
     TabLine = { link = "TabLineFill" },
   },
+  overrides_custom = {
+    -- using own wrapper
+    FloatBorder = { bg = "#3a3735" },
+  }
 }
 
 M.treesitter = {
