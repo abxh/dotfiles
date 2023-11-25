@@ -16,6 +16,7 @@ end
 
 local options = require("options")
 local keymaps = require("keymaps")
+require("autocmds")
 vim.cmd("source " .. vim.fn.stdpath("config") .. "/lua/autocmds.vim")
 
 -- set core keybindings: {{{
