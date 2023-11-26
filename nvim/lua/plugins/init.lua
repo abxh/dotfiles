@@ -23,7 +23,7 @@ M.setup = function(options, keymaps)
         opts = options.colorscheme,
         init = function()
           vim.cmd("colorscheme gruvbox")
-          for key, value in pairs(options.hl_overrides_custom) do
+          for key, value in pairs(options.hl_overrides) do
             vim.api.nvim_set_hl(0, key, value)
           end
         end,

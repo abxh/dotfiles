@@ -114,7 +114,7 @@ M.colorscheme = {
   },
 }
 
-M.hl_overrides_custom = {
+M.hl_overrides = {
   CursorLineNr = { fg = "#a89984", bg = "#282828" },
   SignColumn = { bg = "#282828" },
   NormalFloat = { bg = "#3a3735" },
