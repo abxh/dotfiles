@@ -1,13 +1,8 @@
--- note:
--- will only check for nil value after the first level of the dictionaries.
--- that is that the top level dictionary must be defined (it must at least be empty).
--- exception: coerce dict which is not used by anything.
-
 local M = {}
 
-M.core = {
-  leaderkey = ",",
+M.leaderkey = ","
 
+M.core = {
   -- cancel search with <Esc>
   { "n", "<Esc>", ":noh<CR>" },
 
@@ -73,11 +68,9 @@ M.gitsigns = {
   { "n", "<leader>hp", "preview_hunk" },
 }
 
-M.lsp = {
-  specials = {
-    lsp_lines_toggle = { "n", "<leader>l" },
-  },
+M.lsp_lines_toggle = "<leader>l"
 
+M.lsp = {
   { "n", "gd", "definition" },
   { "n", "gD", "declaration" },
   { "n", "gi", "implementation" },
@@ -88,21 +81,16 @@ M.lsp = {
   { "n", "<F2>", "rename" },
   { "n", "<F3>", "format" },
   { "n", "<F4>", "code_action" },
+}
 
-  diagnostic = {
-    { "n", "K", "open_float" },
-    -- use q to get out of float.
-    { "n", "[d", "goto_prev" },
-    { "n", "]d", "goto_next" },
-  },
+M.diagnostic = {
+  { "n", "K", "open_float" },
+  -- use q to get out of float.
+  { "n", "[d", "goto_prev" },
+  { "n", "]d", "goto_next" },
 }
 
 M.cmp = {
-  lsp_zero_cmp_actions = {
-    { "<Tab>", "luasnip_supertab", nil },
-    { "<S-Tab>", "luasnip_shift_supertab", nil },
-  },
-
   -- `Enter` key to confirm completion
   { "<CR>", "confirm", { select = false } },
 
@@ -115,6 +103,11 @@ M.cmp = {
   -- Scroll up and down in the completion documentation
   { "<PageUp>", "scroll_docs", -4 },
   { "<PageDown>", "scroll_docs", 4 },
+}
+
+M.lsp_zero_cmp_actions = {
+  { "<Tab>", "luasnip_supertab", nil },
+  { "<S-Tab>", "luasnip_shift_supertab", nil },
 }
 
 M.comment = {

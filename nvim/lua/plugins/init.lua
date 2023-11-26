@@ -23,11 +23,8 @@ M.setup = function(options, keymaps)
         opts = options.colorscheme,
         init = function()
           vim.cmd("colorscheme gruvbox")
-
-          if options.colorscheme.overrides_custom ~= nil then
-            for key, value in pairs(options.colorscheme.overrides_custom) do
-              vim.api.nvim_set_hl(0, key, value)
-            end
+          for key, value in pairs(options.hl_overrides_custom) do
+            vim.api.nvim_set_hl(0, key, value)
           end
         end,
       },
@@ -241,9 +238,8 @@ M.setup = function(options, keymaps)
         init = function()
           vim.diagnostic.config({ virtual_text = false, virtual_lines = false })
 
-          if keymaps.lsp.specials ~= nil and keymaps.lsp.specials.lsp_lines_toggle ~= nil then
-            local keymap = keymaps.lsp.specials.lsp_lines_toggle
-            vim.keymap.set(keymap[1], keymap[2], require("lsp_lines").toggle)
+          if keymaps.lsp_lines_toggle ~= nil then
+            vim.keymap.set("n", keymaps.lsp_lines_toggle, require("lsp_lines").toggle)
           end
         end,
         opts = {},

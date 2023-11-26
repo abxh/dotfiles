@@ -1,7 +1,3 @@
--- note:
--- will only check for nil value after the first level of the dictionaries.
--- that is that the top level dictionary must be defined (it must at least be empty).
-
 local M = {}
 
 M.core = {
@@ -54,10 +50,12 @@ M.core = {
   mouse = "a",
   updatetime = 300,
   timeoutlen = 1000,
-  append_to = {
-    iskeyword = "-",
-    whichwrap = "h,l",
-  },
+}
+
+M.core_append_to = {
+  -- other functionality related stuff:
+  iskeyword = "-",
+  whichwrap = "h,l",
 }
 
 M.colorscheme = {
@@ -127,10 +125,10 @@ M.colorscheme = {
     TabLineSel = { bg = "#3a3735" },
     TabLine = { link = "TabLineFill" },
   },
-  overrides_custom = {
-    -- using own wrapper
-    FloatBorder = { bg = "#3a3735" },
-  }
+}
+
+M.hl_overrides_custom = {
+  FloatBorder = { bg = "#3a3735" },
 }
 
 M.treesitter = {
@@ -173,7 +171,10 @@ M.treesitter = {
     },
   },
   fold = {
-    -- using own wrapper
+    -- using own wrapper. this sets:
+    -- vim.opt.foldmethod = "expr"
+    -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
     enable = true,
   },
   -- todo: custom treesitter objects.
@@ -212,16 +213,11 @@ M.lsps = {
   "lua_ls",
   "jsonls",
   "yamlls",
-
-  -- my own reqs (for now):
   "pyright",
   "clangd",
-
-  manual = {
-    "hls",
-    "rust_analyzer",
-  },
 }
+
+M.lsps_manual = {}
 
 M.linters = {}
 

@@ -3,27 +3,21 @@ local M = {}
 M.setup = function(options, keymaps)
   local cmp = require("cmp")
   local cmp_action = require("lsp-zero").cmp_action()
+  local cmp_keymaps = {}
 
-  local keymaps_cmp = vim.deepcopy(keymaps.cmp)
-  local keymaps_cmp_new = {}
-
-  if keymaps_cmp.lsp_zero_cmp_actions ~= nil then
-    local keymaps_cmp_special = vim.deepcopy(keymaps_cmp.lsp_zero_cmp_actions)
-    keymaps_cmp.lsp_zero_cmp_actions = nil
-    for _, value in pairs(keymaps_cmp_special) do
-      keymaps_cmp_new[value[1]] = cmp_action[value[2]](value[3])
-    end
+  for _, value in pairs(keymaps.lsp_zero_cmp_actions) do
+    cmp_keymaps[value[1]] = cmp_action[value[2]](value[3])
   end
 
-  for _, value in pairs(keymaps_cmp) do
-    keymaps_cmp_new[value[1]] = cmp.mapping[value[2]](value[3])
+  for _, value in pairs(keymaps.cmp) do
+    cmp_keymaps[value[1]] = cmp.mapping[value[2]](value[3])
   end
 
   require("luasnip.loaders.from_vscode").lazy_load()
 
   cmp.setup({
     sources = cmp.config.sources(unpack(options.cmp_sources)),
-    mapping = cmp.mapping.preset.insert(keymaps_cmp_new),
+    mapping = cmp.mapping.preset.insert(cmp_keymaps),
     snippet = {
       expand = function(args)
         require("luasnip").lsp_expand(args.body)

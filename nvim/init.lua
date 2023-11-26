@@ -20,31 +20,21 @@ require("autocmds")
 vim.cmd("source " .. vim.fn.stdpath("config") .. "/lua/autocmds.vim")
 
 -- set core keybindings: {{{
-local keymap_options = { noremap = true, silent = true }
-
-if keymaps.core.leaderkey ~= nil then
-  local leaderkey = keymaps.core.leaderkey
-  vim.keymap.set("", leaderkey, "<Nop>", keymap_options)
-  vim.g.mapleader = leaderkey
-  vim.g.maplocalleader = leaderkey
-  keymaps.core.leaderkey = nil
+local opts = { noremap = true, silent = true }
+if keymaps.leaderkey ~= nil then
+  vim.keymap.set("", keymaps.leaderkey, "<Nop>", opts)
+  vim.g.mapleader = keymaps.leaderkey
+  vim.g.maplocalleader = keymaps.leaderkey
 end
-
-_G.apply_keymaps(keymaps.core, keymap_options)
+_G.apply_keymaps(keymaps.core, opts)
 -- }}}
 
 -- set core options: {{{
-local core_options = options.core
-if core_options.append_to ~= nil then
-  local opts_append_to = core_options.append_to
-  for key, value in pairs(opts_append_to) do
-    vim.opt[key]:append(value)
-  end
-  core_options.append_to = nil
-end
-
-for key, value in pairs(core_options) do
+for key, value in pairs(options.core) do
   vim.opt[key] = value
+end
+for key, value in pairs(options.core_append_to) do
+  vim.opt[key]:append(value)
 end
 -- }}}
 
@@ -64,7 +54,7 @@ vim.opt.rtp:prepend(lazypath)
 -- }}}
 
 -- setup plugins: {{{
-require("lazy").setup(unpack(require("plugins").setup(require("options"), require("keymaps"))))
+require("lazy").setup(unpack(require("plugins").setup(options, keymaps)))
 -- }}}
 
 -- vim: fdm=marker
