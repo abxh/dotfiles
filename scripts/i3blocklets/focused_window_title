@@ -12,9 +12,9 @@ def get_focused_window_title(ipc):
 
 def main():
     ipc = Connection()
-    focused_window_title = get_focused_window_title(ipc)
-    if focused_window_title is not None:
-        print(focused_window_title)
+    title = get_focused_window_title(ipc)
+    if title is not None:
+        print(title[:50] + ' ... ' + title[-50:] if len(title) > 105 else title)
     else:
         print('')
 
