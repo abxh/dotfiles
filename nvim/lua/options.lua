@@ -112,23 +112,20 @@ M.colorscheme = {
 
     gray = "#7c6f64",
   },
-
-  overrides = {
-    CursorLineNr = { fg = "#a89984", bg = "#282828" },
-    SignColumn = { bg = "#282828" },
-    NormalFloat = { bg = "#3a3735" },
-    DiagnosticSignError = { bg = "#282828", fg = "#ea6962" },
-    DiagnosticSignWarn = { bg = "#282828", fg = "#d8a657" },
-    DiagnosticSignHint = { bg = "#282828", fg = "#89b482" },
-    DiagnosticSignInfo = { bg = "#282828", fg = "#7daea3" },
-    TabLineFill = { bg = "#282828" },
-    TabLineSel = { bg = "#3a3735" },
-    TabLine = { link = "TabLineFill" },
-  },
 }
 
 M.hl_overrides_custom = {
+  CursorLineNr = { fg = "#a89984", bg = "#282828" },
+  SignColumn = { bg = "#282828" },
+  NormalFloat = { bg = "#3a3735" },
   FloatBorder = { bg = "#3a3735" },
+  DiagnosticSignError = { bg = "#282828", fg = "#ea6962" },
+  DiagnosticSignWarn = { bg = "#282828", fg = "#d8a657" },
+  DiagnosticSignHint = { bg = "#282828", fg = "#89b482" },
+  DiagnosticSignInfo = { bg = "#282828", fg = "#7daea3" },
+  TabLineFill = { bg = "#282828" },
+  TabLineSel = { bg = "#3a3735" },
+  TabLine = { link = "TabLineFill" },
 }
 
 M.treesitter = {
