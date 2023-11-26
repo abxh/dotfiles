@@ -1,5 +1,5 @@
 
-" Source:
+" source:
 " https://stackoverflow.com/a/38258720
 
 let &t_SI .= "\<Esc>[?2004h"

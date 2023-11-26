@@ -1,8 +1,8 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
--- https://github.com/L3MON4D3/LuaSnip/issues/258
 -- stop weird luasnip-caused line jump when tabbing.
+-- source: https://github.com/L3MON4D3/LuaSnip/issues/258
 
 autocmd('ModeChanged', {
   pattern = '*',

@@ -1,6 +1,6 @@
 
 " save/remember view - which includes folds and cursor position.
-" Source: https://stackoverflow.com/a/54739345
+" source: https://stackoverflow.com/a/54739345
 augroup remember_view
   autocmd!
   au BufWinLeave ?* mkview 1
@@ -8,4 +8,5 @@ augroup remember_view
 augroup END
 
 " don't continue comment after new line
+" source: https://superuser.com/a/271024
 autocmd FileType * set formatoptions-=cro
