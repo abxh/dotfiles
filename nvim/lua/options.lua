@@ -221,6 +221,7 @@ M.linters = {}
 M.formatters = {
   "stylua",
   "black",
+  "shfmt",
 }
 
 M.cmp_sources = {

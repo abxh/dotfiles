@@ -1,22 +1,13 @@
-#!/usr/bin/python
-
-# Script, which prints the focused i3 window title to stdout.
+#!/usr/bin/env python3
 
 # requires:
 # - python-i3ipc
 
 from i3ipc import Connection
 
-def get_focused_window_title(ipc):
-    return ipc.get_tree().find_focused().window_title
-
-def main():
-    ipc = Connection()
-    title = get_focused_window_title(ipc)
-    if title is not None:
-        print(title[:50] + ' ... ' + title[-50:] if len(title) > 105 else title)
-    else:
-        print('')
-
-if __name__ == "__main__":
-    main()
+ipc = Connection()
+title = ipc.get_tree().find_focused().window_title
+if title is not None:
+    print(title[:50] + " ... " + title[-50:] if len(title) > 105 else title)
+else:
+    print("")

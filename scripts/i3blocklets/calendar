@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # originally from:
 # https://github.com/vivien/i3blocks-contrib/blob/master/calendar/calendar
@@ -16,14 +16,15 @@ POPUP_POSX=${POPUP_POSX:-1610}
 POPUP_POSY=${POPUP_POSY:-730}
 
 case "$BLOCK_BUTTON" in
-  1|2|3)
-    pgrep -x 'yad' > /dev/null && pkill 'yad'|| i3-msg -q \
-    "exec yad --calendar \
+1 | 2 | 3)
+	pgrep -x 'yad' >/dev/null && pkill 'yad' || i3-msg -q \
+		"exec yad --calendar \
     --width=$WIDTH --height=$HEIGHT \
 	--undecorated --fixed \
 	--close-on-unfocus --no-buttons \
 	--posx=$POPUP_POSX --posy=$POPUP_POSY \
 	> /dev/null"
+	;;
 esac
 echo "$LABEL$(date "$DATEFMT") "
 echo "$LABEL$(date "$SHORTFMT") "

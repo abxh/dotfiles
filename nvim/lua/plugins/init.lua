@@ -171,12 +171,16 @@ M.setup = function(options, keymaps)
       -- }}}
 
       -- others: {{{
-      "tpope/vim-sleuth",
+      { "tpope/vim-sleuth", event = "VeryLazy" },
       { "tpope/vim-abolish", event = "VeryLazy" },
       -- }}}
 
       -- nonessential: {{{
 
+      -- filetype syntax support: {{{
+      "kovetskiy/sxhkd-vim",
+      "Fymyte/rasi.vim",
+      -- }}}
       -- show html colors and etc.: {{{
       {
         "norcalli/nvim-colorizer.lua",

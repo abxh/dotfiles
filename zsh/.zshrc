@@ -1,4 +1,4 @@
-# vim: foldmethod=marker foldlevel=0
+# vim: foldmethod=marker
 
 # options {{{
 

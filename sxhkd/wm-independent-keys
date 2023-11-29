@@ -37,3 +37,5 @@ alt + @Print
 
 super + alt + @Print
 	scrot ~/pictures/screenshots/'full_%d-%m-%y.png'
+
+# vim: ft=sxhkd

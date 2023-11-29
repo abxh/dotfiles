@@ -37,4 +37,4 @@ fi
 # start i3 with xinit
 exec dbus-run-session i3
 
-# vim: foldmethod=marker foldlevel=0
+# vim: fdm=marker

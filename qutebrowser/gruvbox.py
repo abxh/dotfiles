@@ -1,3 +1,6 @@
+# source:
+# https://github.com/The-Compiler/dotfiles/blob/master/qutebrowser/gruvbox.py
+
 # gruvbox dark hard qutebrowser theme by Florian Bruhin <me@the-compiler.org>
 #
 # Originally based on:

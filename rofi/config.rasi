@@ -1,4 +1,4 @@
-// vim: foldmethod=marker foldlevel=0
+// vim: fdm=marker
 
 configuration {
   modes: "window,drun,run,ssh";
@@ -47,14 +47,14 @@ entry {
     placeholder: "";
 }
 
-// other kinda less interesting stuff {{{
+// less interesting stuff {{{
+
+// using elements from:
+// https://github.com/bardisty/gruvbox-rofi/blob/master/gruvbox-common.rasi
 
 textbox {
     text-color: @fg;
 }
-
-// using elements from:
-// https://github.com/bardisty/gruvbox-rofi/blob/master/gruvbox-common.rasi
 
 element {
     border:  0;

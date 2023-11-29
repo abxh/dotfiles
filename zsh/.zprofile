@@ -1,5 +1,3 @@
-# zsh startup script
-
 # start xinit after zsh is started (when logged in)
 # and save the xorg log to ~/.xorg.log
 

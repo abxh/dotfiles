@@ -1,4 +1,4 @@
-# vim: foldmethod=marker foldlevel=0
+# vim: foldmethod=marker
 
 # gnu-utils with colors: {{{
 export LESS='-R --use-color -Dd+r$Du+b$'

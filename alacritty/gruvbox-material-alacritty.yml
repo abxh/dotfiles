@@ -1,4 +1,5 @@
-# The definition of color schemes.
+# source: https://gist.github.com/sainnhe/ad5cbc4f05c4ced83f80e54d9a75d22f
+
 schemes:
   gruvbox_material_hard_dark: &gruvbox_material_hard_dark
     primary:

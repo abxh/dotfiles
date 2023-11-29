@@ -1,16 +1,12 @@
-# system mode
 set $system "<span foreground='#282828' background='#d4be98'> system </span> l: lock, e: exit xorg, p: poweroff, r: reboot, s: suspend"
-
-set $login_manager systemctl
 
 mode --pango_markup $system {
         bindsym l exec --no-startup-id ~/.scripts/i3lock_launch; mode "default"
         bindsym e exec --no-startup-id i3-msg exit; mode "default"
-        bindsym p exec --no-startup-id $login_manager poweroff; mode "default"
-        bindsym r exec --no-startup-id $login_manager reboot; mode "default"
-        bindsym s exec --no-startup-id $login_manager suspend; mode "default"
+        bindsym p exec --no-startup-id systemctl poweroff; mode "default"
+        bindsym r exec --no-startup-id systemctl reboot; mode "default"
+        bindsym s exec --no-startup-id systemctl suspend; mode "default"
 
-        # back to normal: Escape
         bindsym Escape mode "default"
 }
 

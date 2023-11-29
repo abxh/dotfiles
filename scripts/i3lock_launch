@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # dependencies:
 # i3lock-color
@@ -16,6 +16,9 @@ font='JetBrainsMonoNF'
 font_size=32
 font_size_small=17
 
+time_pos="770:430"
+date_pos="770:470"
+
 args=(
 	'--nofork'
 	'--ignore-empty-password'
@@ -26,11 +29,11 @@ args=(
 	'--blur 10'
 	'--radius 120'
 	'--ring-width 12.0'
-	
+
 	# the idle color for the interior circle and ring
 	"--inside-color=$dark_shade"
 	"--ring-color=$green"
-	
+
 	# the interior circle and ring color while the
 	# password is being verified
 	"--insidever-color=$dark_shade"
@@ -46,7 +49,7 @@ args=(
 	"--line-color=$darker_shade"
 
 	# the color of highlight arcs on the ring upon
-        # keypress and backspace.
+	# keypress and backspace.
 	"--keyhl-color=$white"
 	"--bshl-color=$black"
 
@@ -66,22 +69,22 @@ args=(
 )
 
 i3lock ${args[@]} \
-	--time-font=$font    \
-	--date-font=$font    \
-	--layout-font=$font  \
-	--verif-font=$font   \
-	--wrong-font=$font   \
+	--time-font=$font \
+	--date-font=$font \
+	--layout-font=$font \
+	--verif-font=$font \
+	--wrong-font=$font \
 	--greeter-font=$font \
 	\
-	--time-size=$font_size    \
-	--layout-size=$font_size  \
-	--verif-size=$font_size   \
-	--wrong-size=$font_size   \
+	--time-size=$font_size \
+	--layout-size=$font_size \
+	--verif-size=$font_size \
+	--wrong-size=$font_size \
 	--greeter-size=$font_size \
 	--date-size=$font_size_small \
 	\
 	--time-str="%H:%M:%S" \
 	--date-str="%d %b %Y" \
 	\
-	--time-pos="770:430" \
-	--date-pos="770:470" \
+	--time-pos=$time_pos \
+	--date-pos=$date_pos

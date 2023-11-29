@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 tag="string:x-dunst-stack-tag:battery"
 icon="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/battery-010.svg"
 
 dunstify -h $tag \
-     -u critical \
-     -i "$icon" \
-     "Warning" \
-     "Battery is getting low!"
+	-u critical \
+	-i "$icon" \
+	"Warning" \
+	"Battery is getting low!"
