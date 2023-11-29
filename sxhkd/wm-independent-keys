@@ -29,13 +29,4 @@ XF86Favorites
 @Print
 	scrot -a $(slop -f '%x,%y,%w,%h') $(xdg-user-dirs PICTURES)/screenshots/'$wx$h_%d-%m-%y.png' -e 'xclip -selection clipboard -t image/png -i $f'
 
-super + @Print
-	scrot -a $(slop -f '%x,%y,%w,%h') $(xdg-user-dirs PICTURES)/screenshots/'$wx$h_%d-%m-%y.png'
-
-alt + @Print
-	scrot $(xdg-user-dirs PICTURES)/screenshots/'$wx$h_%d-%m-%y.png' -e 'xclip -selection clipboard -t image/png -i $f'
-
-super + alt + @Print
-	scrot $(xdg-user-dirs PICTURES)/screenshots/'full_%d-%m-%y.png'
-
 # vim: ft=sxhkd
