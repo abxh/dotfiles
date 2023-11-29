@@ -1,12 +1,16 @@
 # dotfiles
-Hey there, :). Feel free to take a look at the various dotfiles.
+These are my personal dotfiles. As such, a lot of the configuration are tinkered for my use and liking. Feel free to copy the stuff you like and understand, and leave the rest.
 
-Copy the stuff you understand and leave the rest.
+Use `stow.sh` after testing `stow` out on dummy configs. It's a wonderful program, but the way I use it might leave behind some clutter and/or break your configuration, if you don't use it properly. 
 
-Use `stow.sh` if you understand the script and don't use all of the configs at the same time when starting out. 
-Or don't use the script at all. You might break your current configuration.
+Special dependencies are written within the config files themselves. I use [this](https://github.com/abxh/gruvbox-material-gtk) icon theme in the screenshots and in my dunstify scripts as default.
 
-Most dependencies should be inferrable from the config files or scripts themselves.
-
-The only dependency that might be hard to find is this fork of the gruvbox material gtk theme I made and use. [Link](https://github.com/abxh/gruvbox-material-gtk).
-
+## Previews
+<p float="left">
+  <img src=".images/img0.png" width="32%" />
+  <img src=".images/img1.png" width="32%" />
+  <img src=".images/img2.png" width="32%" />
+  <img src=".images/img3.png" width="32%" />
+  <img src=".images/img4.png" width="32%" />
+  <img src=".images/img5.png" width="32%" />
+</p>
