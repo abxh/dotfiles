@@ -17,14 +17,14 @@ super + Tab
 	~/.scripts/dunstify/pactl_script {-t,-y,-i 5,-d 5}
 
 XF86Display
-	pgrep -x "arandr" && pkill arandr || arandr
+	xdotool search --class arandr windowclose || arandr
 
 XF86Tools
-	pgrep -x 'nm-connection-e' && pkill 'nm-connection-e' || nm-connection-editor
-	#pgrep -x 'iwctl' && pkill 'iwctl' || alacritty --class 'iwctl' --title 'iwctl' -e iwctl
+	xdotool search --class nm-connection-e windowclose || nm-connection-editor
+	#xdotool search --name iwctl windowclose || alacritty --title 'iwctl' -e iwctl
 
 XF86Favorites
-	pgrep -x 'todo' && pkill 'todo' || alacritty --class 'todo' --title 'todo' -e ~/.scripts/todo
+	xdotool search --name todo windowclose || alacritty --title 'todo' -e ~/.scripts/todo
 
 @Print
 	scrot -a $(slop -f '%x,%y,%w,%h') ~/pictures/screenshots/'$wx$h_%d-%m-%y.png' -e 'xclip -selection clipboard -t image/png -i $f'

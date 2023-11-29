@@ -68,7 +68,7 @@ exec --no-startup-id udiskie --no-automount --no-notify --tray
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
-exec --no-startup-id alacritty --class='todo' --title='todo' -e ~/.scripts/todo
+exec --no-startup-id alacritty --title='todo' -e ~/.scripts/todo
 
 # }}}
 
