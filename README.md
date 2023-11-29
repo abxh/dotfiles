@@ -3,7 +3,7 @@ These are my personal dotfiles. As such, a lot of the configuration are tinkered
 
 Use `stow.sh` after testing `stow` out on dummy configs. It's a wonderful program, but the way I use it might leave behind some clutter and/or break your configuration, if you don't use it properly. 
 
-Special dependencies are written within the files themselves. I use [this](https://github.com/abxh/gruvbox-material-gtk) icon theme in the screenshots and in my dunstify scripts as default.
+Special dependencies are written within the files themselves. Most dependencies should be inferrable (or throw errors if missing). I use [this](https://github.com/abxh/gruvbox-material-gtk) icon theme in the screenshots and in my dunstify scripts as default.
 
 ## Previews
 <p float="left">
@@ -14,3 +14,5 @@ Special dependencies are written within the files themselves. I use [this](https
   <img src=".images/img4.png" width="32%" />
   <img src=".images/img5.png" width="32%" />
 </p>
+
+> The [wallpaper](https://wallhaven.cc/w/j5p23m) used.
