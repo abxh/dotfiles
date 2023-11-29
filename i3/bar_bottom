@@ -1,5 +1,3 @@
-# vim: filetype=i3config
-
 bar {
 	id "bar_bottom"
 
@@ -21,3 +19,5 @@ bar {
 
 		# urgent_workspace here is for i3blocklets that use exit(33)
 }}
+
+# vim: ft=i3config

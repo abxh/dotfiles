@@ -1,5 +1,3 @@
-# set program keybindings via sxhkd
-
 super + Return
 	alacritty
 
@@ -9,7 +7,6 @@ super + d
 super + Tab
 	rofi -show window
 
-# custom XF86 keys
 {XF86MonBrightnessUp, XF86MonBrightnessDown}
 	~/.scripts/dunstify/br_script { -i 15, -d 15}
 

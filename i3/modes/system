@@ -11,3 +11,5 @@ mode --pango_markup $system {
 }
 
 bindsym $mod+Shift+e mode $system
+
+# vim: ft=i3config
