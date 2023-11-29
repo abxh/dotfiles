@@ -24,6 +24,6 @@ XF86Favorites
 	xdotool search --name todo windowclose || alacritty --title 'todo' -e ~/.scripts/todo
 
 @Print
-	scrot -a $(slop -f '%x,%y,%w,%h') $(xdg-user-dirs PICTURES)/screenshots/'$wx$h_%d-%m-%y.png' -e 'xclip -selection clipboard -t image/png -i $f'
+	scrot -a $(slop -f '%x,%y,%w,%h') "$(xdg-user-dir PICTURES)/screenshots/"'$wx$h_%d-%m-%y.png' -e 'xclip -selection clipboard -t image/png -i $f'
 
 # vim: ft=sxhkd
