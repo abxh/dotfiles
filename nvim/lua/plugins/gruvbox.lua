@@ -64,8 +64,8 @@ local hl_overrides = {
   DiagnosticSignWarn = { bg = "#282828", fg = "#d8a657" },
   DiagnosticSignHint = { bg = "#282828", fg = "#89b482" },
   DiagnosticSignInfo = { bg = "#282828", fg = "#7daea3" },
-  TabLineFill = { bg = "#282828" },
-  TabLineSel = { bg = "#3a3735" },
+  TabLineFill = { bg = "#282828", fg = "#5a524c" },
+  TabLineSel = { bg = "#3a3735", fg = "#a9b665" },
   TabLine = { link = "TabLineFill" },
 }
 for key, value in pairs(hl_overrides) do
