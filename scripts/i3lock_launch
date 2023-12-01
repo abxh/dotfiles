@@ -36,7 +36,8 @@ one_word_args=(
 	'--ring-width 12.0'
 
 	# the idle color for the interior circle and ring
-	"--inside-color=$dark_shade" "--ring-color=$green"
+	"--inside-color=$dark_shade"
+	"--ring-color=$green"
 
 	# the interior circle and ring color while the
 	# password is being verified

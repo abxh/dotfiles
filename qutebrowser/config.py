@@ -22,9 +22,7 @@ c.search.incremental = False
 config.source("gruvbox.py")
 
 # set dark mode
-c.colors.webpage.bg = (
-    "black"  # "black" get's rid of flashes, but does seem to break certain websites
-)
+c.colors.webpage.bg = "black"  # "black" get's rid of flashes, but does seem to break certain websites
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.algorithm = "lightness-cielab"
