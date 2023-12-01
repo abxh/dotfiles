@@ -157,4 +157,20 @@ M.fugitive = {
   { "n", "<leader>gd", ":Gvdiffsplit<CR>zR" },
 }
 
+M.mini_files_toggle = "<leader>m"
+
+M.mini_files = {
+  close = "q",
+  go_in = "l",
+  go_in_plus = "L",
+  go_out = "h",
+  go_out_plus = "H",
+  reset = "<BS>",
+  reveal_cwd = "@",
+  show_help = "g?",
+  synchronize = "=",
+  trim_left = "<",
+  trim_right = ">",
+}
+
 return M

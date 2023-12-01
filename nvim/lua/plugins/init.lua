@@ -182,6 +182,17 @@ return {
     },
     -- }}}
 
+    -- unique file explorer: {{{
+    {
+      'echasnovski/mini.files',
+      opts = {
+      mappings = require("keymaps").mini_files },
+      init = function()
+        vim.keymap.set("n", require("keymaps").mini_files_toggle, require("mini.files").open, {})
+      end
+    },
+    -- }}}
+
     -- pretty bar: {{{
     {
       "nvim-lualine/lualine.nvim",

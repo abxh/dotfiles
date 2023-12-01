@@ -67,6 +67,8 @@ local hl_overrides = {
   TabLineFill = { bg = "#282828", fg = "#5a524c" },
   TabLineSel = { bg = "#3a3735", fg = "#a9b665" },
   TabLine = { link = "TabLineFill" },
+  MiniFilesTitle = { bg = "#3a3735", fg = "#ebdbb2" },
+  MiniFilesTitleFocused = { bg = "#3a3735", fg = "#ebdbb2", bold=true },
 }
 for key, value in pairs(hl_overrides) do
   vim.api.nvim_set_hl(0, key, value)
