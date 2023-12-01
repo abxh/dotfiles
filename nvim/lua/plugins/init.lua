@@ -84,7 +84,7 @@ return {
         "petertriho/cmp-git",
         "hrsh7th/cmp-calc",
 
-        { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
+        { "L3MON4D3/LuaSnip",        version = "v2.*", build = "make install_jsregexp" },
         "rafamadriz/friendly-snippets",
         "saadparwaiz1/cmp_luasnip",
 
@@ -202,7 +202,15 @@ return {
     -- }}}
 
     -- pretty icons: {{{
-    "ryanoasis/vim-devicons",
+    {
+      "nvim-tree/nvim-web-devicons",
+      opts = {
+        color_icons = false, -- use default icons color.
+      },
+      init = function()
+        require("nvim-web-devicons").set_default_icon('', '#d4be98', 95)
+      end,
+    },
     -- }}}
 
     -- pretty folds: {{{
