@@ -4,7 +4,7 @@ vim.cmd("source " .. vim.fn.stdpath("config") .. "/lua/autocmds.vim")
 -- set core options: {{{
 local o = vim.opt
 
-o.wrap = true
+o.wrap = false
 o.number = true
 o.numberwidth = 2
 o.relativenumber = true
@@ -14,6 +14,8 @@ o.fillchars = { eob = " " }
 o.splitbelow = true
 o.splitright = true
 o.showtabline = 1
+o.scrolloff = 5
+o.sidescrolloff = 5
 
 o.writebackup = false
 o.backup = false
