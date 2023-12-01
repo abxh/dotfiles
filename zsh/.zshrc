@@ -111,16 +111,8 @@ function lsta() {
 
 # handy shorthands
 function pdf() {(evince "$@" &;)}
-function github-clone-ssh() {
-  author="$1"
-  repo="$2"
-  git clone git@github.com:$author/$repo.git
-}
-function ghco() {
-  v1="$1"
-  v2="${2:-a.out}"
-  ghc -no-keep-hi-files -no-keep-o-files $v1 -o $v2
-}
+function image() {(imv "$@" &;)}
+function video() {(mpv "$@" &;)}
 # }}}
 
 # keybindings {{{
