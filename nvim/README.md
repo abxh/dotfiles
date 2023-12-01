@@ -1,6 +1,6 @@
 # nvim
 
-This neovim configuration in particular can be subject to a lot of changes.
+The configuration of neovim in particular can be subject to a lot of changes.
 
 Neovim is very extensible editor with a evolving ecosystem of plugins. There are many
 ways to the do the same thing. Some are better and others are worse in some aspects.
