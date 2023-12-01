@@ -16,10 +16,15 @@ font='JetBrainsMonoNF'
 font_size=32
 font_size_small=17
 
-time_pos="770:430"
-date_pos="770:470"
+time_str='%H:%M:%S'
+date_str='%d %b %Y'
 
-args=(
+modif_pos='ix:iy-50'
+time_pos='ix:iy'
+status_pos='ix:iy'
+date_pos='ix:iy+40'
+
+one_word_args=(
 	'--nofork'
 	'--ignore-empty-password'
 
@@ -31,8 +36,7 @@ args=(
 	'--ring-width 12.0'
 
 	# the idle color for the interior circle and ring
-	"--inside-color=$dark_shade"
-	"--ring-color=$green"
+	"--inside-color=$dark_shade" "--ring-color=$green"
 
 	# the interior circle and ring color while the
 	# password is being verified
@@ -66,25 +70,29 @@ args=(
 	"--time-color=$white"
 	"--date-color=$white"
 	"--greeter-color=$white"
+
+	# set font sizes"
+	"--time-size=$font_size"
+	"--layout-size=$font_size"
+	"--verif-size=$font_size"
+	"--wrong-size=$font_size"
+	"--greeter-size=$font_size"
+	"--date-size=$font_size_small"
+
+	# set positions
+	"--time-pos=$time_pos"
+	"--date-pos=$date_pos"
+	"--status-pos=$status_pos"
+	"--modif-pos=$modif_pos"
 )
 
-i3lock ${args[@]} \
-	--time-font=$font \
-	--date-font=$font \
-	--layout-font=$font \
-	--verif-font=$font \
-	--wrong-font=$font \
-	--greeter-font=$font \
-	\
-	--time-size=$font_size \
-	--layout-size=$font_size \
-	--verif-size=$font_size \
-	--wrong-size=$font_size \
-	--greeter-size=$font_size \
-	--date-size=$font_size_small \
+i3lock ${one_word_args[@]} \
+	--time-font="$font" \
+	--date-font="$font" \
+	--layout-font="$font" \
+	--verif-font="$font" \
+	--wrong-font="$font" \
+	--greeter-font="$font" \
 	\
 	--time-str="%H:%M:%S" \
-	--date-str="%d %b %Y" \
-	\
-	--time-pos=$time_pos \
-	--date-pos=$date_pos
+	--date-str="%d %b %Y"
