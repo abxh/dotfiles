@@ -10,6 +10,9 @@ M.core = {
   { "v", "<", "<gv^" },
   { "v", ">", ">gv^" },
 
+  -- replace without copying
+  { "v", "p", "P" },
+
   -- access global clipboard with Ctrl + {c,x,v}
   { "v", "<C-c>", '"+y' },
   { "v", "<C-x>", '"+c<Esc>' },
@@ -152,21 +155,6 @@ M.surround = {
 
 M.fugitive = {
   { "n", "<leader>gd", ":Gvdiffsplit<CR>zR" },
-}
-
-M.coerce = {
-  -- this dictionary is not used by anything. Is a helpful note for vim-abolish.
-
-  -- cr stands for coerce.
-
-  -- change naming variant by typing in normal mode:
-  -- cr +
-  -- s : snake_case
-  -- m : MixedCase
-  -- c : camelCase
-  -- u : UPPER_CASE
-  -- - : dash-case
-  -- . : dot.case
 }
 
 return M

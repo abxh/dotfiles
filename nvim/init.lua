@@ -1,44 +1,46 @@
--- set global functions: {{{
-_G.put = vim.print
-_G.apply_keymaps = function(dict, opts, bind_to_module)
-  if bind_to_module == nil then
-    for _, v in pairs(dict) do
-      vim.keymap.set(v[1], v[2], v[3], opts)
-    end
-  else
-    local m = require(bind_to_module)
-    for _, v in pairs(dict) do
-      vim.keymap.set(v[1], v[2], m[v[3]], opts)
-    end
-  end
-end
--- }}}
-
-local options = require("options")
-local keymaps = require("keymaps")
 require("autocmds")
 vim.cmd("source " .. vim.fn.stdpath("config") .. "/lua/autocmds.vim")
 
--- set core keybindings: {{{
+-- set core options: {{{
+local o = vim.opt
+
+o.wrap = true
+o.number = true
+o.numberwidth = 2
+o.relativenumber = true
+o.signcolumn = "yes"
+o.cursorline = true
+o.fillchars = { eob = " " }
+o.splitbelow = true
+o.splitright = true
+o.showtabline = 1
+
+o.writebackup = false
+o.backup = false
+o.swapfile = false
+o.undofile = true
+o.undodir = "/tmp/undo//"
+o.viewoptions = "folds,cursor,"
+o.viewdir = "/tmp/view//"
+
+o.ignorecase = true
+o.smartcase = true
+
+o.iskeyword:append("-")
+o.whichwrap:append("h,l")
+-- }}}
+
+local keymaps = require("keymaps")
 local opts = { noremap = true, silent = true }
 if keymaps.leaderkey ~= nil then
   vim.keymap.set("", keymaps.leaderkey, "<Nop>", opts)
   vim.g.mapleader = keymaps.leaderkey
   vim.g.maplocalleader = keymaps.leaderkey
 end
-_G.apply_keymaps(keymaps.core, opts)
--- }}}
-
--- set core options: {{{
-for key, value in pairs(options.core) do
-  vim.opt[key] = value
+for _, value in pairs(keymaps.core) do
+  vim.keymap.set(unpack(vim.list_extend(value, opts)))
 end
-for key, value in pairs(options.core_append_to) do
-  vim.opt[key]:append(value)
-end
--- }}}
 
--- bootstrap plugin manager {{{
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -51,10 +53,6 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
--- }}}
-
--- setup plugins: {{{
-require("lazy").setup(unpack(require("plugins").setup(options, keymaps)))
--- }}}
+require("lazy").setup(unpack(require("plugins")))
 
 -- vim: fdm=marker

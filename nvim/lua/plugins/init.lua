@@ -1,277 +1,260 @@
-local M = {}
+return {
+  -- auto pairs: {{{
+  {
+    dependencies = { "hrsh7th/nvim-cmp" },
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    init = require("plugins.integrations").autopairs_cmp,
+  },
+  -- }}}
 
-M.lsp = require("plugins.lsp")
-M.cmp = require("plugins.cmp")
-M.integrations = require("plugins.integrations")
+  -- colorscheme: {{{
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    init = function()
+      require("plugins.gruvbox")
+    end,
+  },
+  -- }}}
 
-M.setup = function(options, keymaps)
-  return {
-    {
-      -- auto pairs: {{{
-      {
-        dependencies = { "hrsh7th/nvim-cmp" },
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        init = M.integrations.autopairs_cmp,
+  -- comment lines: {{{
+  {
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
+    },
+    "numToStr/Comment.nvim",
+    opts = require("keymaps").comment,
+    config = function(_, opts)
+      require("Comment").setup(vim.tbl_deep_extend("keep", opts, {
+        pre_hook = require("plugins.integrations").comment_treesitter(),
+      }))
+    end,
+    event = "VeryLazy",
+  },
+  -- }}}
+
+  -- git support: {{{
+  {
+    "tpope/vim-fugitive",
+    event = "VeryLazy",
+    init = function()
+      for _, value in pairs(require("keymaps").fugitive) do
+        vim.keymap.set(unpack(vim.list_extend(value, { noremap = true })))
+      end
+    end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
       },
-      -- }}}
+      on_attach = function(bufnr)
+        local m = require("gitsigns")
+        for _, v in pairs(require("keymaps").gitsigns) do
+          vim.keymap.set(v[1], v[2], m[v[3]], { buffer = bufnr })
+        end
+        require("plugins.integrations").gitsigns_keymap(bufnr)
+      end,
+    },
+  },
+  -- }}}
 
-      -- colorscheme: {{{
-      {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-        opts = options.colorscheme,
-        init = function()
-          vim.cmd("colorscheme gruvbox")
-          for key, value in pairs(options.hl_overrides) do
-            vim.api.nvim_set_hl(0, key, value)
-          end
-        end,
+  -- lsp, cmp and friends: {{{
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
+    dependencies = {
+      { "williamboman/mason.nvim", opts = {} },
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+
+      "hrsh7th/nvim-cmp",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
+      "petertriho/cmp-git",
+      "hrsh7th/cmp-calc",
+
+      { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
+      "rafamadriz/friendly-snippets",
+      "saadparwaiz1/cmp_luasnip",
+
+      "onsails/lspkind.nvim",
+      "ray-x/lsp_signature.nvim",
+
+      "jay-babu/mason-null-ls.nvim",
+      "nvimtools/none-ls.nvim",
+
+      "folke/neoconf.nvim",
+      "folke/neodev.nvim",
+      "b0o/schemastore.nvim",
+
+      "simrat39/rust-tools.nvim",
+    },
+    config = function()
+      require("plugins.lsp")
+      require("plugins.cmp")
+      require("plugins.null-ls")
+    end,
+  },
+  -- }}}
+
+  -- surround text: {{{
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    opts = { keymaps = require("keymaps").comment },
+  },
+  -- }}}
+
+  -- telescope: {{{
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.4",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      defaults = {
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       },
-      -- }}}
+    },
+    init = function()
+      local m = require("telescope.builtin")
+      for _, v in pairs(require("keymaps").telescope_builtin) do
+        vim.keymap.set(v[1], v[2], m[v[3]], {})
+      end
+    end,
+    event = "VeryLazy",
+  },
+  -- }}}
 
-      -- comment lines: {{{
-      {
-        dependencies = {
-          "nvim-treesitter/nvim-treesitter",
-          { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
+  -- treesitter: {{{
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("plugins.treesitter")
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-refactor",
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+  },
+  -- }}}
+
+  -- others: {{{
+  "tpope/vim-sleuth",
+  -- }}}
+
+  -- nonessential: {{{
+
+  -- filetype syntax support: {{{
+  "kovetskiy/sxhkd-vim",
+  "Fymyte/rasi.vim",
+  -- }}}
+
+  -- show html colors and etc.: {{{
+  {
+    "norcalli/nvim-colorizer.lua",
+    priority = 0,
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+  -- }}}
+
+  -- simple tabline: {{{
+  {
+    "crispgm/nvim-tabline",
+    opts = {
+      show_index = false,
+      brackets = { "", "" },
+    },
+  },
+  -- }}}
+
+  -- pretty bar: {{{
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        theme = "gruvbox-material",
+        section_separators = "",
+        component_separators = "|",
+      },
+      sections = {
+        lualine_x = { "filetype" },
+      },
+    },
+    init = function()
+      vim.opt.showmode = false
+    end,
+  },
+  -- }}}
+
+  -- pretty icons: {{{
+  "ryanoasis/vim-devicons",
+  -- }}}
+
+  -- pretty folds: {{{
+  {
+    "anuvyklack/pretty-fold.nvim",
+    opts = {
+      sections = {
+        left = {
+          "content",
         },
-        "numToStr/Comment.nvim",
-        opts = keymaps.comment,
-        config = function(_, opts)
-          require("Comment").setup(vim.tbl_deep_extend("keep", opts, {
-            pre_hook = M.integrations.comment_treesitter(),
-          }))
-        end,
-        event = "VeryLazy",
-      },
-      -- }}}
-
-      -- git support: {{{
-      {
-        "tpope/vim-fugitive",
-        event = "VeryLazy",
-        init = function()
-          _G.apply_keymaps(keymaps.fugitive, { noremap = true })
-        end,
-      },
-      {
-        "lewis6991/gitsigns.nvim",
-        opts = {
-          signs = options.gitsigns,
-          on_attach = function(bufnr)
-            _G.apply_keymaps(keymaps.gitsigns, { buffer = bufnr }, "gitsigns")
-            M.integrations.gitsigns_keymap(bufnr)
+        right = {
+          " ",
+          "number_of_folded_lines",
+          " ",
+          function(config)
+            return config.fill_char:rep(3)
           end,
         },
       },
-      -- }}}
-
-      -- lsp, cmp and friends: {{{
-      {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v3.x",
-        dependencies = {
-          { "williamboman/mason.nvim", opts = {} },
-          "williamboman/mason-lspconfig.nvim",
-          "neovim/nvim-lspconfig",
-
-          "hrsh7th/nvim-cmp",
-          "hrsh7th/cmp-nvim-lsp",
-          "hrsh7th/cmp-path",
-          "hrsh7th/cmp-buffer",
-          "hrsh7th/cmp-cmdline",
-          "petertriho/cmp-git",
-          "hrsh7th/cmp-calc",
-
-          { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
-          "rafamadriz/friendly-snippets",
-          "saadparwaiz1/cmp_luasnip",
-
-          "onsails/lspkind.nvim",
-          "ray-x/lsp_signature.nvim",
-
-          "jay-babu/mason-null-ls.nvim",
-          "nvimtools/none-ls.nvim",
-
-          "folke/neoconf.nvim",
-          "folke/neodev.nvim",
-
-          "b0o/schemastore.nvim",
-        },
-        config = function()
-          require("neodev").setup()
-          require("neoconf").setup()
-          M.lsp.setup(options, keymaps)
-          M.cmp.setup(options, keymaps)
-          require("mason-null-ls").setup({
-            ensure_installed = vim.list_extend(options.linters, options.formatters),
-            handlers = {},
-          })
-          require("null-ls").setup()
-        end,
-      },
-      -- }}}
-
-      -- surround text: {{{
-      {
-        "kylechui/nvim-surround",
-        version = "*",
-        event = "VeryLazy",
-        opts = { keymaps = keymaps.comment },
-      },
-      -- }}}
-
-      -- telescope: {{{
-      {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.4",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {
-          defaults = {
-            borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-          },
-        },
-        init = function()
-          _G.apply_keymaps(keymaps.telescope_builtin, {}, "telescope.builtin")
-        end,
-        event = "VeryLazy",
-      },
-      -- }}}
-
-      -- treesitter: {{{
-      {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        opts = vim.tbl_deep_extend("force", options.treesitter, {
-          incremental_selection = {
-            keymaps = keymaps.treesitter_incremental_selection,
-          },
-          refactor = {
-            navigation = {
-              keymaps = keymaps.treesitter_navigation,
-            },
-          },
-        }),
-        config = function(_, opts)
-          require("nvim-treesitter.configs").setup(opts)
-
-          if opts.fold ~= nil and opts.fold.enable ~= nil then
-            if opts.fold.enable then
-              vim.opt.foldmethod = "expr"
-              vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-            end
-          end
-        end,
-        dependencies = {
-          "nvim-treesitter/nvim-treesitter-refactor",
-          "nvim-treesitter/nvim-treesitter-textobjects",
-        },
-      },
-      -- }}}
-
-      -- others: {{{
-      { "tpope/vim-sleuth", event = "VeryLazy" },
-      { "tpope/vim-abolish", event = "VeryLazy" },
-      -- }}}
-
-      -- nonessential: {{{
-
-      -- filetype syntax support: {{{
-      "kovetskiy/sxhkd-vim",
-      "Fymyte/rasi.vim",
-      -- }}}
-      -- show html colors and etc.: {{{
-      {
-        "norcalli/nvim-colorizer.lua",
-        priority = 0,
-        config = function()
-          require("colorizer").setup()
-        end,
-      },
-      -- }}}
-
-      -- simple tabline: {{{
-      {
-        "crispgm/nvim-tabline",
-        opts = {
-          show_index = false,
-          brackets = { "", "" },
-        },
-        init = function()
-          -- Only if there are at least two tabs (default)
-          vim.opt.showtabline = 1
-        end,
-      },
-      -- }}}
-
-      -- pretty bar: {{{
-      {
-        "nvim-lualine/lualine.nvim",
-        opts = {
-          options = {
-            theme = "gruvbox-material",
-            section_separators = "",
-            component_separators = "|",
-          },
-          sections = {
-            lualine_x = { "filetype" },
-          },
-        },
-        init = function()
-          vim.opt.showmode = false
-        end,
-      },
-      -- }}}
-
-      -- pretty icons: {{{
-      "ryanoasis/vim-devicons",
-      -- }}}
-
-      -- pretty folds: {{{
-      { "anuvyklack/pretty-fold.nvim", opts = options.folds },
-      -- }}}
-
-      -- pretty indentation: {{{
-      { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-      -- }}}
-
-      -- pretty diagnostics: {{{
-      {
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        init = function()
-          vim.diagnostic.config({ virtual_text = false, virtual_lines = false })
-
-          if keymaps.lsp_lines_toggle ~= nil then
-            vim.keymap.set("n", keymaps.lsp_lines_toggle, require("lsp_lines").toggle)
-          end
-        end,
-        opts = {},
-        event = "VeryLazy",
-      },
-      -- }}}
-
-      -- pretty notifications: {{{
-      {
-        "rcarriga/nvim-notify",
-        init = function()
-          vim.notify = require("notify")
-        end,
-      },
-      -- }}}
-
-      -- }}}
+      fill_char = "-",
     },
-    -- lazy opts: {{{
-    {
-      install = {
-        colorscheme = { "gruvbox" },
-      },
-    },
-    -- }}}
-  }
-end
+  },
+  -- }}}
 
-return M
+  -- pretty indentation: {{{
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  -- }}}
+
+  -- pretty diagnostics: {{{
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    init = function()
+      vim.diagnostic.config({ virtual_text = false, virtual_lines = false })
+
+      if require("keymaps").lsp_lines_toggle ~= nil then
+        vim.keymap.set("n", require("keymaps").lsp_lines_toggle, require("lsp_lines").toggle)
+      end
+    end,
+    opts = {},
+    event = "VeryLazy",
+  },
+  -- }}}
+
+  -- pretty notifications: {{{
+  {
+    "rcarriga/nvim-notify",
+    init = function()
+      vim.notify = require("notify")
+    end,
+  },
+  -- }}}
+
+  -- }}}
+}
 
 -- vim: fdm=marker
