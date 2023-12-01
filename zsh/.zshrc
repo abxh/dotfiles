@@ -3,7 +3,7 @@
 # options {{{
 
 # default directory {{{
-DEFAULT_DIR="~/desktop"
+DEFAULT_DIR="$(xdg-user-dir DESKTOP)"
 # }}}
 
 # history file {{{
@@ -23,7 +23,7 @@ bindkey -e
 
 # namespaced properties.{{{
 # See 'man zshmodules' for more information.
-zstyle :compinstall filename '/home/arch/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 # }}}
 
 # set custom prompt {{{
