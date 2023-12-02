@@ -16,7 +16,7 @@ CONFIG_DOTFILES=(
 	'alacritty'
 	'rofi'
 	'dunst'
-	'nvim'
+	# 'nvim'
 
 	'qutebrowser'
 )
