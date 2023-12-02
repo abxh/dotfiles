@@ -21,7 +21,7 @@ CONFIG_DOTFILES=(
 	'qutebrowser'
 )
 
-for dir in "$CONFIG_DOTFILES"; do
+for dir in "${CONFIG_DOTFILES[@]}"; do
 	target="$HOME/.config/$dir"
 	mkdir -p "$target"
 	stow --restow --target=$target $dir
