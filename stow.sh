@@ -23,10 +23,6 @@ CONFIG_DOTFILES=(
 
 for dir in "$CONFIG_DOTFILES"; do
 	target="$HOME/.config/$dir"
-
-	if [ -d "$stow_pkg" ]; then
-		mkdir -p "$target"
-	fi
-
+	mkdir -p "$target"
 	stow --restow --target=$target $dir
 done
