@@ -11,7 +11,7 @@ git clone --recurse-submodules https://github.com/abxh/dotfiles
 ```
 
 For the neovim config, use [ellisonleao/gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) and
-the colors specified [here](https://github.com/abxh/nvim-config/blob/960f44dc5fe73264603bb737d7e37c60210ac294/lua/plugins/gruvbox.lua)
+the colors specified [here](https://github.com/abxh/nvim-config/blob/5e59dc0425a88ce1f1d04f2c4ea1ce9137d0d6ad/lua/plugins/gruvbox.lua)
 to get something like the screenshots.
 
 ## Previews
