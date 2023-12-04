@@ -110,9 +110,7 @@ function lsta() {
 }
 
 # handy shorthands
-function pdf() {(evince "$@" &;)}
-function image() {(imv "$@" &;)}
-function video() {(mpv "$@" &;)}
+function pdf() {(zathura "$@" &;)}
 # }}}
 
 # keybindings {{{

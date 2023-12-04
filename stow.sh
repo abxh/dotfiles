@@ -19,6 +19,7 @@ CONFIG_DOTFILES=(
 	# 'nvim'
 
 	'qutebrowser'
+	'zathura'
 )
 
 for dir in "${CONFIG_DOTFILES[@]}"; do
