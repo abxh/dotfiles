@@ -7,22 +7,6 @@ super + d
 super + Tab
 	rofi -show window
 
-{XF86MonBrightnessUp, XF86MonBrightnessDown}
-	~/.scripts/dunstify/br_script { -i 15, -d 15}
-
-{XF86AudioMute, XF86AudioMicMute, XF86AudioRaiseVolume, XF86AudioLowerVolume}
-	~/.scripts/dunstify/pactl_script {-t,-y,-i 5,-d 5}
-
-XF86Display
-	xdotool search --class arandr windowclose || arandr
-
-XF86Tools
-	xdotool search --class nm-connection-e windowclose || nm-connection-editor
-	#xdotool search --name iwctl windowclose || alacritty --title 'iwctl' -e iwctl
-
-XF86Favorites
-	xdotool search --name todo windowclose || alacritty --title 'todo' -e ~/.scripts/todo
-
 @Print
 	scrot -a $(slop -f '%x,%y,%w,%h') "$(xdg-user-dir PICTURES)/screenshots/"'%d-%m-%y_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f'
 

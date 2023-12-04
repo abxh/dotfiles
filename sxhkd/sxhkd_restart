@@ -2,4 +2,5 @@
 
 pkill -SIGKILL -x "sxhkd"
 sxhkd -c ~/.config/sxhkd/i3-keys &
+sxhkd -c ~/.config/sxhkd/xorg-keys &
 sxhkd -c ~/.config/sxhkd/wm-independent-keys &
