@@ -20,6 +20,8 @@ CONFIG_DOTFILES=(
 
 	'qutebrowser'
 	'zathura'
+
+	'mpv'
 )
 
 for dir in "${CONFIG_DOTFILES[@]}"; do
