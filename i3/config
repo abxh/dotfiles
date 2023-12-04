@@ -4,7 +4,7 @@ include ~/.config/i3/bar*
 # colors: {{{
 set $colorp #d4be98
 set $colorf #282828
-set $coloru #fb4934
+set $coloru #ea6962
 set $bar_bg #00000000
 
 # border colors:
