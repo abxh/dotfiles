@@ -7,6 +7,8 @@ mode --pango_markup $resize {
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
+        bindsym Ctrl+c mode "default"
+        bindsym $mod+r mode "default"
         bindsym Escape mode "default"
 }
 

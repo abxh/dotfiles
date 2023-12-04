@@ -7,6 +7,8 @@ mode --pango_markup $system {
         bindsym r exec --no-startup-id systemctl reboot; mode "default"
         bindsym s exec --no-startup-id systemctl suspend; mode "default"
 
+        bindsym Ctrl+c mode "default"
+        bindsym $mod+Shift+e mode "default"
         bindsym Escape mode "default"
 }
 
