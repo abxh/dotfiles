@@ -10,10 +10,6 @@ To clone this repo with the submodules, run:
 git clone --recurse-submodules https://github.com/abxh/dotfiles
 ```
 
-For the neovim config, use [ellisonleao/gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) and
-the colors specified [here](https://github.com/abxh/nvim-config/blob/5455a7e3601da4f9bdb14326915406e52e4e3069/lua/plugins/gruvbox.lua)
-to get something like the screenshots.
-
 ## Previews
 <p float="left">
   <img src=".images/img0.png" width="32%" />
