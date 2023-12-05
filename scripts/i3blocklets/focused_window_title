@@ -10,7 +10,7 @@ from i3ipc import Connection, Event
 def update_title(ipc):
     title = ipc.get_tree().find_focused().window_title
     if title is not None:
-        print(title[:50] + " ... " + title[-50:] if len(title) > 105 else title)
+        print(title[:50] + "…" + title[-50:] if len(title) > 101 else title)
     else:
         print("")
     sys.stdout.flush()
