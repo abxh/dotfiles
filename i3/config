@@ -54,8 +54,9 @@ workspace_auto_back_and_forth yes
 
 # startup: {{{
 
-exec_always --no-startup-id hsetroot -extend $(xdg-user-dir PICTURES)/wallpapers/wallhaven-j5p23m.jpg
+exec_always --no-startup-id hsetroot -extend ~/pictures/wallpapers/wall.jpg
 exec_always --no-startup-id ~/.config/sxhkd/sxhkd_restart
+exec_always --no-startup-id ~/.stalonetray_restart
 
 exec --no-startup-id picom
 exec --no-startup-id redshift -l $(cat ~/.redshift-coord)

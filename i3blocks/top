@@ -6,5 +6,5 @@ separator_block_width=15
 [window]
 command=$SCRIPT_DIR/focused_window_title
 align=center
-min_width=1730
+min_width=1920
 interval=persist
