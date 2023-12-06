@@ -1,0 +1,14 @@
+# set $qutebrowser "<span foreground='#282828' background='#d4be98'> qutebrowser </span> s: school portal, n: neetcode roadmap"
+
+# mode --pango_markup $qutebrowser {
+#         bindsym s exec --no-startup-id qutebrowser ":open -t <school-portal>"; mode "default"
+#         bindsym n exec --no-startup-id qutebrowser ":open -t https://neetcode.io/roadmap"; mode "default"
+#
+#         bindsym Ctrl+c mode "default"
+#         bindsym $mod+q mode "default"
+#         bindsym Escape mode "default"
+# }
+
+# bindsym $mod+q mode $qutebrowser
+
+# vim: ft=i3config
