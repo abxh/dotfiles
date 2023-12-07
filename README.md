@@ -24,6 +24,6 @@ git clone --recurse-submodules https://github.com/abxh/dotfiles
 These are wallpapers that fit well with the colorscheme.
 
 <p float="left">
-  <img src=".wallpaper/wallhaven-j5p23m.jpg" width="32%" />
-  <img src=".wallpaper/unknown_source0.jpg" width="32%" />
+  <img src=".wallpapers/wallhaven-j5p23m.jpg" width="32%" />
+  <img src=".wallpapers/unknown_source0.jpg" width="32%" />
 </p>
