@@ -20,4 +20,10 @@ git clone --recurse-submodules https://github.com/abxh/dotfiles
   <img src=".images/img5.png" width="32%" />
 </p>
 
-> The [wallpaper](https://wallhaven.cc/w/j5p23m) used.
+## Wallpapers
+These are wallpapers that fit well with the colorscheme.
+
+<p float="left">
+  <img src=".wallpaper/wallhaven-j5p23m.jpg" width="32%" />
+  <img src=".wallpaper/unknown_source0.jpg" width="32%" />
+</p>
