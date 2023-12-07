@@ -1,6 +1,6 @@
 # See dunst(5) for all configuration options
 
-# Note: do a `diff dunstrc /etc/dunst/dunstrc/` to see
+# Note: do a `diff /etc/dunst/dunstrc/ dunstrc` to see
 # the differences in configs.
 
 [global]
