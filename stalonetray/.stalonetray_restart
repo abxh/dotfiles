@@ -3,9 +3,10 @@
 pkill stalonetray
 stalonetray &
 
-# don't focus stalonetray by setting override_redirect flag.
+# don't focus stalonetray by setting xorg override_redirect flag.
 # https://unix.stackexchange.com/a/680848
-(read -t 0.2; # wait for i3 to restart. if done at the same time, stalonetray messes up.
+
+(read -t 0.2; # wait for i3 to restart. if done at the same time, the override_redirect flag is not applied.
 wid=$(xdotool search --class stalonetray);
 xdotool set_window --overrideredirect 1 "$wid";
 xdotool windowunmap "$wid";
