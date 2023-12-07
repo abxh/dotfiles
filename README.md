@@ -21,9 +21,11 @@ git clone --recurse-submodules https://github.com/abxh/dotfiles
 </p>
 
 ## Wallpapers
-These are wallpapers that fit well with the colorscheme.
+
+Here are some great wallpapers to use in conjunction with the rice:
 
 <p float="left">
   <img src=".wallpapers/wallhaven-j5p23m.jpg" width="32%" />
+  <img src=".wallpapers/leif-niemczik-Gp8R_D5klig-unsplash.jpg" width="32%" />
   <img src=".wallpapers/unknown_source0.jpg" width="32%" />
 </p>

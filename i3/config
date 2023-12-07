@@ -54,7 +54,7 @@ workspace_auto_back_and_forth yes
 
 # startup: {{{
 
-exec_always --no-startup-id hsetroot -extend ~/pictures/wallpapers/wall.jpg
+exec_always --no-startup-id hsetroot -cover ~/pictures/wallpapers/leif-niemczik-Gp8R_D5klig-unsplash.jpg
 exec_always --no-startup-id ~/.config/sxhkd/sxhkd_restart
 exec_always --no-startup-id ~/.stalonetray_restart
 
