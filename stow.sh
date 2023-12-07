@@ -13,7 +13,7 @@ CONFIG_DOTFILES=(
 	'i3blocks'
 	'picom'
 
-	'alacritty'
+	'kitty' # 'alacritty'
 	'rofi'
 	'dunst'
 	# 'nvim'
