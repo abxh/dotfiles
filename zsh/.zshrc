@@ -42,20 +42,6 @@ PROMPT=$__green'$(__git_branch)'$__reset_color'${__user}''${__percent_symbol} '
 RPROMPT=$__blue'${__dir}'$__reset_color
 # }}}
 
-# set custom title {{{
-autoload -Uz add-zsh-hook
-function title_precmd () {
-  print -Pn -- '\e]2;%#\a'
-}
-
-function title_preexec () {
-  print -Pn -- '\e]2;%# ' && print -n -- "${(q)1}\a"
-}
-
-add-zsh-hook -Uz precmd title_precmd
-add-zsh-hook -Uz preexec title_preexec
-# }}}
-
 # autocompletion {{{
 autoload -Uz compinit
 compinit
