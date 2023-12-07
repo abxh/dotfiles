@@ -12,12 +12,12 @@ git clone --recurse-submodules https://github.com/abxh/dotfiles
 
 ## Previews
 <p float="left">
-  <img src=".images/img0.png" width="32%" />
-  <img src=".images/img1.png" width="32%" />
-  <img src=".images/img2.png" width="32%" />
-  <img src=".images/img3.png" width="32%" />
-  <img src=".images/img4.png" width="32%" />
-  <img src=".images/img5.png" width="32%" />
+  <img src="https://i.imgur.com/enwSxeG.png" width="32%" />
+  <img src="https://i.imgur.com/FYL8lfP.png" width="32%" />
+  <img src="https://i.imgur.com/S9LzSk0.png" width="32%" />
+  <img src="https://i.imgur.com/KRjw9mZ.png" width="32%" />
+  <img src="https://i.imgur.com/kxAqfqr.png" width="32%" />
+  <img src="https://i.imgur.com/7soBfmn.png" width="32%" />
 </p>
 
 ## Wallpapers
@@ -25,7 +25,7 @@ git clone --recurse-submodules https://github.com/abxh/dotfiles
 Here are some great wallpapers to use in conjunction with the rice:
 
 <p float="left">
-  <img src=".wallpapers/wallhaven-j5p23m.jpg" width="32%" />
-  <img src=".wallpapers/leif-niemczik-Gp8R_D5klig-unsplash.jpg" width="32%" />
-  <img src=".wallpapers/unknown_source0.jpg" width="32%" />
+  <img src="https://w.wallhaven.cc/full/j5/wallhaven-j5p23m.jpg" width="32%" />
+  <img src="https://i.imgur.com/R7Y8kln.png" width="32%" />
+  <img src="https://i.imgur.com/1ZFAAOG.png" width="32%" />
 </p>
