@@ -7,7 +7,7 @@ Special dependencies are written within the files themselves. Most dependencies 
 
 To clone this repo with the submodules, run:
 ```
-git clone --recurse-submodules https://github.com/abxh/dotfiles
+git clone --depth=1 --recurse-submodules https://github.com/abxh/dotfiles
 ```
 
 ## Previews
