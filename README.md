@@ -11,7 +11,7 @@ git clone --depth=1 --recurse-submodules https://github.com/abxh/dotfiles
 ```
 
 ## Previews
-> Note: These previews are dated, but I retain much of the same aesthetic. Blur is no longer set as high, and I set some transparency from kitty (using picom as my compositor).
+> Note: These previews are dated, but I retain much of the same aesthetic. Transparency is no longer set as high, and I set a little bit transparency from kitty on all terminals (using picom as my compositor). Will update soon.
 <p float="left">
   <img src="https://i.imgur.com/enwSxeG.png" width="32%" />
   <img src="https://i.imgur.com/FYL8lfP.png" width="32%" />
