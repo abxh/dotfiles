@@ -11,14 +11,13 @@ git clone --depth=1 --recurse-submodules https://github.com/abxh/dotfiles
 ```
 
 ## Previews
-> Note: These previews are dated, but I retain much of the same aesthetic. Transparency is no longer set as high, and I set a little bit transparency from kitty on all terminals (using picom as my compositor). Will update soon.
 <p float="left">
-  <img src="https://i.imgur.com/enwSxeG.png" width="32%" />
-  <img src="https://i.imgur.com/FYL8lfP.png" width="32%" />
-  <img src="https://i.imgur.com/S9LzSk0.png" width="32%" />
-  <img src="https://i.imgur.com/KRjw9mZ.png" width="32%" />
-  <img src="https://i.imgur.com/kxAqfqr.png" width="32%" />
-  <img src="https://i.imgur.com/7soBfmn.png" width="32%" />
+  <img src="https://i.imgur.com/TI2JWLR.png" width="32%" />
+  <img src="https://i.imgur.com/TMOB1K5.png" width="32%" />
+  <img src="https://i.imgur.com/3kwcs4M.png" width="32%" />
+  <img src="https://i.imgur.com/WylA4Va.png" width="32%" />
+  <img src="https://i.imgur.com/dqykcY9.png" width="32%" />
+  <img src="https://i.imgur.com/MNuqVHp.png" width="32%" />
 </p>
 
 ## Wallpapers
