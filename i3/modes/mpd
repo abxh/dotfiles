@@ -1,12 +1,10 @@
-set $mpd "<span foreground='#282828' background='#d4be98'> mpd </span> t: toggle, p: pause, s:stop, n: previous, m: next, r: repeat"
+set $mpd "<span foreground='#282828' background='#d4be98'> mpd </span> t: toggle, s:stop, n: previous, m: next"
 
 mode --pango_markup $mpd {
         bindsym t exec --no-startup-id mpc toggle
-        bindsym p exec --no-startup-id mpc pause
         bindsym s exec --no-startup-id mpc stop
         bindsym n exec --no-startup-id mpc next
         bindsym m exec --no-startup-id mpc prev
-        bindsym r exec --no-startup-id mpc repeat
 
         bindsym Ctrl+c mode "default"
         bindsym $mod+m mode "default"
