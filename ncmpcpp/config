@@ -1,7 +1,7 @@
 # vim: ft=conf
 
 [mpd]
-mpd_music_dir = "/mnt/personal/music"
+mpd_music_dir = "/mnt/home/music"
 mpd_host = "localhost"
 mpd_port = "6600"
 

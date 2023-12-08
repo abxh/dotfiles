@@ -22,6 +22,8 @@ CONFIG_DOTFILES=(
 	'zathura'
 
 	'mpv'
+	'mpd'
+	'ncmpcpp'
 )
 
 for dir in "${CONFIG_DOTFILES[@]}"; do
