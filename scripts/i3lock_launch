@@ -3,8 +3,8 @@
 # dependencies:
 # i3lock-color
 
-dark_shade='#000000cc'
-darker_shade='#00000040'
+dark_shade='#000000dd'
+darker_shade='#000000dd'
 green='#a9b665'
 yellow='#d8a657'
 red='#ea6962'
