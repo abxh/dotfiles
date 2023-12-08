@@ -76,7 +76,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
+    transparency = 5
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
