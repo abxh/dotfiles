@@ -1,5 +1,5 @@
 super + Return
-    kitty # alacritty
+	i3-sensible-terminal
 
 super + d
 	rofi -show drun
