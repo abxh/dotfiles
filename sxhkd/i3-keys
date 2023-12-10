@@ -18,7 +18,7 @@ super + space
 
 # select parent
 super + a
-	i3-msg focus parent
+	i3-msg -q focus parent
 
 # split window
 super + {b, v}

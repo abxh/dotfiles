@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-pkill -SIGKILL -x "sxhkd"
-sxhkd -c ~/.config/sxhkd/i3-keys &
-sxhkd -c ~/.config/sxhkd/xorg-keys &
-sxhkd -c ~/.config/sxhkd/wm-independent-keys &
+pid=$(pgrep -x "sxhkd")
+pkill -USR1 -x "sxhkd"
+wait $pid
+
+cat ~/.config/sxhkd/*-keys > ~/.config/sxhkd/sxhkdrc
+sxhkd -m -1
