@@ -1,8 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-pid=$(pgrep -x "sxhkd")
-pkill -USR1 -x "sxhkd"
-wait $pid
-
+pkill -x "sxhkd" > /dev/null
 cat ~/.config/sxhkd/*-keys > ~/.config/sxhkd/sxhkdrc
-sxhkd -m -1
+sxhkd  &
