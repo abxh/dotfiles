@@ -6,9 +6,15 @@ separator_block_width=15
 [updates-count]
 command=$SCRIPT_DIR/count_updates
 interval=once
-UPDATES_FILE=checkupdates
 markup=pango
-LABEL=<span font='Font Awesome 6 Free'></span> 
+label=<span font='Font Awesome 6 Free'>  </span>
+UPDATES_FILE=checkupdates
+
+[keyboard]
+command=xkb-switch -p; xkb-switch -W
+interval=persist
+markup=pango
+label=<span font='Font Awesome 6 Free'>  </span>
 
 [battery]
 command=$SCRIPT_DIR/battery2
@@ -19,7 +25,7 @@ interval=30
 command=$SCRIPT_DIR/calendar
 interval=1
 markup=pango
-LABEL=<span font='Font Awesome 6 Free'></span> 
+label=<span font='Font Awesome 6 Free'></span> 
 DATEFMT=+%d %b %Y %H:%M:%S
 POPUP_POSX=-5
 POPUP_POSY=-69

@@ -12,8 +12,8 @@ HEIGHT=${HEIGHT:-200}
 DATEFMT=${DATEFMT:-"+%a %d.%m.%Y %H:%M:%S"}
 SHORTFMT=${SHORTFMT:-"+%H:%M:%S"}
 
-POPUP_POSX=${POPUP_POSX:-1610}
-POPUP_POSY=${POPUP_POSY:-730}
+POPUP_POSX=${POPUP_POSX:--5}
+POPUP_POSY=${POPUP_POSY:--69}
 
 case "$BLOCK_BUTTON" in
 1 | 2 | 3)
@@ -26,7 +26,7 @@ case "$BLOCK_BUTTON" in
 	> /dev/null"
 	;;
 esac
-echo "$LABEL$(date "$DATEFMT") "
-echo "$LABEL$(date "$SHORTFMT") "
+echo "$(date "$DATEFMT") "
+echo "$(date "$SHORTFMT") "
 
 # vim: ft=sh

@@ -2,7 +2,7 @@
 
 wait_for_connection() {
 	while ! ping -c 1 -n 1.1.1.1 &>/dev/null; do
-		echo "waiting for connection..." 1>&2
+		echo "waiting for connection…" 1>&2
 		sleep 10
 	done
 }
@@ -15,4 +15,4 @@ if ((COUNT == 0)); then
 	COUNT='no'
 fi
 
-echo $LABEL$COUNT updates
+echo $COUNT updates
