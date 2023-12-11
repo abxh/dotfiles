@@ -5,7 +5,6 @@ bar {
 	tray_output primary
 	binding_mode_indicator no
 	i3bar_command i3bar --transparency
-	status_command SCRIPT_DIR=~/.scripts/i3blocklets i3blocks -c ~/.config/i3blocks/top
 	tray_padding 3
 
 	colors {
