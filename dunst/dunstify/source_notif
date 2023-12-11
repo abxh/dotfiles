@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+source_name="@DEFAULT_SOURCE@"
+
+icon_path="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/"
+
+source_tag="string:x-dunst-stack-tag:source"
+
+vol_max=153
+
+bar_color="#d4be98"
+muted_bar_color="$bar_color"70
+
+source_muted=$(pactl get-source-mute $source_name | awk '{print $2}')
+
+if [ $source_muted == "yes" ]; then
+	source_icon=$icon_path'audio-input-microphone-muted.svg'
+	notif_desc="Muted"
+else
+	source_icon=$icon_path'audio-input-microphone-none-panel.svg'
+	notif_desc="Unmuted"
+fi
+
+dunstify \
+	-h $source_tag \
+	-i "$source_icon" \
+	"Microphone" \
+	"$notif_desc"

@@ -1,0 +1,41 @@
+super + Return
+	i3-sensible-terminal
+
+super + d
+	rofi -show drun
+
+super + Tab
+	rofi -show window
+
+@Print
+	scrot \
+	-a $(slop -f '%x,%y,%w,%h') \
+	"$(xdg-user-dir PICTURES)/screenshots/"'%d-%m-%y_$wx$h.png' \
+	-e 'xclip -selection clipboard -t image/png -i $f'
+
+super + x
+	xkb-switch --next; ~/.config/dunst/dunstify/key_notif
+
+{XF86MonBrightnessUp, XF86MonBrightnessDown}
+	light {-Ar 15, -Ur 15}; ~/.config/dunst/dunstify/br_notif
+
+{XF86AudioRaiseVolume, XF86AudioLowerVolume}
+	pactl set-sink-volume @DEFAULT_SINK@ {+10%,-10%}; ~/.config/dunst/dunstify/sink_notif
+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle; ~/.config/dunst/dunstify/sink_notif
+
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle; ~/.config/dunst/dunstify/source_notif
+
+XF86Display
+	xdotool search --class arandr windowclose || arandr
+
+XF86Tools
+	xdotool search --class nm-connection-e windowclose || nm-connection-editor
+	#xdotool search --name iwctl windowclose || alacritty --title 'iwctl' -e iwctl
+
+XF86Favorites
+	xdotool search --name todo windowclose || i3-sensible-terminal --title 'todo' -e ~/.scripts/todo
+
+# vim: ft=sxhkd
