@@ -4,22 +4,19 @@ separator=true
 separator_block_width=15
 
 [updates-count]
-command=$SCRIPT_DIR/count_updates
+command=echo "$(checkupdates | wc -l) updates"
 interval=once
 markup=pango
 label=<span font='Font Awesome 6 Free'>  </span>
-UPDATES_FILE=checkupdates
 
 [battery]
 command=$SCRIPT_DIR/battery2
 markup=pango
 interval=30
 
-[calendar]
-command=$SCRIPT_DIR/calendar
+[time]
+command=date "$DATEFMT "
 interval=1
 markup=pango
 label=<span font='Font Awesome 6 Free'></span> 
 DATEFMT=+%d %b %Y %H:%M:%S
-POPUP_POSX=-5
-POPUP_POSY=-69
