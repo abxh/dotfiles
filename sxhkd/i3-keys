@@ -2,7 +2,7 @@
 
 # kill windows
 super + shift + q
-	[ "$(xdotool getactivewindow getwindowname)" = "stalonetray" ] || i3-msg -q kill
+	i3-msg -q kill
 
 # reload config file / restart i3 inplace
 super + shift + {c, r}

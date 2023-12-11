@@ -2,7 +2,7 @@ bar {
 	id "bar_top"
 
 	position top
-	tray_output none # before: primary. now: none. using stalonetray to display tray icons.
+	tray_output primary
 	binding_mode_indicator no
 	i3bar_command i3bar --transparency
 	status_command SCRIPT_DIR=~/.scripts/i3blocklets i3blocks -c ~/.config/i3blocks/top

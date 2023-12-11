@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-stow --restow --target=$HOME xorg zsh stalonetray \
+stow --restow --target=$HOME xorg zsh \
 	2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2) # bugfix
 
 mkdir -p $HOME/.scripts

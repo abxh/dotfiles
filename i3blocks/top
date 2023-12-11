@@ -6,5 +6,11 @@ separator_block_width=15
 [window]
 command=$SCRIPT_DIR/focused_window_title
 align=center
-min_width=1920
+min_width=1730
 interval=persist
+
+# note:
+# min_width does work with 1920, when the tray icons are not there.
+# using stalonetray for the tray icons has it's own problems, and I am forced to face the current
+# limitations with i3blocks. If the centering is not a issue, then 1730 works approximately.
+
