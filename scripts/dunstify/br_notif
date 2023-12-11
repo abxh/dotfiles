@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+path="/sys/class/backlight/amdgpu_bl1"
+icon="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/actions/brightnesssettings.svg"
+
+tag="string:x-dunst-stack-tag:brightness"
+
+bar_color="#d4be98"
+
+dunstify -h int:value:$(light -G) \
+	-h string:hlcolor:$bar_color \
+	-h $tag \
+	-i "$icon" \
+	"Brightness:" \
+	"$(light -Gr)"

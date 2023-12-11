@@ -10,12 +10,6 @@ markup=pango
 label=<span font='Font Awesome 6 Free'>  </span>
 UPDATES_FILE=checkupdates
 
-[keyboard]
-command=xkb-switch -p; xkb-switch -W
-interval=persist
-markup=pango
-label=<span font='Font Awesome 6 Free'>  </span>
-
 [battery]
 command=$SCRIPT_DIR/battery2
 markup=pango

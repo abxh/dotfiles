@@ -1,5 +1,5 @@
 {XF86MonBrightnessUp, XF86MonBrightnessDown}
-	~/.scripts/dunstify/br_script { -i 15, -d 15}
+	light {-Ar 15, -Ur 15}; ~/.scripts/dunstify/br_notif
 
 {XF86AudioMute, XF86AudioMicMute, XF86AudioRaiseVolume, XF86AudioLowerVolume}
 	~/.scripts/dunstify/pactl_script {-t,-y,-i 5,-d 5}
