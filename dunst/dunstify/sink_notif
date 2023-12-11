@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-sink_name="@DEFAULT_SINK@"
+sink_name="$1"
+sink_name=${sink_name:-"@DEFAULT_SINK@"}
 sink_tag="string:x-dunst-stack-tag:sink"
 
 vol_max=153
