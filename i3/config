@@ -1,6 +1,6 @@
 include ~/.config/i3/modes/*
-include ~/desktop/setup/modes/*
 include ~/.config/i3/bar*
+include ~/.config/i3/keybinds
 
 # colors: {{{
 set $colorp #d4be98
@@ -19,6 +19,12 @@ client.unfocused        $colorf   $colorf   #888888   #ffffffCC $colorf
 
 # windows key as $mod
 set $mod Mod4
+
+# h, j, k, l as arrow keys
+set $up h
+set $down k
+set $left j
+set $right l
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -55,7 +61,7 @@ workspace_auto_back_and_forth yes
 # startup: {{{
 
 exec_always --no-startup-id hsetroot -cover ~/pictures/wallpapers/wallhaven-j5p23m.jpg
-exec_always --no-startup-id ~/.config/sxhkd/sxhkd_restart
+exec_always --no-startup-id pkill -USR1 -x sxhkd || { sxhkd > /dev/null 2>&1 & }
 
 exec --no-startup-id picom
 exec --no-startup-id redshift -l $(cat ~/.redshift-coord)
@@ -89,3 +95,5 @@ for_window [title="Open Folder"] $fwin_big
 # }}}
 
 # vim: ft=i3config fdm=marker
+#!/usr/bin/env bash
+

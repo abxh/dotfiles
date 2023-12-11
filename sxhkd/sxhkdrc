@@ -1,6 +1,3 @@
-super + Return
-	i3-sensible-terminal
-
 super + d
 	rofi -show drun
 

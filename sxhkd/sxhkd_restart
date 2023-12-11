@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-cat ~/.config/sxhkd/*-keys > ~/.config/sxhkd/sxhkdrc
-pkill -USR1 -x sxhkd || { sxhkd > /dev/null 2>&1 & }
