@@ -10,4 +10,7 @@ super + Tab
 @Print
 	scrot -a $(slop -f '%x,%y,%w,%h') "$(xdg-user-dir PICTURES)/screenshots/"'%d-%m-%y_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f'
 
+super + x
+	xkb-switch --next
+
 # vim: ft=sxhkd
