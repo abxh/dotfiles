@@ -1,5 +1,4 @@
 include ~/.config/i3/modes/*
-include ~/.config/i3/bar*
 include ~/.config/i3/keybinds
 
 # colors: {{{
@@ -13,6 +12,37 @@ set $bar_bg #00000000
 client.focused          $colorpCC $colorpCC #ffffff   #ffffffCC $colorpCC
 client.focused_inactive $colorf   $colorf   #ffffff   #ffffffCC $colorf
 client.unfocused        $colorf   $colorf   #888888   #ffffffCC $colorf
+# }}}
+
+# bar {{{
+bar {
+	position top
+	separator_symbol " "
+	i3bar_command i3bar --transparency
+	status_command SCRIPT_DIR=~/.scripts i3blocks
+	tray_padding 3
+
+	colors {
+		background $bar_bg
+		statusline $colorp
+
+		# <colorclass>     <border>  <background> <text>
+		binding_mode       $bar_bg   $bar_bg    $colorp
+		focused_workspace  $bar_bg   $colorp    $colorf
+		active_workspace   $bar_bg   $colorp    $colorf
+		inactive_workspace $bar_bg   $bar_bg    $colorp
+		urgent_workspace   $bar_bg   $bar_bg    $coloru
+}}
+# }}}
+
+# borders and gaps: {{{
+
+default_border pixel 1
+gaps inner 7
+
+smart_borders on
+smart_gaps on
+
 # }}}
 
 # keys: {{{
@@ -31,21 +61,6 @@ floating_modifier $mod
 
 # only initiate a tiling drag when the modifier is held:
 tiling_drag modifier
-
-# }}}
-
-# borders and gaps: {{{
-
-default_border pixel
-default_border pixel 1
-
-gaps inner 7
-gaps top -3
-gaps bottom -5
-
-# smart_borders on
-smart_gaps on
-hide_edge_borders vertical
 
 # }}}
 
@@ -95,4 +110,5 @@ for_window [title="Open Folder"] $fwin_big
 # }}}
 
 # vim: ft=i3config fdm=marker
+
 

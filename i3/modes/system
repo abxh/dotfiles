@@ -1,4 +1,4 @@
-set $system "<span foreground='#282828' background='#d4be98'> system </span> l: lock, e: exit xorg, p: poweroff, r: reboot, s: suspend"
+set $system "<span foreground='#282828' background='#d4be98'> system </span> [l]ock, [e]xit xorg, [p]oweroff, [r]eboot, [s]uspend"
 
 mode --pango_markup $system {
         bindsym l exec --no-startup-id ~/.scripts/i3lock_launch; mode "default"

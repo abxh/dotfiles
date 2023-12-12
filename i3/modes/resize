@@ -1,5 +1,5 @@
 # resize window (you can also use the mouse for that, which is easier for floating windows.)
-set $resize "<span foreground='#282828' background='#d4be98'> resize </span> h, j, k, l: resize window"
+set $resize "<span foreground='#282828' background='#d4be98'> resize </span> h, j, k, l"
 
 mode --pango_markup $resize {
         bindsym h resize shrink width 10 px or 10 ppt
