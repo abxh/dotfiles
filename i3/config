@@ -21,9 +21,9 @@ client.unfocused        $colorf   $colorf   #888888   #ffffffCC $colorf
 set $mod Mod4
 
 # h, j, k, l as arrow keys
-set $up h
-set $down k
-set $left j
+set $up k
+set $down j
+set $left h
 set $right l
 
 # use Mouse+$mod to drag floating windows to their wanted position
@@ -95,5 +95,4 @@ for_window [title="Open Folder"] $fwin_big
 # }}}
 
 # vim: ft=i3config fdm=marker
-#!/usr/bin/env bash
 
