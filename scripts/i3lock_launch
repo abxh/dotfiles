@@ -16,7 +16,7 @@ font='JetBrainsMonoNF'
 font_size=32
 font_size_small=17
 
-time_str='%H:%M:%S'
+time_str='%H:%M'
 date_str='%d %b %Y'
 
 modif_pos='ix:iy-50'
@@ -95,5 +95,5 @@ i3lock ${one_word_args[@]} \
 	--wrong-font="$font" \
 	--greeter-font="$font" \
 	\
-	--time-str="%H:%M:%S" \
-	--date-str="%d %b %Y"
+	--time-str="$time_str" \
+	--date-str="$date_str"

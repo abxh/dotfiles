@@ -15,8 +15,8 @@ markup=pango
 interval=30
 
 [time]
-command=date "$DATEFMT "
+command=date "$DATEFMT"
 interval=1
 markup=pango
 label=<span font='Font Awesome 6 Free'></span> 
-DATEFMT=+%d %b %Y %H:%M:%S
+DATEFMT=+%d %b %Y %H:%M
