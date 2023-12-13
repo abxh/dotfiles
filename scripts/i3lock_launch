@@ -16,7 +16,7 @@ font='JetBrainsMonoNF'
 font_size=32
 font_size_small=17
 
-time_str='%H:%M'
+time_str='%H:%M:%S'
 date_str='%d %b %Y'
 
 modif_pos='ix:iy-50'
