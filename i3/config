@@ -79,7 +79,7 @@ exec_always --no-startup-id hsetroot -cover ~/pictures/wallpapers/wallhaven-j5p2
 exec_always --no-startup-id pkill -USR1 -x sxhkd || { sxhkd > /dev/null 2>&1 & }
 
 exec --no-startup-id picom
-exec --no-startup-id redshift -l $(cat ~/.redshift-coord)
+exec --no-startup-id redshift-gtk -l "$(cat ~/.redshift-coord)"
 exec --no-startup-id mpd
 
 exec --no-startup-id xset s 600 600 dpms 0 0 660
