@@ -2,34 +2,34 @@
 
 sink_name="$1"
 sink_name=${sink_name:-"@DEFAULT_SINK@"}
-sink_tag="string:x-dunst-stack-tag:sink"
 
 vol_max=153
 
 bar_color="#d4be98"
 muted_bar_color="$bar_color"70
 
-sink_muted=$(pactl get-sink-mute $sink_name | awk '{print $2}')
-sink_volume=$(pactl get-sink-volume $sink_name | awk '{print $5}' | cut -d '%' -f 1)
+muted=$(pactl get-sink-mute $sink_name | awk '{print $2}')
+volume=$(pactl get-sink-volume $sink_name | awk '{print $5}' | cut -d '%' -f 1)
 
+tag="string:x-dunst-stack-tag:sink"
 icon_path="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/"
 
-if [[ "$sink_muted" == "yes" ]]; then
-	sink_icon=$icon_path'audio-volume-muted.svg'
+if [[ "$muted" == "yes" ]]; then
+	icon=$icon_path'audio-volume-muted.svg'
 	bar_color=$muted_bar_color
 else
-	if [[ "$sink_volume" -lt 34 ]]; then
-		sink_icon=$icon_path'audio-volume-low.svg'
-	elif [[ "$sink_volume" -lt 67 ]]; then
-		sink_icon=$icon_path'audio-volume-medium.svg'
+	if [[ "$volume" -lt 34 ]]; then
+		icon=$icon_path'audio-volume-low.svg'
+	elif [[ "$volume" -lt 67 ]]; then
+		icon=$icon_path'audio-volume-medium.svg'
 	else
-		sink_icon=$icon_path'audio-volume-high.svg'
+		icon=$icon_path'audio-volume-high.svg'
 	fi
 fi
 
-dunstify -h int:value:$(($sink_volume * 100 / $vol_max)) \
+dunstify -h int:value:$(($volume * 100 / $vol_max)) \
 	-h string:hlcolor:$bar_color \
-	-h $sink_tag \
-	-i "$sink_icon" \
+	-h $tag \
+	-i "$icon" \
 	"Volume:" \
-	"$sink_volume%"
+	"$volume%"
