@@ -3,11 +3,12 @@
 separator=true
 separator_block_width=15
 
-[updates-count]
-command=while ! ping -c 1 -n 1.1.1.1 &>/dev/null; do sleep 10; done; echo "$(checkupdates | wc -l) updates" | sed 's/^0 /no /'
-interval=once
-markup=pango
-label=<span font='Font Awesome 6 Free'>  </span>
+# note: using update notification instead.
+# [updates-count]
+# command=while ! ping -c 1 -n 1.1.1.1 &>/dev/null; do sleep 10; done; echo "$(checkupdates | wc -l) updates" | sed 's/^0 /no /'
+# interval=once
+# markup=pango
+# label=<span font='Font Awesome 6 Free'>  </span>
 
 [battery]
 command=$SCRIPT_DIR/battery2

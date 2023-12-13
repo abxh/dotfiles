@@ -91,6 +91,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
 exec --no-startup-id i3-sensible-terminal --title='todo' -e ~/.scripts/todo
+exec --no-startup-id ~/.config/dunst/dunstify/updates_notif
 
 # }}}
 
@@ -110,5 +111,3 @@ for_window [title="Open Folder"] $fwin_big
 # }}}
 
 # vim: ft=i3config fdm=marker
-
-
