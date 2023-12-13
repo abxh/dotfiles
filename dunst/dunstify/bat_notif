@@ -6,5 +6,6 @@ icon="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/pane
 dunstify -h $tag \
 	-u critical \
 	-i "$icon" \
+	-t 30000 \
 	"Warning" \
 	"Battery is getting low!"
