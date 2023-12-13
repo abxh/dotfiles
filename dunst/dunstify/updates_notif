@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-tag="string:x-dunst-stack-tag:source"
+tag="string:x-dunst-stack-tag:updates"
 icon="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/updates-notifier.svg"
 icon_alt="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/updates-notifier-inactive.svg"
 
