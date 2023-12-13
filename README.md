@@ -12,12 +12,12 @@ git clone --depth=1 --recurse-submodules https://github.com/abxh/dotfiles
 
 ## Previews
 <p float="left">
-  <img src="https://i.imgur.com/SeKOK0s.png" width="32%" />
-  <img src="https://i.imgur.com/4tp5d4B.png" width="32%" />
-  <img src="https://i.imgur.com/25GwxXu.png" width="32%" />
-  <img src="https://i.imgur.com/HNl3fIg.png" width="32%" />
-  <img src="https://i.imgur.com/tT4aJXS.png" width="32%" />
-  <img src="https://i.imgur.com/uzwl0sP.png" width="32%" />
+  <img src="https://i.imgur.com/8WNm7Cq.png" width="32%" />
+  <img src="https://i.imgur.com/6Rhs0ll.png" width="32%" />
+  <img src="https://i.imgur.com/sJdkxBk.png" width="32%" />
+  <img src="https://i.imgur.com/gI2Jtqt.png" width="32%" />
+  <img src="https://i.imgur.com/tlTipKZ.png" width="32%" />
+  <img src="https://i.imgur.com/7f4NQd1.png" width="32%" />
 </p>
 
 ## Wallpapers
