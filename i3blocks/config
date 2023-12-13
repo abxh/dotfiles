@@ -15,7 +15,7 @@ markup=pango
 interval=30
 
 [time]
-command=date "$DATEFMT"; [ -z "$BLOCK_BUTTON" ] || i3-msg -q "exec yad --calendar --undecorated --fixed --close-on-unfocus --no-buttons --posx=$POPUP_POSX --posy=$POPUP_POSY"
+command=date "$DATEFMT"; [[ -z ${BLOCK_BUTTON} ]] || i3-msg -q "exec yad --calendar --undecorated --fixed --close-on-unfocus --no-buttons --posx=$POPUP_POSX --posy=$POPUP_POSY"
 interval=1
 markup=pango
 label=<span font='Font Awesome 6 Free'></span> 
