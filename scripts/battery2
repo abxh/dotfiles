@@ -97,5 +97,5 @@ else:
 print(fulltext)
 
 if percentleft < 10 and state == "Discharging":
-    os.system("~/.scripts/dunstify/bat_notif")
+    os.system("~/.config/dunst/dunstify/bat_notif")
     exit(33)
