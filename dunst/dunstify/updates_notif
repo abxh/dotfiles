@@ -9,10 +9,13 @@ while ! ping -c 1 -n 1.1.1.1 &>/dev/null; do
 done
 
 count=$(checkupdates | wc -l)
+count_aur=$(paru -Qau | wc -l)
 
-if ((count == 0)); then
+if ((count == 0 && count_aur == 0)); then
 	count='no'
 	icon=$icon_alt
+else
+	count="$count+$count_aur"
 fi
 
 dunstify \
