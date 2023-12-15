@@ -1,7 +1,7 @@
 # dotfiles
 These are my personal dotfiles. As such, a lot of the configuration are tinkered for my use and liking. Feel free to copy the stuff you like and understand, and leave the rest.
 
-Use `stow.sh` after testing `stow` out on dummy configs. It's a wonderful program, but the way I use it might leave behind some clutter and/or break your configuration, if you don't use it properly. 
+Use `stow.sh` after testing `stow` out. It's a wonderful program that helps managing dotfiles.
 
 Special dependencies are written within the files themselves. Most dependencies should be inferrable (or throw errors if missing). I use [this](https://github.com/abxh/gruvbox-material-gtk) icon theme in the screenshots and in my dunstify scripts as default.
 
