@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "fixing broken symlinks..."
+(cd ~ && find . -xtype l -print -delete)
+
+echo "running gnu stow..."
 stow --restow --target=$HOME xorg zsh \
 	2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2) # bugfix
 
