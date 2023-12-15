@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
-echo "fixing broken symlinks..."
-(cd ~ && find . -xtype l -print -delete)
+echo "[status] fixing broken symlinks..."
+find ~ -xtype l -print -delete | sed -e 's/^/[fixing] /;'
 
-echo "running gnu stow..."
+echo "[status] removing empty directories in ~/.config"
+find ~/.config -empty -type d -print -delete | sed -e 's/^/[rmdir] /;'
+
+echo "[status] running gnu stow..."
 stow --restow --target=$HOME xorg zsh \
 	2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2) # bugfix
 
@@ -17,7 +20,7 @@ CONFIG_DOTFILES=(
 	'i3blocks'
 	'picom'
 
-	'kitty' # 'alacritty'
+	'kitty'
 	'rofi'
 	'dunst'
 	# 'nvim'
@@ -29,6 +32,9 @@ CONFIG_DOTFILES=(
 
 for dir in "${CONFIG_DOTFILES[@]}"; do
 	target="$HOME/.config/$dir"
-	mkdir -p "$target"
+	if [ ! -d "$target" ]; then
+		echo "[mkdir] $target"
+		mkdir -p "$target"
+	fi
 	stow --restow --target=$target $dir
 done
