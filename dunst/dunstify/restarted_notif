@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+desc="$1"
+desc=${desc:-"x"}
+
+icon="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/apps/system-restart.svg"
+
+dunstify \
+	-i "$icon" \
+	"Restarted:" \
+	"$desc"

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+res=$(echo \
+"lock
+exit
+poweroff
+reboot
+suspend" \
+| rofi -dmenu -p "system")
+
+case $res in
+"lock")
+    sleep 0.5;
+    ~/.scripts/i3lock_launch;;
+"exit")
+    bspc quit;;
+"poweroff")
+    systemctl poweroff;;
+"reboot")
+    systemctl reboot;;
+"suspend")
+    systemctl suspend;;
+esac 

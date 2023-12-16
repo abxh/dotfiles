@@ -14,10 +14,10 @@ mkdir -p $HOME/.scripts
 stow --restow --target=$HOME/.scripts scripts
 
 CONFIG_DOTFILES=(
-	'i3'
+	'bspwm'
 	'sxhkd'
 
-	'i3blocks'
+	'polybar'
 	'picom'
 
 	'kitty'

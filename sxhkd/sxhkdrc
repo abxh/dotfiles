@@ -1,8 +1,40 @@
-super + d
-	rofi -show drun
+super + {_, shift} + Return
+	{kitty, thunar}
+
+{super + d, alt + Tab}
+	rofi -show {drun, window}
+
+super + shift + e
+	~/.config/rofi/scripts/system_prompt
+
+super + shift + r
+	bspc wm -r
+
+super + shift + q
+	bspc node --close
+
+super + shift + {space,f}
+	bspc node -t {\~floating,\~fullscreen}
+
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+super + alt + shift + {h,j,k,l} 
+	bspc node -z {\
+		left -20 0 || bspc node -z right -20 0,\
+		bottom 0 20 || bspc node -z top 0 20,\
+		top 0 -20 || bspc node -z bottom 0 -20,\
+		right 20 0 || bspc node -z left 20 0 }
+	# or better, use the mouse for resizing.
 
 super + Tab
-	rofi -show window
+	bspc node -f next.local.!hidden.window
+
+super + shift + Tab
+	bspc desktop -f last
 
 @Print
 	scrot \
@@ -30,9 +62,9 @@ XF86Display
 
 XF86Tools
 	xdotool search --class nm-connection-e windowclose || nm-connection-editor
-	#xdotool search --name iwctl windowclose || alacritty --title 'iwctl' -e iwctl
+	#xdotool search --name iwctl windowclose || kitty --title 'iwctl' -e iwctl
 
 XF86Favorites
-	xdotool search --name todo windowclose || i3-sensible-terminal --title 'todo' -e ~/.scripts/todo
+	xdotool search --name todo windowclose || kitty --title 'todo' -e ~/.scripts/todo
 
 # vim: ft=sxhkd
