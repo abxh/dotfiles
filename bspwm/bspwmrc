@@ -11,6 +11,7 @@
 [ "$1" -eq 0 ] && udiskie --no-automount --no-notify --tray &
 [ "$1" -eq 0 ] && nm-applet &
 [ "$1" -eq 0 ] && /usr/libexec/polkit-gnome-authentication-agent-1 &
+[ "$1" -eq 0 ] && (while true; do [ "$(cat /sys/class/power_supply/BAT0/status)" != "Charging" ] && [ "$(cat /sys/class/power_supply/BAT0/capacity)" -le 10 ] && ~/.config/dunst/dunstify/bat_notif; sleep 30; done &)
 # todo script
 
 # each successive restart:
