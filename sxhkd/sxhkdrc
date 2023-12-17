@@ -55,7 +55,7 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle; ~/.config/dunst/dunstify/sink_notif @DEFAULT_SINK@
 
 XF86AudioMicMute
-	pactl set-source-mute @DEFAULT_SOURCE@ toggle; ~/.config/dunst/dunstify/source_notif
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle; ~/.config/dunst/dunstify/source_notif @DEFAULT_SOURCE@
 
 XF86Display
 	xdotool search --class arandr windowclose || arandr
