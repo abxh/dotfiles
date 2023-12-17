@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-echo "[status] fixing broken symlinks..."
-find ~ -xtype l -print -delete | sed -e 's/^/[fixing] /;'
-
-echo "[status] removing empty directories in ~/.config"
-find ~/.config -empty -type d -print -delete | sed -e 's/^/[rmdir] /;'
+# echo "[status] fixing broken symlinks..."
+# find ~ -xtype l -print -delete | sed -e 's/^/[fixing] /;'
+#
+# echo "[status] removing empty directories in ~/.config"
+# find ~/.config -empty -type d -print -delete | sed -e 's/^/[rmdir] /;'
 
 echo "[status] running gnu stow..."
 stow --restow --target=$HOME xorg zsh \
