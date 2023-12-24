@@ -204,9 +204,9 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    # icon_theme = Adwaita
     # You can also set multiple icon themes, with the leftmost one being used first.
-    # icon_theme = "Adwaita, breeze"
+    icon_theme = "Gruvbox-Material-Dark-OneColored, Adwaita"
 
     # Align icons left/right/top/off
     icon_position = left
