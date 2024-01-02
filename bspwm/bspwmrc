@@ -40,9 +40,9 @@ bspc config active_border_color $highlight_color
 bspc config presel_feedback_color $highlight_color
 bspc config border_width 2
 
-bspc config window_gap 12
-bspc config top_padding -12
-bspc config top_monocle_padding 12
+bspc config window_gap 10
+bspc config top_padding -10
+bspc config top_monocle_padding 10
 
 bspc config single_monocle true
 bspc config borderless_monocle true
