@@ -1,4 +1,9 @@
-set selection-clipboard clipboard
-set sandbox none
+
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+
+include zathura-gruvbox-dark
 
 map <C-i> recolor
+
+# vim: ft=conf
