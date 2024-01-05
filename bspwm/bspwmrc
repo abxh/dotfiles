@@ -20,7 +20,7 @@
 # every restart:
 hsetroot -cover ~/pictures/wallpapers/wallhaven-j5p23m.jpg &
 ( pkill -SIGKILL -x sxhkd; sxhkd >/dev/null 2>&1 &)
-( pkill -SIGKILL -x polybar; polybar &)
+( pkill -SIGKILL -x polybar; polybar >/dev/null 2>&1 &)
 ~/.config/dunst/dunstify/updates_notif &
 
 # setup monitors
