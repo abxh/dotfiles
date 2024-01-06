@@ -97,6 +97,12 @@ function lsta() {
 
 # handy shorthands
 function pdf() {(zathura "$@" &;)}
+
+# gcc variations
+alias gccw='gcc -Wall -Wextra -pedantic'
+alias gccwd='gccw -g -ggdb3'
+alias gcco='gcc -O3'
+
 # }}}
 
 # keybindings {{{
