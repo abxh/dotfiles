@@ -100,7 +100,7 @@ function pdf() {(zathura "$@" &;)}
 
 # gcc variations
 alias gccw='gcc -Wall -Wextra -pedantic'
-alias gccwd='gccw -g -ggdb3'
+alias gccd='gcc -g -ggdb3'
 alias gcco='gcc -O3'
 
 # }}}
