@@ -99,9 +99,9 @@ function lsta() {
 function pdf() {(zathura "$@" &;)}
 
 # gcc variations
-alias gccw='gcc -Wall -Wextra -pedantic'
-alias gccd='gcc -g -ggdb3'
-alias gcco='gcc -O3'
+alias gcc='gcc -Wall -Wextra -pedantic'
+alias gccd='/usr/bin/gcc -g -ggdb3'
+alias gcco='/usr/bingcc -O3'
 
 # }}}
 
