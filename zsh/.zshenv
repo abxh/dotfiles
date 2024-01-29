@@ -14,18 +14,9 @@ export LS_COLORS
 typeset -U path PATH
 path=(
   ~/.local/bin
-  ~/.cabal/bin
-  ~/.ghcup/bin
-  ~/.dotnet
   $path
 )
 export PATH
 
 # default editor
 export EDITOR=nvim
-
-# trash-cli integration with vscode:
-export ELECTRON_TRASH=trash-cli code
-
-# dotnet binaries
-export DOTNET_ROOT=$HOME/.dotnet
