@@ -1,8 +1,8 @@
 super + {_, shift} + Return
-	{kitty, thunar}
+	{kitty, kitty --class "kitty-float"}
 
 {super + d, alt + Tab}
-	rofi -show {drun, window}
+	rofi -show {drun, window -show-icons}
 
 super + shift + e
 	~/.config/rofi/scripts/system_prompt
@@ -22,7 +22,7 @@ super + {_,shift + }{h,j,k,l}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-super + alt + shift + {h,j,k,l} 
+super + ctrl + {h,j,k,l} 
 	bspc node -z {\
 		left -20 0 || bspc node -z right -20 0,\
 		bottom 0 20 || bspc node -z top 0 20,\
@@ -42,8 +42,8 @@ super + shift + Tab
 	"$(xdg-user-dir PICTURES)/screenshots/"'%d-%m-%y_$wx$h.png' \
 	-e 'xclip -selection clipboard -t image/png -i $f'
 
-super + x
-	xkb-switch --next; ~/.config/dunst/dunstify/key_notif
+# super + x
+#	xkb-switch --next; ~/.config/dunst/dunstify/key_notif
 
 {XF86MonBrightnessUp, XF86MonBrightnessDown}
 	light {-Ar 15, -Ur 15}; ~/.config/dunst/dunstify/br_notif

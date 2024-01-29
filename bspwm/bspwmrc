@@ -12,13 +12,13 @@
 [ "$1" -eq 0 ] && nm-applet &
 [ "$1" -eq 0 ] && /usr/libexec/polkit-gnome-authentication-agent-1 &
 [ "$1" -eq 0 ] && (while true; do [ "$(cat /sys/class/power_supply/BAT0/status)" != "Charging" ] && [ "$(cat /sys/class/power_supply/BAT0/capacity)" -le 10 ] && ~/.config/dunst/dunstify/bat_notif; sleep 30; done &)
-# todo script
+# todo script, started later once with specific window rules.
 
 # each successive restart:
 [ "$1" -gt 0 ] && ~/.config/dunst/dunstify/restarted_notif bspwm &
 
 # every restart:
-hsetroot -cover ~/pictures/wallpapers/wallhaven-j5p23m.jpg &
+hsetroot -cover ~/Pictures/wallpapers/wallhaven-j5p23m.jpg &
 ( pkill -SIGKILL -x sxhkd; sxhkd >/dev/null 2>&1 &)
 ( pkill -SIGKILL -x polybar; polybar >/dev/null 2>&1 &)
 ~/.config/dunst/dunstify/updates_notif &
@@ -48,24 +48,27 @@ bspc config single_monocle true
 bspc config borderless_monocle true
 bspc config gapless_monocle true
 
-# bspc config pointer_follows_focus   true
+bspc config focus_follows_pointer true
+#bspc config click_to_focus any
 bspc config pointer_follows_monitor true
 bspc config pointer_modifier mod4
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
-bspc config click_to_focus any
 # }}}
 
 # window rules: {{{
 win_width=$((1920 * 2 / 5))
 win_height=$((1080 * 3 / 5))
-rule_medium="state=floating center=true rectangle=$win_width""x""$win_height+0+0"
+rule_medium_wo_float="center=true rectangle=$win_width""x""$win_height+0+0"
+rule_medium="state=floating $rule_medium_wo_float"
 
 bspc rule -a Lxappearance $rule_medium
 bspc rule -a Pavucontrol $rule_medium
 bspc rule -a Arandr $rule_medium
 bspc rule -a Nm-connection-editor $rule_medium
+bspc rule -a kitty-float $rule_medium
+bspc rule -a kitty $rule_medium_wo_float
 # }}}
 
 [ "$1" -eq 0 ] && kitty --title 'todo' -e ~/.scripts/todo
