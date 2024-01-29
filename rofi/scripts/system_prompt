@@ -8,6 +8,8 @@ reboot
 suspend" \
 | rofi -dmenu -p "system")
 
+login_manager="loginctl" # alt: systemctl
+
 case $res in
 "lock")
     sleep 0.5;
@@ -15,9 +17,9 @@ case $res in
 "exit")
     bspc quit;;
 "poweroff")
-    systemctl poweroff;;
+    $login_manager poweroff;;
 "reboot")
-    systemctl reboot;;
+    $login_manager reboot;;
 "suspend")
-    systemctl suspend;;
+    $login_manager suspend;;
 esac 
