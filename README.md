@@ -9,7 +9,7 @@ Special dependencies are written within the files themselves. Most dependencies 
 in the screenshots and in my dunstify scripts as default.
 
 You can find `JetBrainsMono Nerd Font` from [here](https://github.com/ryanoasis/nerd-fonts/releases),
-and `Font Awesome 6 Free` in [here](https://fontawesome.com/download). Use the aforementioned links, if
+and `Font Awesome 6 Free` from [here](https://fontawesome.com/download). Use the aforementioned links, if
 you cannot find them using your package manager, and copy them to `~/.local/share/fonts` and do `fccache`.
 
 To clone this repo with the submodules, run:
