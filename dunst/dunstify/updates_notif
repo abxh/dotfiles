@@ -8,6 +8,8 @@ while ! ping -c 1 -n 1.1.1.1 &>/dev/null; do
 	sleep 10
 done
 
+"""
+# arch
 count=$(checkupdates | wc -l)
 count_aur=$(paru -Qau | wc -l)
 
@@ -17,6 +19,10 @@ if ((count == 0 && count_aur == 0)); then
 else
 	count="$count+$count_aur"
 fi
+"""
+
+# void
+count=$(xbps-install --memory-sync --dry-run --update | grep -Fe update -e install | wc -l)
 
 dunstify \
 	-h $tag \
