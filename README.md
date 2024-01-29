@@ -1,9 +1,16 @@
 # dotfiles
-These are my personal dotfiles. As such, a lot of the configuration are tinkered for my use and liking. Feel free to copy the stuff you like and understand, and leave the rest.
+These are my personal dotfiles. As such, a lot of the configuration are tinkered for
+my use and liking. Feel free to copy the stuff you like and understand, and leave the rest.
 
 Use `stow.sh` after testing `stow` out. It's a wonderful program that helps managing dotfiles.
 
-Special dependencies are written within the files themselves. Most dependencies should be inferrable (or throw errors if missing). I use [this](https://github.com/abxh/gruvbox-material-gtk) icon theme in the screenshots and in my dunstify scripts as default.
+Special dependencies are written within the files themselves. Most dependencies should be inferrable
+(or throw errors if missing). I use [this](https://github.com/abxh/gruvbox-material-gtk) icon theme
+in the screenshots and in my dunstify scripts as default.
+
+You can find `JetBrainsMono Nerd Font` from [here](https://github.com/ryanoasis/nerd-fonts/releases),
+and `Font Awesome 6 Free` in [here](https://fontawesome.com/download). Use the aforementioned links, if
+you cannot find them using your package manager, and copy them to `~/.local/share/fonts` and do `fccache`.
 
 To clone this repo with the submodules, run:
 ```bash
