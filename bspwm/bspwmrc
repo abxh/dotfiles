@@ -69,6 +69,7 @@ bspc rule -a Arandr $rule_medium
 bspc rule -a Nm-connection-editor $rule_medium
 bspc rule -a kitty-float $rule_medium
 bspc rule -a kitty $rule_medium_wo_float
+bspc rule -a *:*:"Select file to open" $rule_medium
 # }}}
 
 [ "$1" -eq 0 ] && kitty --title 'todo' -e ~/.scripts/todo
