@@ -99,8 +99,10 @@ function lsta() {
 function pdf() {(zathura "$@" &;)}
 
 # gcc variations
-alias gcc='gcc -Wall -Wextra -pedantic'
+alias gcc='gcc -Wall -Wextra -pedantic -fsanitize=undefined'
 alias gccd='/usr/bin/gcc -g -ggdb3'
+alias gccs='/usr/bin/gcc -g -fsanitize=address -fsanitize=undefined'\
+  '-fno-sanitize-recover=all -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize=null -fno-sanitize=alignment'
 alias gcco='/usr/bin/gcc -O3'
 
 # }}}
