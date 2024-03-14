@@ -105,6 +105,13 @@ alias gccs='/usr/bin/gcc -g -fsanitize=address -fsanitize=undefined'\
   '-fno-sanitize-recover=all -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize=null -fno-sanitize=alignment'
 alias gcco='/usr/bin/gcc -O3'
 
+alias nasm='nasm -f elf64'
+alias nasmd='nasm -f elf64 -g'
+alias gccp='gcc -E "$@"'
+alias gcca='gcc -S -masm=intel -fverbose-asm'
+alias gccc='gcc -c'
+alias objdumpi='objdump -drwC -S -M intel'
+
 # }}}
 
 # keybindings {{{
