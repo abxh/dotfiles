@@ -32,7 +32,7 @@ git clone --depth=1 --recurse-submodules https://github.com/abxh/dotfiles
 Here are some great wallpapers to use in conjunction with the rice:
 
 <p float="left">
-  <img src="https://w.wallhaven.cc/full/j5/wallhaven-j5p23m.jpg" width="32%" />
+  <img src="https://w.wallhaven.cc/full/pk/wallhaven-pkp1vp.png" width="32%" />
   <img src="https://i.imgur.com/t6p61Sn.jpeg" width="32%" />
   <img src="https://i.imgur.com/1ZFAAOG.png" width="32%" />
 </p>
