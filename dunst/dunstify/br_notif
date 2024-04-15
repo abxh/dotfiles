@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+icon_theme_path="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored"
+
 path="/sys/class/backlight/amdgpu_bl1"
-icon="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/actions/brightnesssettings.svg"
+icon="$icon_theme_path/16x16/actions/brightnesssettings.svg"
 
 tag="string:x-dunst-stack-tag:brightness"
 

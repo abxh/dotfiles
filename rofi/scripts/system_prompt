@@ -8,7 +8,12 @@ reboot
 suspend" \
 | rofi -dmenu -p "system")
 
-login_manager="loginctl" # alt: systemctl
+retval=$(which loginctl)
+if [ $retval -ne 0 ]; then
+    login_manager="loginctl"
+else
+    login_manager="systemctl"
+fi
 
 case $res in
 "lock")

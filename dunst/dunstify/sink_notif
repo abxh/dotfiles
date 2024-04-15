@@ -11,8 +11,10 @@ muted_bar_color="$bar_color"70
 muted=$(pactl get-sink-mute $sink_name | awk '{print $2}')
 volume=$(pactl get-sink-volume $sink_name | awk '{print $5}' | cut -d '%' -f 1)
 
+icon_theme_path="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored"
+
 tag="string:x-dunst-stack-tag:sink"
-icon_path="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/"
+icon_path="$icon_theme_path/16x16/panel/"
 
 if [[ "$muted" == "yes" ]]; then
 	icon=$icon_path'audio-volume-muted.svg'

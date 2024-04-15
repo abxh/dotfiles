@@ -1,30 +1,41 @@
 #!/usr/bin/env bash
 
-tag="string:x-dunst-stack-tag:updates"
-icon="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/updates-notifier.svg"
-icon_alt="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored/16x16/panel/updates-notifier-inactive.svg"
+ip_to_ping="1.1.1.1"
 
-while ! ping -c 1 -n 1.1.1.1 &>/dev/null; do
+icon_theme_path="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored"
+
+tag="string:x-dunst-stack-tag:updates"
+icon="$icon_theme_path/16x16/panel/updates-notifier.svg"
+icon_alt="$icon_theme_path/16x16/panel/updates-notifier-inactive.svg"
+
+while ! ping -c 1 -n $ip_to_ping &>/dev/null; do
 	sleep 10
 done
 
-# arch
-# count=$(checkupdates | wc -l)
-# count_aur=$(paru -Qau | wc -l)
-#
-# if ((count == 0 && count_aur == 0)); then
-# 	count='no'
-# 	icon=$icon_alt
-# else
-# 	count="$count+$count_aur"
-# fi
+source /etc/os-release
+case $NAME in
+"Arch")
+	count=$(checkupdates | wc -l)
+	count_aur=$(paru -Qau | wc -l)
 
-# void
-count=$(xbps-install --memory-sync --dry-run --update | grep -Fe update -e install | wc -l)
-if ((count == 0 && count_aur == 0)); then
-	count='no'
-	icon=$icon_alt
-fi
+	if ((count == 0 && count_aur == 0)); then
+		count='no'
+		icon=$icon_alt
+	else
+		count="$count+$count_aur"
+	fi
+	;;
+"Void")
+	count=$(xbps-install --memory-sync --dry-run --update | grep -Fe update -e install | wc -l)
+	if ((count == 0 && count_aur == 0)); then
+		count='no'
+		icon=$icon_alt
+	fi
+	;;
+*)
+	count='?'
+	;;
+esac
 
 dunstify \
 	-h $tag \
