@@ -8,8 +8,8 @@ reboot
 suspend" \
 | rofi -dmenu -p "system")
 
-retval=$(which loginctl)
-if [ $retval -ne 0 ]; then
+which loginctl &>/dev/null
+if [ "$?" -eq 0 ]; then
     login_manager="loginctl"
 else
     login_manager="systemctl"
