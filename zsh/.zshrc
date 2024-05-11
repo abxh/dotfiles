@@ -107,10 +107,10 @@ alias gcco='/usr/bin/gcc -O3'
 
 alias nasm='nasm -f elf64'
 alias nasmd='nasm -f elf64 -g'
+alias gccS='gcc -S -masm=intel -fverbose-asm'
+alias objdump_intel='objdump -drwC -S -M intel'
 # alias gccp='gcc -E "$@"'
-# alias gcca='gcc -S -masm=intel -fverbose-asm'
 # alias gccc='gcc -c'
-# alias objdumpi='objdump -drwC -S -M intel'
 
 # }}}
 
