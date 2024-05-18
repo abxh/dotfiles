@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 
+# window rules: {{{
+win_width=$((1920 * 2 / 5))
+win_height=$((1080 * 3 / 5))
+rule_medium_wo_float="center=true rectangle=$win_width""x""$win_height+0+0"
+rule_medium="state=floating $rule_medium_wo_float"
+
+bspc rule -a Lxappearance $rule_medium
+bspc rule -a Pavucontrol $rule_medium
+bspc rule -a Arandr $rule_medium
+bspc rule -a Nm-connection-editor $rule_medium
+bspc rule -a kitty-float $rule_medium
+bspc rule -a kitty $rule_medium_wo_float
+bspc rule -a Thunar $rule_medium_wo_float
+bspc rule -a *:*:"Select file to open" $rule_medium
+# }}}
+
 # startup: {{{
 # at start:
 [ "$1" -eq 0 ] && xsetroot -cursor_name left_ptr &
@@ -12,7 +28,7 @@
 [ "$1" -eq 0 ] && nm-applet &
 [ "$1" -eq 0 ] && /usr/libexec/polkit-gnome-authentication-agent-1 &
 [ "$1" -eq 0 ] && (while true; do [ "$(cat /sys/class/power_supply/BAT0/status)" != "Charging" ] && [ "$(cat /sys/class/power_supply/BAT0/capacity)" -le 10 ] && ~/.config/dunst/dunstify/bat_notif; sleep 30; done &)
-# todo script, started later once with specific window rules.
+[ "$1" -eq 0 ] && kitty --title 'todo' -e ~/.scripts/todo &
 
 # each successive restart:
 [ "$1" -gt 0 ] && ~/.config/dunst/dunstify/restarted_notif bspwm &
@@ -56,23 +72,5 @@ bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
 # }}}
-
-# window rules: {{{
-win_width=$((1920 * 2 / 5))
-win_height=$((1080 * 3 / 5))
-rule_medium_wo_float="center=true rectangle=$win_width""x""$win_height+0+0"
-rule_medium="state=floating $rule_medium_wo_float"
-
-bspc rule -a Lxappearance $rule_medium
-bspc rule -a Pavucontrol $rule_medium
-bspc rule -a Arandr $rule_medium
-bspc rule -a Nm-connection-editor $rule_medium
-bspc rule -a kitty-float $rule_medium
-bspc rule -a kitty $rule_medium_wo_float
-bspc rule -a Thunar $rule_medium_wo_float
-bspc rule -a *:*:"Select file to open" $rule_medium
-# }}}
-
-[ "$1" -eq 0 ] && kitty --title 'todo' -e ~/.scripts/todo
 
 # vim: fdm=marker
