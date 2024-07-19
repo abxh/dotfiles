@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a62655ef-2da4-47c1-ab4c-afd8dd8fb3d5)![image](https://github.com/user-attachments/assets/bede3ba7-11c2-421b-92de-3e7e94c66222)# dotfiles
+# dotfiles
 These are my personal dotfiles. As such, a lot of the configuration are tinkered for
 my use and liking. Feel free to copy the stuff you like and understand, and leave the rest.
 
