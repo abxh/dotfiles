@@ -27,7 +27,7 @@ case $NAME in
 	;;
 "Void")
 	count=$(xbps-install --memory-sync --dry-run --update | grep -Fe update -e install | wc -l)
-	if ((count == 0 && count_aur == 0)); then
+	if (count == 0); then
 		count='no'
 		icon=$icon_alt
 	fi
