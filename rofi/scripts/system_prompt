@@ -20,7 +20,7 @@ case $res in
     sleep 0.5;
     ~/.scripts/i3lock_launch;;
 "exit")
-    bspc quit;;
+    xdotool search "" windowkill %@  --maxdepth; bspc quit;;
 "poweroff")
     $login_manager poweroff;;
 "reboot")
