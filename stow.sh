@@ -26,7 +26,8 @@ CONFIG_DOTFILES=(
 	'polybar'
 	'picom'
 
-	'kitty'
+	# 'kitty'
+	'alacritty'
 	'rofi'
 	'dunst'
 	# 'nvim'

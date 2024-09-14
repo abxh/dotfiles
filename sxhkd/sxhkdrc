@@ -1,5 +1,6 @@
 super + {_, shift} + Return
-	{kitty, kitty --class "kitty-float"}
+	{alacritty, alacritty --class "alacritty-float"}
+	# {kitty, kitty --class "kitty-float"}
 
 {super + d, alt + Tab}
 	rofi -show {drun, window -show-icons}
@@ -65,6 +66,7 @@ XF86Tools
 	#xdotool search --name iwctl windowclose || kitty --title 'iwctl' -e iwctl
 
 XF86Favorites
-	xdotool search --name todo windowclose || kitty --title 'todo' -e ~/.scripts/todo
+	xdotool search --name todo windowclose || alacritty --title 'todo' -e ~/.scripts/todo
+	# xdotool search --name todo windowclose || kitty --title 'todo' -e ~/.scripts/todo
 
 # vim: ft=sxhkd

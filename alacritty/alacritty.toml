@@ -1,0 +1,245 @@
+# https://alacritty.org/config-alacritty.html
+
+###########
+# GENERAL #
+###########
+
+# Import additional configuration files
+import = [
+  "~/.config/alacritty/gruvbox_material_medium_dark.toml"
+]
+
+# Shell program and its arguments
+# Default for Linux/BSD/macOS is $SHELL or user's login shell
+# Default for Windows is "powershell"
+#[shell]
+#program = "/bin/zsh"  # Example for Linux/BSD/macOS
+#args = ["-l"]
+
+# Working directory
+working_directory = "None"  # Default: "None"
+
+# Live config reload (changes require restart)
+live_config_reload = true  # Default: true
+
+# Offer IPC using alacritty msg (unix only)
+ipc_socket = true  # Default: true
+
+#######
+# ENV #
+#######
+
+[env]
+# Environment variables
+TERM = "xterm-256color"
+
+##########
+# WINDOW #
+##########
+
+[window]
+
+# Window dimensions
+dimensions = { columns = 0, lines = 0 }  # Default: columns = 0, lines = 0
+
+# Window startup position
+position = "None"  # Default: "None"
+
+# Padding
+padding = { x = 10, y = 10 }  # Default: x = 0, y = 0
+
+# Dynamic padding
+dynamic_padding = false  # Default: false
+
+# Window decorations
+decorations = "Buttonless"  # Default: "Full"
+
+# Opacity
+opacity = 0.95  # Default: 1.0
+
+# Blur (macOS/KDE Wayland only)
+blur = false  # Default: false
+
+# Startup mode
+startup_mode = "Windowed"  # Default: "Windowed"
+
+# Window title
+title = "Alacritty"  # Default: "Alacritty"
+
+# Dynamic title
+dynamic_title = true  # Default: true
+
+# Window class (Linux/BSD only)
+class = { instance = "Alacritty", general = "Alacritty" }  # Default: instance = "Alacritty", general = "Alacritty"
+
+# Decorations theme variant
+decorations_theme_variant = "None"  # Default: "None"
+
+# Resize increments
+resize_increments = false  # Default: false
+
+# Option as Alt (macOS only)
+option_as_alt = "None"  # Default: "None"
+
+#############
+# SCROLLING #
+#############
+
+[scrolling]
+
+# Maximum number of lines in the scrollback buffer
+history = 10000  # Default: 10000
+
+# Number of lines scrolled for every input scroll increment
+multiplier = 1  # Default: 3
+
+########
+# FONT #
+########
+
+[font]
+
+# Normal font style
+normal = { family = "JetBrainsMono NF", style = "Regular" }  # Default for Linux/BSD: "monospace", Regular
+
+# Bold font style
+bold = { style = "Bold" }  # Inherits family from normal, Default style: Bold
+
+# Italic font style
+italic = { style = "Italic" }  # Inherits family from normal, Default style: Italic
+
+# Bold Italic font style
+bold_italic = { style = "Bold Italic" }  # Inherits family from normal, Default style: Bold Italic
+
+# Font size in points
+size = 12  # Default: 11.25
+
+# Offset is extra space around each character
+offset = { x = 0, y = 0 }  # Default: x = 0, y = 0
+
+# Glyph offset determines the locations of the glyphs within their cells
+glyph_offset = { x = 0, y = 0 }  # Default: x = 0, y = 0
+
+# Use built-in font for box drawing characters
+builtin_box_drawing = true  # Default: true
+
+##########
+# COLORS #
+##########
+
+[colors]
+
+# Transparent background colors
+transparent_background_colors = false  # Default
+
+# Draw bold text with bright colors
+draw_bold_text_with_bright_colors = false  # Default
+
+########
+# BELL #
+########
+
+[bell]
+
+# Visual bell animation effect
+animation = "Linear"  # Default: "Linear"
+
+# Duration of the visual bell flash in milliseconds
+duration = 0  # Default: 0
+
+# Visual bell animation color
+color = "#ffffff"  # Default: "#ffffff"
+
+# Command executed when the bell is rung
+command = "None"  # Default: "None"
+
+#############
+# SELECTION #
+#############
+
+[selection]
+
+# Characters that are used as separators for "semantic words" in Alacritty
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"  # Default: ",│`|:\"' ()[]{}<>\t"
+
+# When set to true, selected text will be copied to the primary clipboard
+save_to_clipboard = false  # Default: false
+
+##########
+# CURSOR #
+##########
+
+[cursor]
+
+# Cursor style
+style = { shape = "Block", blinking = "On" }  # Default: shape = "Block", blinking = "Off"
+
+# Vi mode cursor style (falls back to the active value of the normal cursor if "None")
+vi_mode_style = "None"  # Default: "None"
+
+# Cursor blinking interval in milliseconds
+blink_interval = 750  # Default: 750
+
+# Time after which cursor stops blinking, in seconds
+blink_timeout = 0  # Default: 5
+
+# When true, the cursor will be rendered as a hollow box when the window is not focused
+unfocused_hollow = true  # Default: true
+
+# Thickness of the cursor relative to the cell width
+thickness = 0.15  # Default: 0.15
+
+############
+# TERMINAL #
+############
+
+[terminal]
+
+# Controls the OSC 52 behavior for clipboard interactions
+osc52 = "CopyPaste"  # Default: "OnlyCopy"
+
+#########
+# MOUSE #
+#########
+
+[mouse]
+
+# When true, the cursor is temporarily hidden when typing
+hide_when_typing = true  # Default: false
+
+# Mouse bindings (actual bindings need to be defined as per user preference)
+# Example: bindings = [{ mouse = "Left", action = "Paste" }]
+bindings = []
+
+#########
+# HINTS #
+#########
+
+[hints]
+
+# Define the keys used for hint labels
+alphabet = "jfkdls;ahgurieowpq"  # Default: "jfkdls;ahgurieowpq"
+
+# Enable specific hints
+#[[hints.enabled]]
+# Example configuration (actual settings to be defined based on user preference)
+# regex = "..."
+# hyperlinks = true
+# post_processing = true
+# persist = false
+# action = "..."
+# command = "..."
+# binding = { key = "...", mods = "...", mode = "..." }
+# mouse = { mods = "...", enabled = true }
+
+# KEYBOARD section of Alacritty configuration
+
+[keyboard]
+
+# Define keyboard bindings here
+# Example placeholder (actual bindings need to be defined based on user preference)
+bindings = [
+    # { key = "Key", mods = "Modifiers", action = "Action" },
+    # { key = "Key", mods = "Modifiers", chars = "Characters to send" },
+    # ...
+]
