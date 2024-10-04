@@ -33,7 +33,7 @@ bspc rule -a *:*:"Select file to open" $rule_medium
 [ "$1" -eq 0 ] && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 [ "$1" -eq 0 ] && (while true; do [ "$(cat /sys/class/power_supply/BAT0/status)" != "Charging" ] && [ "$(cat /sys/class/power_supply/BAT0/capacity)" -le 10 ] && ~/.config/dunst/dunstify/bat_notif; sleep 30; done &)
 # [ "$1" -eq 0 ] && kitty --title 'todo' -e ~/.scripts/todo &
-[ "$1" -eq 0 ] && alacritty --title 'todo' -e ~/.scripts/todo &
+# [ "$1" -eq 0 ] && alacritty --title 'todo' -e ~/.scripts/todo &
 
 # each successive restart:
 [ "$1" -gt 0 ] && ~/.config/dunst/dunstify/restarted_notif bspwm &
