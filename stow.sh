@@ -32,7 +32,7 @@ CONFIG_DOTFILES=(
 	'dunst'
 	# 'nvim'
 
-	'qutebrowser'
+	#'qutebrowser'
 	'zathura'
 	'mpv'
 )

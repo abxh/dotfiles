@@ -14,7 +14,7 @@ done
 
 source /etc/os-release
 case $NAME in
-"Arch")
+"Arch Linux")
 	count=$(checkupdates | wc -l)
 	count_aur=$(paru -Qau | wc -l)
 

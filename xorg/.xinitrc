@@ -32,6 +32,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 # }}}
 
-exec dbus-run-session bspwm
+which systemctl &>/dev/null
+if [ "$?" -eq 0 ]; then
+  exec bspwm
+else
+  exec dbus-run-session bspwm
+fi
+
 
 # vim: fdm=marker
