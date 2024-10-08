@@ -10,11 +10,16 @@ fi
 
 echo "[status] running gnu stow..."
 
-stow --restow --target=$HOME xorg \
-	2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2) # bugfix
+HOME_DOTFILES=(
+	'xorg'
+	'xinit-bspwm'
+	'zsh'
+)
 
-stow --restow --target=$HOME zsh \
-	2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2) # bugfix
+for dir in "${HOME_DOTFILES[@]}"; do
+	stow --restow --target=$HOME $dir \
+		2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2) # bugfix
+done
 
 mkdir -p $HOME/.scripts
 stow --restow --target=$HOME/.scripts scripts
