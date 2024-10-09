@@ -17,7 +17,7 @@ fi
 
 case $res in
 "lock")
-    sleep 0.5;
+    sleep 0.5; # wait for picom fade --- not sure how to do this via script
     ~/.scripts/i3lock_launch;;
 "exit")
     xdotool search "" windowkill %@  --maxdepth; bspc quit;;
