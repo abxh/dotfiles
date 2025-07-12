@@ -8,7 +8,7 @@ reboot
 suspend" \
 | rofi -dmenu -p "system")
 
-which systemctl &>/dev/null
+which systemctl >/dev/null 2>&1
 if [ "$?" -eq 0 ]; then
     login_manager="systemctl"
 else

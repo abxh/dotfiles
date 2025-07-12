@@ -6,4 +6,7 @@ include zathura-gruvbox-dark
 
 map <C-i> recolor
 
+set synctex true
+set synctex-editor-command "lyxclient -g %{input} %{line}"
+
 # vim: ft=conf

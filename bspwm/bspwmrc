@@ -25,23 +25,23 @@ bspc rule -a *:*:"Select file to open" $rule_medium
 [ "$1" -eq 0 ] && xset s 600 600 dpms 0 0 660 &
 [ "$1" -eq 0 ] && xss-lock -- ~/.scripts/i3lock_launch &
 [ "$1" -eq 0 ] && caffeine &
-# [ "$1" -eq 0 ] && pulseaudio &
+[ "$1" -eq 0 ] && pulseaudio & # void linux specific
 [ "$1" -eq 0 ] && picom &
 [ "$1" -eq 0 ] && udiskie --no-automount --no-notify --tray &
 [ "$1" -eq 0 ] && nm-applet &
-# [ "$1" -eq 0 ] && /usr/libexec/polkit-gnome-authentication-agent-1 &
-[ "$1" -eq 0 ] && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+[ "$1" -eq 0 ] && /usr/libexec/polkit-gnome-authentication-agent-1 &
+# [ "$1" -eq 0 ] && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 [ "$1" -eq 0 ] && (while true; do [ "$(cat /sys/class/power_supply/BAT0/status)" != "Charging" ] && [ "$(cat /sys/class/power_supply/BAT0/capacity)" -le 10 ] && ~/.config/dunst/dunstify/bat_notif; sleep 30; done &)
 # [ "$1" -eq 0 ] && kitty --title 'todo' -e ~/.scripts/todo &
-# [ "$1" -eq 0 ] && alacritty --title 'todo' -e ~/.scripts/todo &
+[ "$1" -eq 0 ] && alacritty --title 'todo' -e ~/.scripts/todo &
 
 # each successive restart:
 [ "$1" -gt 0 ] && ~/.config/dunst/dunstify/restarted_notif bspwm &
 
 # every restart:
-hsetroot -cover ~/Pictures/wallpapers/wallhaven-j5p23m.jpg >/dev/null &
 ( pkill -SIGKILL -x sxhkd; sxhkd >/dev/null &)
-( pkill -SIGKILL -x polybar; polybar --log=warning >/dev/null &)
+(hsetroot -cover ~/Pictures/wallpapers/wallhaven-pkp1vp.png >/dev/null;
+ pkill -SIGKILL -x polybar; polybar --log=warning >/dev/null &)
 ~/.config/dunst/dunstify/updates_notif &
 
 # setup monitors

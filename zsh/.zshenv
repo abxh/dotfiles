@@ -13,7 +13,6 @@ export LS_COLORS
 # append extra paths in PATH variable:
 typeset -U path PATH
 path=(
-  #/opt/texlive/*/bin/x86_64-linux
   ~/.local/bin
   $path
 )

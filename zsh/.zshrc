@@ -90,21 +90,6 @@ alias ls='ls --color=auto -v --group-directories-first'
 alias la='ls -lAGh'
 alias lst='tree -v --dirsfirst'
 alias lsta="lst -a --gitignore -I .git"
-
-# handy shorthands
-function pdf() {(zathura "$@" &;)}
-
-# gcc variations
-alias gcc='gcc -Wall -Wextra -Wshadow -Wconversion -pedantic -g -ggdb3'
-alias gccs='gcc -fsanitize=address -fsanitize=undefined'\
-  '-fno-sanitize-recover=all -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize=null -fno-sanitize=alignment'
-alias gcco='/usr/bin/gcc -O3 -march=native'
-alias gcc_preprocessed='/usr/bin/gcc -E "$@"'
-alias gcc_compile='/usr/bin/gcc -S -masm=intel -fverbose-asm'
-alias gcc_assemble='/usr/bin/gcc -c'
-
-alias nasm_elf64='nasm -f elf64 -g'
-alias objdump_intel='objdump -drwC -S -M intel'
 # }}}
 
 # keybindings {{{

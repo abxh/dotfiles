@@ -37,9 +37,9 @@ CONFIG_DOTFILES=(
 	'dunst'
 	# 'nvim'
 
-	#'qutebrowser'
-	'zathura'
-	'mpv'
+	# 'qutebrowser'
+	# 'zathura'
+	# 'mpv'
 )
 
 for dir in "${CONFIG_DOTFILES[@]}"; do
