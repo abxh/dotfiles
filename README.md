@@ -23,10 +23,12 @@ git clone --depth=1 --recurse-submodules https://github.com/abxh/dotfiles
 
 The used wallpaper can be found [here](https://w.wallhaven.cc/full/pk/wallhaven-pkp1vp.png).
 
-Alternatively, this wallpaper by [Nikolai Lockertsen](https://www.youtube.com/user/nikolailockertsen) complements the chosen colors:
+Alternatively, [this](https://preview.redd.it/deleted-by-user-v0-82lucx00d25c1.jpeg?width=1920&auto=webp&s=6cb7dbdd096fdb3ed1a7032d34e32ddb7f5cab05)
+ wallpaper by [Nikolai Lockertsen](https://www.youtube.com/user/nikolailockertsen) complements the chosen colors:
 
 <img src="https://preview.redd.it/deleted-by-user-v0-82lucx00d25c1.jpeg?width=1920&auto=webp&s=6cb7dbdd096fdb3ed1a7032d34e32ddb7f5cab05" width="32%" />
 
-Or this wallpaper by [Leif Niemczik](https://unsplash.com/@leifniem):
+Or [this](https://images.unsplash.com/photo-1539103377911-4909a1eae382?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+ wallpaper by [Leif Niemczik](https://unsplash.com/@leifniem):
 
 <img src="https://images.unsplash.com/photo-1539103377911-4909a1eae382?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="32%" />
