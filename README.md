@@ -8,10 +8,14 @@ Special dependencies are written within the files themselves. Most dependencies 
 (or throw errors if missing). Preferably take chunks of configuration at a time, instead of copying
 entire files.
 
-I use [this](https://github.com/abxh/gruvbox-material-gtk) icon theme in the screenshots and in my dunstify
-scripts as default. You can find `JetBrainsMono Nerd Font` from [here](https://github.com/ryanoasis/nerd-fonts/releases)
+You can find `JetBrainsMono Nerd Font` from [here](https://github.com/ryanoasis/nerd-fonts/releases)
 and `Font Awesome 6 Free` from [here](https://fontawesome.com/download). Use the aforementioned links, if
 you cannot find them using your package manager, and copy them to `~/.local/share/fonts` and do `fccache`.
+
+I use [this](https://github.com/abxh/gruvbox-material-gtk) icon theme in the screenshots and in my dunstify
+scripts (paths hard-coded). If desired, use this theme selectively for applications using
+`GTK_THEME="Gruvbox-Material-Dark" GTK_ICON_THEME="oomox-Gruvbox-Material-Dark-Alt" <your-program>` and resort
+to a well-tested theme-icon combo as your default for applications like LibreOffice.
 
 To clone this repo with the submodules, run:
 ```bash
