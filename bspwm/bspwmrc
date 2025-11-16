@@ -15,7 +15,7 @@ bspc rule -a Nm-connection-editor $rule_medium
 bspc rule -a alacritty $rule_medium_wo_float
 bspc rule -a alacritty-float $rule_medium
 bspc rule -a Thunar $rule_medium_wo_float
-bspc rule -a *:*:"Select file to open" $rule_medium
+#bspc rule -a *:*:"Select file to open" $rule_medium #todo: rewrite properly
 # }}}
 
 # startup: {{{

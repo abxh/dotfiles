@@ -1,0 +1,96 @@
+include ~/.config/i3/keymaps
+
+# colors: {{{
+set $colorp #d4be98
+set $colorf #282828
+set $coloru #ea6962
+
+# border colors:
+# class                 border    backgr.   text      indicator child_border
+client.focused          $colorpCC $colorpCC #ffffff   #ffffffCC $colorpCC
+client.focused_inactive $colorf   $colorf   #ffffff   #ffffffCC $colorf
+client.unfocused        $colorf   $colorf   #888888   #ffffffCC $colorf
+# }}}
+
+# borders and gaps: {{{
+
+default_border pixel 1
+#gaps left 7
+
+smart_borders on
+smart_gaps on
+
+# }}}
+
+# keys: {{{
+
+# windows key as $mod
+set $mod Mod4
+
+# h, j, k, l as arrow keys
+set $up k
+set $down j
+set $left h
+set $right l
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# only initiate a tiling drag when the modifier is held:
+tiling_drag modifier
+
+# }}}
+
+# other options: {{{
+
+# font for window titles and bars:
+font pango:JetBrainsMono NF 12
+
+workspace_auto_back_and_forth yes
+
+# }}}
+
+# startup: {{{
+
+exec_always --no-startup-id hsetroot -cover "$(xdg-user-dir PICTURES)/wallpapers/wallhaven-pkp1vp.png"
+exec_always --no-startup-id pkill -SIGKILL -x polybar; polybar --log=warning >/dev/null
+exec_always --no-startup-id ~/.config/dunst/dunstify/updates_notif
+
+exec --no-startup-id picom
+exec --no-startup-id redshift -l "$(cat ~/.redshift-coord)"
+exec --no-startup-id xset s 600 600 dpms 0 0 660
+exec --no-startup-id xss-lock -- ~/.scripts/i3lock_run
+exec --no-startup-id ~/.config/dunstify/scripts/bat_notif_run
+
+exec --no-startup-id caffeine
+exec --no-startup-id udiskie --no-automount --no-notify --tray
+exec --no-startup-id nm-applet
+#exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+#exec --no-startup-id i3-sensible-terminal --title 'todo' -e ~/.scripts/todo 
+#exec --no-startup-id mpd
+
+# }}}
+
+# window rules: {{{
+
+set $fwin_widget floating enable sticky enable move position 69 ppt 55 ppt resize set 30 ppt 40 ppt
+set $twin_medium                               move position 30 ppt 20 ppt resize set 40 ppt 60 ppt
+set $fwin_medium floating enable               move position 30 ppt 20 ppt resize set 40 ppt 60 ppt
+set $fwin_big    floating enable               move position 10 ppt 10 ppt resize set 80 ppt 80 ppt
+
+# tip: use `xprop` to find the window attributes, and check https://i3wm.org/docs/userguide.html#for_window
+for_window [title="todo"] $fwin_widget
+for_window [class="alacritty"] $twin_medium
+for_window [class="alacritty-float"] $fwin_medium
+for_window [class="kitty"] $twin_medium
+for_window [class="kitty-float"] $fwin_medium
+for_window [class="Pavucontrol"] $fwin_medium
+for_window [class="Arandr"] $fwin_medium
+for_window [class="Nm-connection-editor"] $fwin_medium
+for_window [class="(?i)firefox" window_role="GtkFileChooserDialog"] $fwin_big
+
+# }}}
+
+# vim: ft=i3config fdm=marker

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+scrot \
+    -a $(slop -f '%x,%y,%w,%h') \
+    "$(xdg-user-dir PICTURES)/screenshots/"'%d-%m-%y_$wx$h.png' \
+    -e 'xclip -selection clipboard -t image/png -i $f'

@@ -12,7 +12,8 @@ echo "[status] running gnu stow..."
 
 HOME_DOTFILES=(
 	'xorg'
-	'xinit-bspwm'
+	# 'xinit-bspwm'
+	'xinit-i3wm'
 	'zsh'
 )
 
@@ -25,16 +26,18 @@ mkdir -p $HOME/.scripts
 stow --restow --target=$HOME/.scripts scripts
 
 CONFIG_DOTFILES=(
-	'bspwm'
-	'sxhkd'
+	'i3'
 
-	'polybar'
-	'picom'
+	# 'bspwm'
+	# 'sxhkd-bspwm'
 
-	# 'kitty'
-	'alacritty'
 	'rofi'
+	'picom'
 	'dunst'
+	'polybar'
+
+	'alacritty'
+	# 'kitty'
 	# 'nvim'
 
 	# 'qutebrowser'
@@ -43,7 +46,11 @@ CONFIG_DOTFILES=(
 )
 
 for dir in "${CONFIG_DOTFILES[@]}"; do
-	target="$HOME/.config/$dir"
+	# strip -i3wm|-bspwm endings
+	dir_new="${dir%-i3wm}"
+	dir_new="${dir_new%-bspwm}"
+
+	target="$HOME/.config/$dir_new"
 	if [ ! -d "$target" ]; then
 		echo "[mkdir] $target"
 		mkdir -p "$target"

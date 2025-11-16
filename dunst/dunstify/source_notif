@@ -8,6 +8,9 @@ icon_theme_path="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored
 tag="string:x-dunst-stack-tag:source"
 icon_path="$icon_theme_path/16x16/panel/"
 
+int32_max=2147483647
+id=$(($(cksum <<< $tag | awk '{print $1}') % int32_max)) # bugfix icon doesn't change if dunst notification isn't fully closed
+
 vol_max=153
 
 bar_color="#d4be98"
@@ -24,7 +27,7 @@ else
 fi
 
 dunstify \
-	-h $tag \
+	-r $id -h $tag \
 	-i "$icon" \
 	"Microphone" \
 	"$notif_desc"

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+while true; do
+    battery_status=$(< /sys/class/power_supply/BAT0/status)
+    battery_capacity=$(< /sys/class/power_supply/BAT0/capacity)
+
+    if [[ "$battery_status" != "Charging" && "$battery_capacity" -le 10 ]]; then
+        ~/.config/dunst/dunstify/bat_notif
+        sleep 30
+    fi
+done

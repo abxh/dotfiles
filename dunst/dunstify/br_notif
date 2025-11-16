@@ -11,10 +11,12 @@ bar_color="#d4be98"
 
 val=$(brightnessctl g)
 max=$(brightnessctl max)
+per=$(($val * 100 / $max))
 
-dunstify -h int:value:$(($val * 100 / $max)) \
-	-h string:hlcolor:$bar_color \
+dunstify \
 	-h $tag \
+	-h int:value:$per \
+	-h string:hlcolor:$bar_color \
 	-i "$icon" \
 	"Brightness:" \
-	"$val"
+	"$per"

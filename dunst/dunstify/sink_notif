@@ -16,6 +16,9 @@ icon_theme_path="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored
 tag="string:x-dunst-stack-tag:sink"
 icon_path="$icon_theme_path/16x16/panel/"
 
+int32_max=2147483647
+id=$(($(cksum <<< $tag | awk '{print $1}') % int32_max)) # bugfix icon doesn't change if dunst notification isn't fully closed
+
 if [[ "$muted" == "yes" ]]; then
 	icon=$icon_path'audio-volume-muted.svg'
 	bar_color=$muted_bar_color
@@ -29,9 +32,10 @@ else
 	fi
 fi
 
-dunstify -h int:value:$(($volume * 100 / $vol_max)) \
+dunstify \
+	-r $id -h $tag \
+	-h int:value:$(($volume * 100 / $vol_max)) \
 	-h string:hlcolor:$bar_color \
-	-h $tag \
 	-i "$icon" \
 	"Volume:" \
 	"$volume%"

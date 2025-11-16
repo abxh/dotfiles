@@ -17,10 +17,13 @@ fi
 
 case $res in
 "lock")
-    sleep 0.5; # wait for picom fade --- not sure how to do this via script
-    ~/.scripts/i3lock_launch;;
+    ~/.scripts/i3lock_run;;
 "exit")
-    xdotool search "" windowkill %@  --maxdepth; bspc quit;;
+    for window in $(xdotool search --onlyvisible --name ".*"); do
+      xdotool windowfocus $window
+      xdotool key --window $window alt+F4 # try gently closing
+    done
+    bspc quit || i3-msg exit;;
 "poweroff")
     $login_manager poweroff;;
 "reboot")
