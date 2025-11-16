@@ -22,6 +22,12 @@ bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
+# resize using keys
+bindsym $mod+Ctrl+$left resize shrink width 20px
+bindsym $mod+Ctrl+$down resize grow height 20px
+bindsym $mod+Ctrl+$up resize shrink height 20px
+bindsym $mod+Ctrl+$right resize grow width 20px
+
 # select parent
 bindsym $mod+a focus parent
 

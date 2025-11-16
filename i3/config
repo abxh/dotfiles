@@ -15,7 +15,7 @@ client.unfocused        $colorf   $colorf   #888888   #ffffffCC $colorf
 # borders and gaps: {{{
 
 default_border pixel 1
-#gaps left 7
+gaps inner 7
 
 smart_borders on
 smart_gaps on
