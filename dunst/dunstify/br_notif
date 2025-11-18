@@ -19,4 +19,4 @@ dunstify \
 	-h string:hlcolor:$bar_color \
 	-i "$icon" \
 	"Brightness:" \
-	"$per"
+	"$per%"
