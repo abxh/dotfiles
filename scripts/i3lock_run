@@ -87,6 +87,8 @@ one_word_args=(
 	"--modif-pos=$modif_pos"
 )
 
+sleep 0.2 # wait for picom fade
+
 i3lock ${one_word_args[@]} \
 	--time-font="$font" \
 	--date-font="$font" \
