@@ -60,7 +60,7 @@ exec --no-startup-id picom
 exec --no-startup-id redshift -l "$(cat ~/.redshift-coord)"
 exec --no-startup-id xset s 600 600 dpms 0 0 660
 exec --no-startup-id xss-lock -- ~/.scripts/i3lock_run
-exec --no-startup-id ~/.config/dunstify/scripts/bat_notif_run
+exec --no-startup-id exec ~/.config/dunstify/scripts/bat_notif_run
 
 exec --no-startup-id caffeine
 exec --no-startup-id udiskie --no-automount --no-notify --tray
