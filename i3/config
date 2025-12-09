@@ -60,7 +60,7 @@ exec --no-startup-id picom
 exec --no-startup-id redshift -l "$(cat ~/.redshift-coord)"
 exec --no-startup-id xset s 600 600 dpms 0 0 660
 exec --no-startup-id xss-lock -- ~/.scripts/i3lock_run
-exec --no-startup-id exec ~/.config/dunstify/scripts/bat_notif_run
+exec --no-startup-id exec ~/.config/dunst/dunstify/bat_notif_run
 
 exec --no-startup-id caffeine
 exec --no-startup-id udiskie --no-automount --no-notify --tray
@@ -68,7 +68,7 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-#exec --no-startup-id i3-sensible-terminal --title 'todo' -e ~/.scripts/todo 
+exec --no-startup-id i3-sensible-terminal --title 'todo' -e ~/.scripts/todo 
 #exec --no-startup-id mpd
 
 # }}}
