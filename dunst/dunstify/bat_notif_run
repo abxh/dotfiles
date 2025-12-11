@@ -6,6 +6,6 @@ while true; do
 
     if [[ "$battery_status" != "Charging" && "$battery_capacity" -le 10 ]]; then
         ~/.config/dunst/dunstify/bat_notif
-        sleep 30
     fi
+    sleep 30
 done
