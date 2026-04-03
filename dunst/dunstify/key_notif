@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+icon_theme_path="/home/$USER/.local/share/icons/Gruvbox-Material-Dark-OneColored"
+
+tag="string:x-dunst-stack-tag:key"
+icon="$icon_theme_path/16x16/devices/input-keyboard.svg" # can be replaced with icon name
+
+dunstify \
+	-h $tag \
+	-i "$icon" \
+    "Keyboard Layout:" \
+    "$(xkb-switch)"
