@@ -81,6 +81,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86Display exec --no-startup-id xdotool search --class arandr windowclose || arandr
 bindsym XF86Tools exec --no-startup-id xdotool search --class nm-connection-editor windowkill || nm-connection-editor
 # bindsym XF86Tools exec --no-startup-id xdotool search --name iwctl windowclose || $terminal --title 'iwctl' -e iwctl
-bindsym XF86Favorites exec --no-startup-id xdotool search --name todo windowclose || $terminal --title 'todo' -e ~/.scripts/todo
+# bindsym XF86Favorites exec --no-startup-id xdotool search --name todo windowclose || $terminal --title 'todo' -e ~/.scripts/todo
 
 # vim: ft=i3config
