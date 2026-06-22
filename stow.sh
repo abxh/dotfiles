@@ -4,11 +4,14 @@ if [ "$1" = "-c" ]; then
 	echo "[status] fixing broken symlinks..."
 	find ~ -xtype l -print -delete | sed -e 's/^/[fixing] /;'
 
-	echo "[status] removing empty directories in ~/.config"
-	find ~/.config -empty -type d -print -delete | sed -e 's/^/[rmdir] /;'
+	# echo "[status] removing empty directories in ~/.config"
+	# find ~/.config -empty -type d -print -delete | sed -e 's/^/[rmdir] /;'
 fi
 
 echo "[status] running gnu stow..."
+
+mkdir -p $HOME/.scripts
+stow --restow --target=$HOME/.scripts scripts
 
 HOME_DOTFILES=(
 	'xorg'
@@ -18,12 +21,8 @@ HOME_DOTFILES=(
 )
 
 for dir in "${HOME_DOTFILES[@]}"; do
-	stow --restow --target=$HOME $dir \
-		2> >(grep -v 'BUG in find_stowed_path? Absolute/relative mismatch' 1>&2) # bugfix
+	stow --restow --target=$HOME $dir
 done
-
-mkdir -p $HOME/.scripts
-stow --restow --target=$HOME/.scripts scripts
 
 CONFIG_DOTFILES=(
 	'i3'
@@ -42,7 +41,6 @@ CONFIG_DOTFILES=(
 
 	# 'qutebrowser'
 	# 'zathura'
-	# 'mpv'
 )
 
 for dir in "${CONFIG_DOTFILES[@]}"; do
