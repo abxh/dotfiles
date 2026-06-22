@@ -1,5 +1,9 @@
 
+[window]
+padding = { x = 5, y = 5 }  # Default: x = 0, y = 0
+
 [font]
+size = 9 # Default: 11.25
 normal = { family = "JetBrainsMono NF", style = "Regular" }  # Default for Linux/BSD: "monospace", Regular
 
 [general]
