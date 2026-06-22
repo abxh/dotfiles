@@ -19,9 +19,21 @@ bspc rule -a Thunar $rule_medium_wo_float
 # }}}
 
 # startup: {{{
+
+# every restart:
+(hsetroot -cover ~/Pictures/wallpapers/wallhaven-pkp1vp.png >/dev/null;
+ pkill -SIGKILL -x polybar; polybar --log=warning >/dev/null &)
+~/.config/dunst/dunstify/updates_notif &
+( pkill -SIGKILL -x sxhkd; sxhkd >/dev/null &)
+
+# each successive restart:
+[ "$1" -gt 0 ] && ~/.config/dunst/dunstify/restarted_notif bspwm &
+
 # at start:
-[ "$1" -eq 0 ] && xsetroot -cursor_name left_ptr &
 [ "$1" -eq 0 ] && redshift -l "$(cat ~/.redshift-coord)" >/dev/null &
+# [ "$1" -eq 0 ] && kitty --title 'todo' -e ~/.scripts/todo &
+# [ "$1" -eq 0 ] && alacritty --title 'todo' -e ~/.scripts/todo &
+[ "$1" -eq 0 ] && xsetroot -cursor_name left_ptr &
 [ "$1" -eq 0 ] && xset s 600 600 dpms 0 0 660 &
 [ "$1" -eq 0 ] && xss-lock -- ~/.scripts/i3lock_launch &
 [ "$1" -eq 0 ] && caffeine &
@@ -32,17 +44,6 @@ bspc rule -a Thunar $rule_medium_wo_float
 [ "$1" -eq 0 ] && /usr/libexec/polkit-gnome-authentication-agent-1 &
 # [ "$1" -eq 0 ] && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 [ "$1" -eq 0 ] && ~/.config/dunst/dunstify/bat_notif_run &
-# [ "$1" -eq 0 ] && kitty --title 'todo' -e ~/.scripts/todo &
-[ "$1" -eq 0 ] && alacritty --title 'todo' -e ~/.scripts/todo &
-
-# each successive restart:
-[ "$1" -gt 0 ] && ~/.config/dunst/dunstify/restarted_notif bspwm &
-
-# every restart:
-( pkill -SIGKILL -x sxhkd; sxhkd >/dev/null &)
-(hsetroot -cover ~/Pictures/wallpapers/wallhaven-pkp1vp.png >/dev/null;
- pkill -SIGKILL -x polybar; polybar --log=warning >/dev/null &)
-~/.config/dunst/dunstify/updates_notif &
 
 # setup monitors
 for monitor in $(bspc query -M); do
