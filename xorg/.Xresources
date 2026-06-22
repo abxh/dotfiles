@@ -9,3 +9,8 @@ Xft.antialias: 1
 Xft.hintstyle:  hintslight
 Xft.rgba: rgb
 Xft.lcdfilter:  lcddefault
+
+! mouse icon option (set a default)
+! https://wiki.archlinux.org/title/Cursor_themes#X_resources
+Xcursor.theme: Adwaita
+Xcursor.size: 32
