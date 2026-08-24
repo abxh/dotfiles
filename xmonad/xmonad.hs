@@ -91,7 +91,8 @@ myKeys =
        , ("M-S-q", kill)
        ]
     ++
-      [ ("<XF86MonBrightnessUp>",   spawn "brightnessctl set +10%; ~/.config/dunst/dunstify/br_notif")
+      [ ("<Print>",                 unGrab *> spawn "~/.scripts/print_screen")
+      , ("<XF86MonBrightnessUp>",   spawn "brightnessctl set +10%; ~/.config/dunst/dunstify/br_notif")
       , ("<XF86MonBrightnessDown>", spawn ("test $((100 * $(brightnessctl get) / $(brightnessctl max))) -gt 0 && brightnessctl set 10%-;"
                                            ++ "~/.config/dunst/dunstify/br_notif"))
       , ("<XF86AudioRaiseVolume>",  spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%; ~/.config/dunst/dunstify/sink_notif @DEFAULT_SINK@")
