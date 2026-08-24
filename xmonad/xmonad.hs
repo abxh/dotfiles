@@ -122,11 +122,12 @@ myKeys =
 myStartupHook :: X ()
 myStartupHook = do
     spawn "hsetroot -cover \"$(xdg-user-dir PICTURES)/Wallpapers/wallhaven-pkp1vp.png\""
-    spawn "pkill -SIGKILL -x polybar; polybar --log=warning >/dev/null"
     spawn "~/.config/dunst/dunstify/updates_notif"
 
     spawnOnRestart "~/.config/dunst/dunstify/restarted_notif xmonad"
+    spawnOnRestart "polybar-msg cmd restart"
 
+    spawnOnce "polybar"
     spawnOnce "redshift -l \"$(cat ~/.redshift-coord)\" >/dev/null"
     spawnOnce "xsetroot -cursor_name left_ptr"
     spawnOnce "xset s 600 600 dpms 0 0 660"
