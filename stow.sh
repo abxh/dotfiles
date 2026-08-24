@@ -27,7 +27,7 @@ CONFIG_DOTFILES=(
 	# 'i3'
 
 	# 'bspwm'
-	# 'sxhkd-bspwm'
+	# 'sxhkd'
 	
 	'xmonad'
 
@@ -45,11 +45,7 @@ CONFIG_DOTFILES=(
 )
 
 for dir in "${CONFIG_DOTFILES[@]}"; do
-	# strip -i3wm|-bspwm endings
-	dir_new="${dir%-i3wm}"
-	dir_new="${dir_new%-bspwm}"
-
-	target="$HOME/.config/$dir_new"
+	target="$HOME/.config/$dir"
 	if [ ! -d "$target" ]; then
 		echo "[mkdir] $target"
 		mkdir -p "$target"
