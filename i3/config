@@ -56,7 +56,6 @@ exec_always --no-startup-id hsetroot -cover "$(xdg-user-dir PICTURES)/Wallpapers
 exec_always --no-startup-id pkill -SIGKILL -x polybar; polybar --log=warning >/dev/null
 exec_always --no-startup-id ~/.config/dunst/dunstify/updates_notif
 
-exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080
 exec --no-startup-id redshift -l "$(cat ~/.redshift-coord)"
 # exec --no-startup-id i3-sensible-terminal --title 'todo' -e ~/.scripts/todo 
 
