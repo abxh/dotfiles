@@ -1,0 +1,17 @@
+name: my-xmonad
+version: 0.1.0.0
+
+dependencies:
+  - base
+  - containers
+  - xmonad
+  - xmonad-contrib
+
+executables:
+  xmonad-x86_64-linux:
+    main: xmonad.hs
+  xmonadctl:
+    main: scripts/xmonadctl.hs
+    dependencies:
+      - base
+      - X11

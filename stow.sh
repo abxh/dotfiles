@@ -15,8 +15,7 @@ stow --restow --target=$HOME/.scripts scripts
 
 HOME_DOTFILES=(
 	'xorg'
-	# 'xinit-bspwm'
-	'xinit-i3wm'
+	'xinit'
 	'zsh'
 )
 
@@ -25,10 +24,12 @@ for dir in "${HOME_DOTFILES[@]}"; do
 done
 
 CONFIG_DOTFILES=(
-	'i3'
+	# 'i3'
 
 	# 'bspwm'
 	# 'sxhkd-bspwm'
+	
+	'xmonad'
 
 	'rofi'
 	'picom'

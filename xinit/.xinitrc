@@ -33,10 +33,13 @@ fi
 # }}}
 
 if which systemctl >/dev/null 2>&1; then
-  exec i3
+#   exec i3
+#   exec bspwm
+  exec xmonad
 else
-  exec dbus-run-session i3
+#   exec dbus-run-session i3
+#   exec dbus-run-session bspwm
+  exec dbus-run-session xmonad
 fi
-
 
 # vim: fdm=marker

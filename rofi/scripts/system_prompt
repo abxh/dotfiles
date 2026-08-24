@@ -23,7 +23,7 @@ case $res in
       xdotool windowfocus $window
       xdotool key --window $window alt+F4 # try gently closing
     done
-    bspc quit || i3-msg exit;;
+    i3-msg exit || bspc quit || ~/.config/xmonad/xmonadctl.sh exit;;
 "poweroff")
     $login_manager poweroff;;
 "reboot")
