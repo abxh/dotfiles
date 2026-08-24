@@ -14,6 +14,8 @@ export LS_COLORS
 typeset -U path PATH
 path=(
   ~/.local/bin
+  ~/.cabal/bin
+  ~/.ghcup/bin
   $path
 )
 export PATH
