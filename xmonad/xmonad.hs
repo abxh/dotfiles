@@ -51,7 +51,7 @@ myConfig = def
           myBorderWidth = 2
           myNormalColor = "#282828"
           myFocusColor  = "#d4be98"
-          myWorkspaces  = map show [1 .. 9 :: Int]
+          myWorkspaces  = map show [1 .. 10 :: Int]
 
 
 myLayout = avoidStruts $ smartBorders $ mySmartSpacing 7 $ (reflectVert . reflectHoriz) $ fullscreenFull $ emptyBSP
@@ -77,7 +77,7 @@ myKeys =
        ]
     ++ [ (modKey ++ key, windows $ f ws)
        | (modKey, f) <- [("M-", W.greedyView), ("M-S-", W.shift)]
-       , (key, ws) <- zip (map show [1 .. 9 :: Int]) (XMonad.workspaces myConfig)
+       , (key, ws) <- zip (map show ([1 .. 9 :: Int] ++ [0])) (XMonad.workspaces myConfig)
        ]
     ++ [ (modKey ++ key, f dir True)
        | (modKey, f) <- [("M-", windowGo), ("M-S-", windowSwap)]
