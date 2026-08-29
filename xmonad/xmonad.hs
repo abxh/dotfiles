@@ -20,6 +20,7 @@ import System.Exit (exitSuccess)
 import XMonad.Actions.ToggleFullFloat (toggleFullFloat, toggleFullFloatEwmhFullscreen)
 import XMonad.Layout.Fullscreen (fullscreenFull)
 import Control.Monad (when)
+import XMonad.Hooks.Place (placeHook, simpleSmart)
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -44,8 +45,8 @@ myConfig = def
       normalBorderColor  = myNormalColor,
       focusedBorderColor = myFocusColor,
       startupHook        = myStartupHook,
-      manageHook         = myManageHook,
-      handleEventHook    = serverModeEventHookCmd' myServerCommands
+      manageHook         = myManageHook <> placeHook simpleSmart <> manageHook def,
+      handleEventHook    = serverModeEventHookCmd' myServerCommands <> handleEventHook def
     }
     where myModMask     = mod4Mask
           myBorderWidth = 2
@@ -154,7 +155,7 @@ myManageHook = composeAll
   , className =? "firefox" <&&> stringProperty "WM_WINDOW_ROLE"
               =? "GtkFileChooserDialog" --> bigFloat
   , isDialog                            --> doFloat
-  , isFullscreen                        --> doFullFloat
+  , isFullscreen                        --> (doF W.focusDown <+> doFullFloat)
   ]
   where
     medium      = doRectFloat (W.RationalRect 0.30 0.20 0.40 0.60)
