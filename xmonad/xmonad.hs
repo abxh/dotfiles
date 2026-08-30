@@ -45,8 +45,8 @@ myConfig = def
       normalBorderColor  = myNormalColor,
       focusedBorderColor = myFocusColor,
       startupHook        = myStartupHook,
-      manageHook         = myManageHook <> placeHook simpleSmart <> manageHook def,
-      handleEventHook    = serverModeEventHookCmd' myServerCommands <> handleEventHook def
+      manageHook         = myManageHook <> placeHook simpleSmart,
+      handleEventHook    = serverModeEventHookCmd' myServerCommands
     }
     where myModMask     = mod4Mask
           myBorderWidth = 2
