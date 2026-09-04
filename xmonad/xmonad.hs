@@ -20,7 +20,6 @@ import System.Exit (exitSuccess)
 import XMonad.Actions.ToggleFullFloat (toggleFullFloat, toggleFullFloatEwmhFullscreen)
 import XMonad.Layout.Fullscreen (fullscreenFull)
 import Control.Monad (when)
-import XMonad.Hooks.Place (placeHook, simpleSmart)
 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -45,7 +44,7 @@ myConfig = def
       normalBorderColor  = myNormalColor,
       focusedBorderColor = myFocusColor,
       startupHook        = myStartupHook,
-      manageHook         = myManageHook <> placeHook simpleSmart,
+      manageHook         = myManageHook,
       handleEventHook    = serverModeEventHookCmd' myServerCommands
     }
     where myModMask     = mod4Mask
@@ -154,7 +153,7 @@ myManageHook = composeAll
   , className =? "Nm-connection-editor" --> mediumFloat
   , className =? "firefox" <&&> stringProperty "WM_WINDOW_ROLE"
               =? "GtkFileChooserDialog" --> bigFloat
-  , isDialog                            --> doFloat
+  , isDialog                            --> doCenterFloat
   , isFullscreen                        --> (doF W.focusDown <+> doFullFloat)
   ]
   where
