@@ -7,15 +7,5 @@ while true; do
     if [[ "$battery_status" != "Charging" && "$battery_capacity" -le 15 ]]; then
         ~/.config/dunst/dunstify/bat_notif
     fi
-    if [[ "$battery_status" != "Charging" && "$battery_capacity" -le 5 ]]; then
-        which systemctl >/dev/null 2>&1
-        if [ "$?" -eq 0 ]; then
-            login_manager="systemctl"
-        else
-            login_manager="loginctl"
-        fi
-        $login_manager suspend;;
-    fi
-
     sleep 30
 done
