@@ -54,7 +54,7 @@ myConfig = def
           myWorkspaces  = map show [1 .. 10 :: Int]
 
 
-myLayout = avoidStruts $ smartBorders $ mySmartSpacing 7 $ (reflectVert . reflectHoriz) $ fullscreenFull $ emptyBSP
+myLayout = avoidStruts $ smartBorders $ mySmartSpacing 7 $ (reflectVert . reflectHoriz) $ emptyBSP
     where
         mySmartSpacing n l =
             ifMax 1 (spacingRaw True (Border 0 0 0 0) True (Border 0 0 0 0) True l)
